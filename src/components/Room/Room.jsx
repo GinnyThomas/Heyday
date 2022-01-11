@@ -1,8 +1,10 @@
 import "./room.scss";
+import { useParams, useNavigate } from "react-router-dom";
 
 const Room = () => {
   const users = 4;
-
+  let navigate = useNavigate();
+  
   return (
     <div className="room">
       <h1>Welcome to your Room!</h1>
@@ -14,7 +16,7 @@ const Room = () => {
         <h3>Choose a response to fill out:</h3>
         <div className="container">
           {Array.from(Array(users).keys()).map((user) => (
-            <button type="button" id={user + 1}>
+            <button type="button" id={user + 1} onClick={() => { navigate("../room-form");}}>
               Response {user + 1}
             </button>
           ))}

@@ -1,8 +1,11 @@
 import React from "react";
 import "./roomForm.scss";
 import DateBox from "./DateBox";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default class RoomForm extends React.Component {
+  navigate = () => useNavigate();
+
   render() {
     console.log("RoomForm loaded");
     return (
@@ -16,7 +19,7 @@ export default class RoomForm extends React.Component {
           <DateBox boxID={4} />
         </div>
         <button>Submit</button>
-        <button>Cancel</button>
+        <button onClick={() => { this.navigate("../room");}}>Cancel</button>
       </div>
     );
   }
