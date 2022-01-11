@@ -1,7 +1,7 @@
 import "./room.scss";
 
 const Room = () => {
-  const users = 5;
+  const users = 4;
 
   return (
     <div className="room">
@@ -13,8 +13,10 @@ const Room = () => {
       <div className="responseFormContainer">
         <h3>Choose a response to fill out:</h3>
         <div className="container">
-          {[...Array(users)].map((x, i) => (
-            <button type="button"> Response</button>
+          {Array.from(Array(users).keys()).map((user) => (
+            <button type="button" id={user + 1}>
+              Response {user + 1}
+            </button>
           ))}
         </div>
       </div>

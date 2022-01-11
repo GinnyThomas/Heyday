@@ -22,15 +22,32 @@
     align-items: center;
 
     .container {
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto;
+      gap: 32px;
+      padding: 16px;
+      overflow: hidden;
 
       button {
-        margin: 0 15px;
+        padding: 30px 30px;
+        background-color: white;
+        border-radius: 15px;
+        transition: 0.25s;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        color: black;
+        cursor: pointer;
+        &:hover {
+          transform: translateY(-5px);
+          background-color: lightblue;
+        }
       }
     }
   }
 
   .resultContainer {
+    margin-top: 40px;
   }
 }
