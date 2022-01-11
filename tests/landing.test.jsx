@@ -8,4 +8,4 @@ it("renders welcome text", () => {
   // expect(contains(header)).toEqual(true);
 });
 
-<Landing/>
+{/* <Landing/> */}
