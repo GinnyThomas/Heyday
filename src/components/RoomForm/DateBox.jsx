@@ -6,7 +6,11 @@ export default class DateBox extends React.Component {
     console.log("DateBox loaded");
     return (
       <div className="DateBox">
-        <h1>Hello World</h1>
+        <h4>Date</h4>
+        <p><input type="radio" id="gold" name={`pref${this.props.boxID}`} value="no"></input></p>
+        <p><input type="radio" id="silver" name={`pref${this.props.boxID}`} value="no"></input></p>
+        <p><input type="radio" id="bronze" name={`pref${this.props.boxID}`} value="no"></input></p>
+        <p><input type="radio" id="no" name={`pref${this.props.boxID}`} value="no"></input></p>
       </div>
     );
   }

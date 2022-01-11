@@ -10,10 +10,10 @@ export default class RoomForm extends React.Component {
         <h1>Calendar 1</h1>
         <h3>What days work for you?</h3>
         <div className="DateButtons">
-          <DateBox />
-          <DateBox />
-          <DateBox />
-          <DateBox />
+          <DateBox boxID={1} />
+          <DateBox boxID={2} />
+          <DateBox boxID={3} />
+          <DateBox boxID={4} />
         </div>
         <button>Submit</button>
         <button>Cancel</button>
