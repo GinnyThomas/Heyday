@@ -1,0 +1,36 @@
+.room {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #d9d2e9ff;
+
+  h1 {
+    font-size: 50px;
+  }
+
+  .dataContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .responseFormContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        margin: 0 15px;
+      }
+    }
+  }
+
+  .resultContainer {
+  }
+}
