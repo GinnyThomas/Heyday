@@ -3,6 +3,7 @@ import './landing.scss'
 import { useParams, useNavigate } from "react-router-dom";
 
 const Landing = () => {
+  
   let navigate = useNavigate();
 
   return (
