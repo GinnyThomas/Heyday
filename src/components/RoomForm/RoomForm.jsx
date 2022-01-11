@@ -4,7 +4,7 @@ import DateBox from "./DateBox";
 import { useParams, useNavigate } from "react-router-dom";
 
 export default class RoomForm extends React.Component {
-  navigate = useNavigate();
+  navigate = () => useNavigate();
 
   render() {
     console.log("RoomForm loaded");
