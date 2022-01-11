@@ -1,0 +1,39 @@
+.DateBox {
+  margin: 10px;
+  width: 80px;
+  background-color: rgba(177, 176, 176, 0.733);
+  border-radius: 10px;
+  padding: 2px 0;
+  text-align: center;
+  display: inline-block;
+}
+
+#gold {
+  background-color: goldenrod;
+}
+
+#silver {
+  background-color: rgb(139, 180, 199);
+}
+
+#bronze {
+  background-color: rgb(136, 83, 40);
+}
+
+#no {
+  background-color: black;
+}
+
+input[type="radio"] {
+  appearance: none;
+  margin: 0;
+  font-size: 18px;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 50%;
+}
+
+input[type="radio"]:checked {
+  border: 0.3em solid blue;
+}
