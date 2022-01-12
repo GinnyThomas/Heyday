@@ -5,28 +5,34 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 
 const RoomForm = () => {
-  // const { state } = useLocation();
-  const today = Date.now()
-  const day = (1000 * 60 * 60 * 24)
-  const duration = 8
+  const { state } = useLocation();
+  // const today = Date.now()
+  // const day = (1000 * 60 * 60 * 24)
+  // const duration = 8
 
-  const myStartDate = new Date(today)
-  const myEndDate = new Date(today + (day * duration))
+  // const myStartDate = new Date(today)
+  // const myEndDate = new Date(today + (day * duration))
 
-  const state = {
-    roomID: 1, 
-    startDate: myStartDate, 
-    endDate: myEndDate, 
-    friendCount: 5, 
-    friendCurrent: 1, 
-    roomFormsRatings: []
-  }
+  // const state = {
+  //   roomID: 1, 
+  //   startDate: myStartDate, 
+  //   endDate: myEndDate, 
+  //   friendCount: 5, 
+  //   friendCurrent: 1, 
+  //   roomFormsRatings: []
+  // }
 
   // ---------------
   // VALUES MANAGER
   // ---------------
 
-  const [datesArr, setDatesArr] = useState(Array.from(Array(duration + 1).fill(0)));
+  const getDuration = (start = state.startDate, end = state.endDate) => {
+    const startDigits = start.slice(-2)
+    const endDigits = end.slice(-2)
+    return Number(endDigits) - Number(startDigits)
+  }
+
+  const [datesArr, setDatesArr] = useState(Array.from(Array(getDuration() + 1).fill(0)));
 
   const updateBoxVals = (i, val) => {
     const newArr = datesArr
@@ -42,7 +48,7 @@ const RoomForm = () => {
   const navigate = useNavigate();
 
   const returnToRoom = (stateParams) => {
-    navigate("../room", stateParams);
+    navigate("../room", { state: stateParams });
   }
 
   const clickCancel = () => {
@@ -57,11 +63,11 @@ const RoomForm = () => {
     })
   }
 
-  const clickSubmit = () => {
+  const clickSubmit = (ind = state.friendCurrent) => {
     const newArr = datesArr
     console.log("Return to room, update the roomFormsRatings object to: " + newArr)
-    const newRoomFormsRatings = state.roomFormsRatings.splice()
-    newRoomFormsRatings.push(newArr)
+    const newRoomFormsRatings = state.roomFormsRatings
+    newRoomFormsRatings[ind] = newArr
     returnToRoom({
       roomID: state.roomID, 
       startDate: state.startDate, 
@@ -79,7 +85,7 @@ const RoomForm = () => {
   const renderDateBox = (val, i) => {
     // console.log("loading date box: "+i)
     return (
-      <DateBox key={`dateBox${i}`} index={i} date={new Date(today + (day * i))} onClick={(i, val) => updateBoxVals(i, val)}/>
+      <DateBox key={`dateBox${i}`} index={i} onClick={(i, val) => updateBoxVals(i, val)}/>
     )
   }
 
@@ -94,12 +100,14 @@ const RoomForm = () => {
 
   const formatDate = (date) => date < 10 ? `0${date}` : `${date}`
 
+  console.log("Opening RoomForm with friend: "+state.friendCurrent)
+
   return (
     <div className="RoomForm">
       <h1>Calendar 1</h1>
       <h3>What days work for you?</h3>
-      <p>First date: {formatDate(state.startDate.getDate())}/{formatDate(state.startDate.getMonth() + 1)}
-        , last date: {formatDate(state.endDate.getDate())}/{formatDate(state.startDate.getMonth() + 1)}</p>
+      <p>First date: {state.startDate}
+        , last date: {state.endDate}</p>
       <div className="DateButtons">
         {renderDateBoxes()}
       </div>

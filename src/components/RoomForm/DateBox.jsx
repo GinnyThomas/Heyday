@@ -21,7 +21,7 @@ const DateBox = (props) => {
 
   return (
     <div className="DateBox">
-      <h4>{formatDate(props.date.getDate())}/{formatDate(props.date.getMonth() + 1)}</h4>
+      <h4>{props.index}</h4>
       <input type="radio" id="gold" name={`pref${props.index}`} className={goldStatus}
         onClick={() => handleSelect(3)}></input>
       <input type="radio" id="silver" name={`pref${props.index}`} className={silverStatus}
