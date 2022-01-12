@@ -2,8 +2,12 @@ import "./room.scss";
 import { useParams, useNavigate } from "react-router-dom";
 
 const Room = () => {
-  const users = 4;
+  const users = 7;
   let navigate = useNavigate();
+
+  const handleSelect = () => {
+    navigate("../room-form", { state: {startDate: users, endDate: users+4} });
+  }
   
   return (
     <div className="room">
@@ -16,7 +20,7 @@ const Room = () => {
         <h3>Choose a response to fill out:</h3>
         <div className="container">
           {Array.from(Array(users).keys()).map((user) => (
-            <button type="button" id={user + 1} onClick={() => { navigate("../room-form");}}>
+            <button type="button" id={user + 1} onClick={() => handleSelect()}>
               Response {user + 1}
             </button>
           ))}
