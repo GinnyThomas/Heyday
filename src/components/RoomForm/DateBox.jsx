@@ -8,14 +8,12 @@ const DateBox = (props) => {
   const [silverStatus, setSilverStatus] = useState("unchecked");
   const [bronzeStatus, setBronzeStatus] = useState("unchecked");
   const [ironStatus, setIronStatus] = useState("checked");
+  const setFunctions = [{call: setIronStatus, val: 0}, {call: setBronzeStatus, val: 1}, {call: setSilverStatus, val: 2}, {call: setGoldStatus, val: 3}]
 
   const checkedClass = (id, myVal) =>  id === myVal ? "checked" : "unchecked"
 
   const handleSelect = (mVal) => {
-    setGoldStatus(checkedClass(3, mVal))
-    setSilverStatus(checkedClass(2, mVal))
-    setBronzeStatus(checkedClass(1, mVal))
-    setIronStatus(checkedClass(0, mVal))
+    setFunctions.forEach((func) => func.call(checkedClass(func.val, mVal)))
     props.onClick(props.index, mVal)
   }
 
@@ -33,4 +31,5 @@ const DateBox = (props) => {
     </div>
   );
 }
+
 export default DateBox;
