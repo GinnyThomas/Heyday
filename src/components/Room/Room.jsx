@@ -6,6 +6,7 @@ import { useState } from "react";
 const Room = () => {
   let navigate = useNavigate();
   const { state } = useLocation();
+
   const [buttonStatus, setButtonStatus] = useState(true);
   const [buttonClass, setButtonClass] = useState("");
 

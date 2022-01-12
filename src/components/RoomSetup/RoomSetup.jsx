@@ -5,29 +5,9 @@ import { useState } from 'react'
 
 const RoomSetup = () => {
 
-  // const today = Date.now()
-  // const day = (1000 * 60 * 60 * 24)
-
-  // const myStartDate = new Date(today)
-  // const myEndDate = new Date(today + (day * 7))
-
-  // let state = {
-  //   roomID: 1,
-  //   startDate: null,
-  //   endDate: null,
-  //   friendCount: 0,
-  //   friendCurrent: -1,
-  //   roomFormsRatings: [],
-  //   };
-
-  // let [state, setState] = useState({
-  //   roomID: 1,
-  //   startDate: myStartDate,
-  //   endDate: myEndDate,
-  //   friendCount: 0,
-  //   friendCurrent: -1,
-  //   roomFormsRatings: []
-  // });
+  // ---------------
+  // STATE HANDLING
+  // ---------------
 
   const [startDate, setStartDate] = useState("2022-01-12");
   const [endDate, setEndDate] = useState("2022-01-19");
@@ -42,21 +22,6 @@ const RoomSetup = () => {
   const handleFriendCount = (event) => {
     setFriendCount(event.target.value)
   }
-    
-  // const handleChange = (event) => {
-  //   const target = event.target;
-  //   const value = target.value;
-  //   const name = target.name;
-
-    // setState({
-    //   roomID: 1,
-    //   startDate: "2000-01-12",
-    //   endDate: "2000-01-19",
-    //   friendCount: value,
-    //   friendCurrent: -1,
-    //   roomFormsRatings: []
-    // });
-  // }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -68,12 +33,21 @@ const RoomSetup = () => {
       friendCount: friendCount,
       friendCurrent: -1,
       roomFormsRatings: [],
-      };
+      }
 
     console.log(state);
+    proceedToRoom(state)
   }
+
+  // ---------------
+  // NAV HANDLING
+  // ---------------
   
   let navigate = useNavigate();
+
+  const proceedToRoom = (stateParams) => {
+    navigate("../room", { state: stateParams });
+  }
 
   return (
     <div className="roomsetup">
@@ -106,7 +80,7 @@ const RoomSetup = () => {
             </input>
           </label>
           <button type='submit' 
-          onClick={() => { navigate("../room");}}
+          // onClick={() => { navigate("../room");}}
           >
             Submit Preferences
           </button>
