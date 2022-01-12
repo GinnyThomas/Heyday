@@ -106,7 +106,7 @@ const RoomSetup = () => {
             </input>
           </label>
           <button type='submit' 
-          // onClick={() => { navigate("../room");}}
+          onClick={() => { navigate("../room");}}
           >
             Submit Preferences
           </button>
