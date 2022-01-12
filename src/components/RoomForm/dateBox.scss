@@ -30,10 +30,18 @@ input[type="radio"] {
   font-size: 18px;
   width: 1.15em;
   height: 1.15em;
-  border: 0.15em solid currentColor;
+  // border: 0.15em solid currentColor;
   border-radius: 50%;
 }
 
-input[type="radio"]:checked {
-  border: 0.3em solid blue;
+// input[type="radio"]:checked {
+//   border: 0.3em solid blue;
+// }
+
+.checked {
+  border: 0.2em solid rgb(47, 0, 255);
+}
+
+.unchecked {
+  border: 0.15em solid currentColor;
 }

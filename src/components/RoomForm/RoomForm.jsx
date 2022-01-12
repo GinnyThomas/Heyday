@@ -71,7 +71,7 @@ const RoomForm = () => {
   const renderDateBox = (val, i) => {
     // console.log("loading date box: "+i)
     return (
-      <DateBox key={`dateBox${i}`} index={i} value={val} onClick={(i, val) => updateBoxVals(i, val)}/>
+      <DateBox key={`dateBox${i}`} index={i} onClick={(i, val) => updateBoxVals(i, val)}/>
     )
   }
 
