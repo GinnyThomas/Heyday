@@ -1,7 +1,8 @@
 import React from "react";
 import "./roomForm.scss";
 import DateBox from "./DateBox";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useState } from "react";
 
 const RoomForm = () => {
   // const { state } = useLocation();
@@ -18,18 +19,13 @@ const RoomForm = () => {
   // VALUES MANAGER
   // ---------------
 
-  const setupBoxVals = () => {
-    const dateCount = state.endDate - state.startDate
-    return Array.from(Array(dateCount).fill(0))
-  }
-
-  let dateBoxVals = setupBoxVals()
+  const [datesArr, setDatesArr] = useState(Array.from(Array(state.endDate - state.startDate).fill(0)));
 
   const updateBoxVals = (i, val) => {
-    const newArr = dateBoxVals
+    const newArr = datesArr
     newArr[i] = val
-    dateBoxVals = newArr
-    console.log("Func called "+dateBoxVals)
+    setDatesArr(newArr)
+    console.log("Updated datesArr to "+newArr)
   }
 
   // ---------------
@@ -39,7 +35,7 @@ const RoomForm = () => {
   const navigate = useNavigate();
 
   const returnToRoom = (stateParams) => {
-    navigate("../room-form", stateParams);
+    navigate("../room", stateParams);
   }
 
   const clickCancel = () => {
@@ -54,8 +50,9 @@ const RoomForm = () => {
     })
   }
 
-  const clickSubmit = (newArr) => {
-    console.log("Return to room, update the roomFormsRatings object")
+  const clickSubmit = () => {
+    const newArr = datesArr
+    console.log("Return to room, update the roomFormsRatings object to: " + newArr)
     const newRoomFormsRatings = state.roomFormsRatings.splice()
     newRoomFormsRatings.push(newArr)
     returnToRoom({
@@ -76,7 +73,7 @@ const RoomForm = () => {
   }
 
   const renderDateBoxes = () => {
-    const mappedArr = dateBoxVals.map((val, i) => renderDateBox(val, i))
+    const mappedArr = datesArr.map((val, i) => renderDateBox(val, i))
     return (
       <div>
         {mappedArr}
@@ -93,8 +90,8 @@ const RoomForm = () => {
       <div className="DateButtons">
         {renderDateBoxes()}
       </div>
-      <button>Submit</button>
-      <button onClick={() => { navigate("../room");}}>Cancel</button>
+      <button onClick={() => clickSubmit()}>Submit</button>
+      <button onClick={() => clickCancel()}>Cancel</button>
     </div>
   );
 };
