@@ -18,9 +18,11 @@ const DateBox = (props) => {
     props.onClick(props.index, mVal)
   }
 
+  const boxDate = day.toDisplay(props.date, props.index)
+
   return (
     <div className="DateBox">
-      <h4>{day.toDisplay(props.date, props.index)}</h4>
+      <h4>{day.toWeekDay(boxDate)} {boxDate}</h4>
       <input type="radio" id="gold" name={`pref${props.index}`} className={goldStatus}
         onClick={() => handleSelect(3)}></input>
       <input type="radio" id="silver" name={`pref${props.index}`} className={silverStatus}

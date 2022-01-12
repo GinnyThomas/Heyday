@@ -1,7 +1,7 @@
 // Example formats for reference
 // const dayInt = 1641945600000;
 // const dayDate = new Date(2022, 0, 12);
-// const dayDisplay = "Wednesday Jan 12th";
+// const dayDisplay = "Jan 12th";
 // const dayFormDate = "2022-01-12";
 // const dayCalDate = "12/01/2022";
 
@@ -53,8 +53,8 @@ const weekArr = [
 
 const convertDisplayToInt = (inpString) => {
   const splitInput = inpString.split(" ");
-  const inpDay = Number(splitInput[2].substr(0, 2));
-  const inpMonth = dateArr.indexOf(splitInput[1]);
+  const inpDay = Number(splitInput[1].substr(0, 2));
+  const inpMonth = dateArr.indexOf(splitInput[0]);
   const inpYear = new Date().getFullYear();
   return Number(new Date(inpYear, inpMonth, inpDay));
 };
@@ -105,10 +105,14 @@ const toFormDate = (input, plus = 0) => {
 
 const toDisplay = (input, plus = 0) => {
   const myDate = toDate(input, plus);
-  const inpDay = weekArr[myDate.getDay()];
   const inpMonth = myDate.getMonth();
   const suffix = dateSuffix(myDate.getDate());
-  return `${inpDay} ${dateArr[inpMonth]} ${myDate.getDate()}${suffix}`;
+  return `${dateArr[inpMonth]} ${myDate.getDate()}${suffix}`;
+};
+
+const toWeekDay = (input, plus = 0) => {
+  const myDate = toDate(input, plus);
+  return weekArr[myDate.getDay()];
 };
 
 const day = {
@@ -117,6 +121,7 @@ const day = {
   toCalDate,
   toFormDate,
   toDisplay,
+  toWeekDay,
 };
 
 module.exports = day;
