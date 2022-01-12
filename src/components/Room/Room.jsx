@@ -12,12 +12,12 @@ const Room = () => {
   // ---------------
   // NAV HANDLING
   // ---------------
-  
+
   let navigate = useNavigate();
 
   const proceedToRoomForm = (stateParams) => {
     navigate("../room-form", { state: stateParams });
-  }
+  };
 
   // this need to be worked on further
   const handleSubmit = (index) => {
@@ -25,7 +25,7 @@ const Room = () => {
     // console.log(e.target);
     setButtonClass("buttonOnClick");
 
-    console.log("For testing, here's the index: " + index)
+    console.log("For testing, here's the index: " + index);
 
     let params = {
       roomID: state.roomID,
@@ -34,16 +34,16 @@ const Room = () => {
       friendCount: state.friendCount,
       friendCurrent: index,
       roomFormsRatings: state.roomFormsRatings,
-      }
+    };
 
     // navigate("../room-form");
-    proceedToRoomForm(params)
+    proceedToRoomForm(params);
   };
 
   const getBeginDate = (start = state.startDate) => {
-    const startDigits = start.slice(-2)
-    return Number(startDigits)
-  }
+    const startDigits = start.slice(-2);
+    return Number(startDigits);
+  };
 
   const calculateRating = () => {
     let summedDateRanks = [];
@@ -60,10 +60,10 @@ const Room = () => {
     const max = Math.max(...summedDateRanks);
     const index = summedDateRanks.indexOf(max);
 
-    const dateFirstPart = "2022-01-"
-    const dateSecondPart = getBeginDate() + index
-    
-    const bestDate = dateFirstPart + dateSecondPart
+    const dateFirstPart = "2022-01-";
+    const dateSecondPart = getBeginDate() + index;
+
+    const bestDate = dateFirstPart + dateSecondPart;
 
     return (
       <>
@@ -83,15 +83,16 @@ const Room = () => {
       }
     });
 
-    if (newArr.length === state.friendCount) {
+    if (newArr.length == state.friendCount) {
+      console.log(newArr.length);
       return calculateRating();
     } else {
       return <h2>Waiting for results .....</h2>;
     }
   };
-  
-  
-  console.log(`Friend count: ${state.friendCount}, array: [${state.roomFormsRatings}]`)
+  console.log(
+    `Friend count: ${state.friendCount}, array: [${state.roomFormsRatings}]`
+  );
 
   return (
     <div className="room">
@@ -105,14 +106,16 @@ const Room = () => {
       <div className="responseFormContainer">
         <h3>Choose a response to fill out:</h3>
         <div className="container">
-          {Array.from(Array(Number(state.friendCount)).keys()).map((user, index) => (
-            <ResponseForm
-              className={"button " + buttonClass}
-              id={index}
-              user={user}
-              onClick={() => handleSubmit(index)}
-            />
-          ))}
+          {Array.from(Array(Number(state.friendCount)).keys()).map(
+            (user, index) => (
+              <ResponseForm
+                className={"button " + buttonClass}
+                id={index}
+                user={user}
+                onClick={() => handleSubmit(index)}
+              />
+            )
+          )}
         </div>
       </div>
       <div className="resultContainer">{setResult()}</div>
