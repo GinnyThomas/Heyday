@@ -16,7 +16,7 @@ const Room = () => {
         <h3>Choose a response to fill out:</h3>
         <div className="container">
           {Array.from(Array(users).keys()).map((user) => (
-            <button type="button" id={user + 1} onClick={() => { navigate("../room-form");}}>
+            <button type="button" id={user + 1} onClick={() => navigate("../room-form")}>
               Response {user + 1}
             </button>
           ))}
