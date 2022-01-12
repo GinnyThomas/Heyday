@@ -5,29 +5,71 @@ import { useState } from 'react'
 
 const RoomSetup = () => {
 
-  // const state = {
-  //   roomID: "",
-  //   startDate: "",
-  //   endDate: "",
+  // const today = Date.now()
+  // const day = (1000 * 60 * 60 * 24)
+
+  // const myStartDate = new Date(today)
+  // const myEndDate = new Date(today + (day * 7))
+
+  // let state = {
+  //   roomID: 1,
+  //   startDate: null,
+  //   endDate: null,
   //   friendCount: 0,
   //   friendCurrent: -1,
   //   roomFormsRatings: [],
   //   };
 
-  const [state, setState] = useState({});
+  // let [state, setState] = useState({
+  //   roomID: 1,
+  //   startDate: myStartDate,
+  //   endDate: myEndDate,
+  //   friendCount: 0,
+  //   friendCurrent: -1,
+  //   roomFormsRatings: []
+  // });
 
-  const handleChange = (event) => {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
+  const [startDate, setStartDate] = useState("2022-01-12");
+  const [endDate, setEndDate] = useState("2022-01-19");
+  const [friendCount, setFriendCount] = useState(2);
 
-    setState({
-      [name]: value
-    });
+  const handleStartDate = (event) => {
+    setStartDate(event.target.value)
   }
+  const handleEndDate = (event) => {
+    setEndDate(event.target.value)
+  }
+  const handleFriendCount = (event) => {
+    setFriendCount(event.target.value)
+  }
+    
+  // const handleChange = (event) => {
+  //   const target = event.target;
+  //   const value = target.value;
+  //   const name = target.name;
+
+    // setState({
+    //   roomID: 1,
+    //   startDate: "2000-01-12",
+    //   endDate: "2000-01-19",
+    //   friendCount: value,
+    //   friendCurrent: -1,
+    //   roomFormsRatings: []
+    // });
+  // }
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    let state = {
+      roomID: 1,
+      startDate: startDate,
+      endDate: endDate,
+      friendCount: friendCount,
+      friendCurrent: -1,
+      roomFormsRatings: [],
+      };
+
     console.log(state);
   }
   
@@ -35,15 +77,15 @@ const RoomSetup = () => {
 
   return (
     <div className="roomsetup">
-      <div classname="roomsetup_form">
+      <div className="roomsetup_form">
         <form onSubmit={handleSubmit}>
           <label>Start Date
             <input 
               type='date' 
               placeholder='dd/mm/yyyy'
               name="startDate"
-              value={state.startDate}
-              onChange={handleChange}
+              value={startDate}
+              onChange={handleStartDate}
             ></input>
           </label>
           <label>End Date
@@ -51,16 +93,16 @@ const RoomSetup = () => {
               type='date' 
               placeholder='dd/mm/yyyy'
               name="endDate"
-              value={state.endDate}
-              onChange={handleChange}></input>
+              value={endDate}
+              onChange={handleEndDate}>
+            </input>
           </label>
           <label>Number of Attendees
             <input
               type='number'
-              placeholder='4'
               name="friendCount"
-              value={state.friendCount}
-              onChange={handleChange}>  
+              value={friendCount}
+              onChange={handleFriendCount}>  
             </input>
           </label>
           <button type='submit' 
