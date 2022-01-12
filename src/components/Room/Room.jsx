@@ -5,15 +5,7 @@ import { useState } from "react";
 
 const Room = () => {
   let navigate = useNavigate();
-  const state = {
-    roomID: 1,
-    startDate: 5,
-    endDate: 7,
-    friendCount: 4,
-    friendCurrent: 1,
-    roomFormsRatings: [[], [3, 2, 4], [0, 2, 3], [1, 0, 3]],
-  };
-  // const { state } = useLocation();
+  const { state } = useLocation();
   const [buttonStatus, setButtonStatus] = useState(true);
   const [buttonClass, setButtonClass] = useState("");
 
@@ -22,7 +14,7 @@ const Room = () => {
     // if (e.target.value === ) {}
     console.log(e.target);
     setButtonClass("buttonOnClick");
-    // navigate("../room-form");
+    navigate("../room-form");
   };
 
   const calculateRating = () => {
