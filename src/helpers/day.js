@@ -51,13 +51,13 @@ const weekArr = [
   "Saturday",
 ];
 
-const convertDisplayToInt = (inpString) => {
-  const splitInput = inpString.split(" ");
-  const inpDay = Number(splitInput[1].substr(0, 2));
-  const inpMonth = dateArr.indexOf(splitInput[0]);
-  const inpYear = new Date().getFullYear();
-  return Number(new Date(inpYear, inpMonth, inpDay));
-};
+// const convertDisplayToInt = (inpString) => {
+//   const splitInput = inpString.split(" ");
+//   const inpDay = Number(splitInput[1].substr(0, 2));
+//   const inpMonth = dateArr.indexOf(splitInput[0]);
+//   const inpYear = new Date().getFullYear();
+//   return Number(new Date(inpYear, inpMonth, inpDay));
+// };
 
 const datesArr = (date) => {
   const inpDay = formatDate(date.getDate());
@@ -85,7 +85,8 @@ const toInt = (input, plus = 0) => {
   if (inputType === "integer") return Number(input) + plus * fDay;
   if (inputType === "calDate") return stringToInt(input, true) + plus * fDay;
   if (inputType === "formDate") return stringToInt(input, false) + plus * fDay;
-  return convertDisplayToInt(input) + plus * fDay;
+  // return convertDisplayToInt(input) + plus * fDay;
+  return false;
 };
 
 const toDate = (input, plus = 0) => {
@@ -103,14 +104,14 @@ const toFormDate = (input, plus = 0) => {
   return `${myDates[2]}-${myDates[1]}-${myDates[0]}`;
 };
 
-const toDisplay = (input, plus = 0) => {
+const display = (input, plus = 0) => {
   const myDate = toDate(input, plus);
   const inpMonth = myDate.getMonth();
   const suffix = dateSuffix(myDate.getDate());
   return `${dateArr[inpMonth]} ${myDate.getDate()}${suffix}`;
 };
 
-const toWeekDay = (input, plus = 0) => {
+const weekDay = (input, plus = 0) => {
   const myDate = toDate(input, plus);
   return weekArr[myDate.getDay()];
 };
@@ -120,8 +121,8 @@ const day = {
   toDate,
   toCalDate,
   toFormDate,
-  toDisplay,
-  toWeekDay,
+  display,
+  weekDay,
 };
 
 module.exports = day;
