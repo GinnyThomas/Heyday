@@ -3,24 +3,10 @@ import "./roomForm.scss";
 import DateBox from "./DateBox";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
+import day from "../../helpers/day.js";
 
 const RoomForm = () => {
   const { state } = useLocation();
-  // const today = Date.now()
-  // const day = (1000 * 60 * 60 * 24)
-  // const duration = 8
-
-  // const myStartDate = new Date(today)
-  // const myEndDate = new Date(today + (day * duration))
-
-  // const state = {
-  //   roomID: 1, 
-  //   startDate: myStartDate, 
-  //   endDate: myEndDate, 
-  //   friendCount: 5, 
-  //   friendCurrent: 1, 
-  //   roomFormsRatings: []
-  // }
 
   // ---------------
   // VALUES MANAGER
@@ -85,7 +71,7 @@ const RoomForm = () => {
   const renderDateBox = (val, i) => {
     // console.log("loading date box: "+i)
     return (
-      <DateBox key={`dateBox${i}`} index={i} onClick={(i, val) => updateBoxVals(i, val)}/>
+      <DateBox key={`dateBox${i}`} index={i} date={state.startDate} onClick={(i, val) => updateBoxVals(i, val)}/>
     )
   }
 
@@ -98,16 +84,14 @@ const RoomForm = () => {
     )
   }
 
-  const formatDate = (date) => date < 10 ? `0${date}` : `${date}`
-
   console.log("Opening RoomForm with friend: "+state.friendCurrent)
 
   return (
     <div className="RoomForm">
-      <h1>Calendar 1</h1>
+      <h1>Calendar {state.friendCurrent + 1}</h1>
       <h3>What days work for you?</h3>
-      <p>First date: {state.startDate}
-        , last date: {state.endDate}</p>
+      <p>First date: {day.toCalDate(state.startDate)}
+        , last date: {day.toCalDate(state.endDate)}</p>
       <div className="DateButtons">
         {renderDateBoxes()}
       </div>

@@ -1,9 +1,9 @@
 // Example formats for reference
-const dayInt = 1641945600000;
-const dayDate = new Date(2022, 0, 12);
-const dayDisplay = "Jan 12th";
-const dayFormDate = "2022-01-12";
-const dayCalDate = "12/01/2022";
+// const dayInt = 1641945600000;
+// const dayDate = new Date(2022, 0, 12);
+// const dayDisplay = "Jan 12th";
+// const dayFormDate = "2022-01-12";
+// const dayCalDate = "12/01/2022";
 
 // -------------------
 // HELPER FUNCTIONS
@@ -58,7 +58,7 @@ const datesArr = (date) => {
 
 const dateSuffix = (date) => {
   const lastDigit = date.toString().substr(-1);
-  if (date === 11 || date === 12) return "th";
+  if (date === 11 || date === 12 || date === 13) return "th";
   if (lastDigit === "1") return "st";
   if (lastDigit === "2") return "nd";
   if (lastDigit === "3") return "rd";
@@ -107,6 +107,8 @@ const day = {
   toFormDate,
   toDisplay,
 };
+
+module.exports = day;
 
 // Addition working
 // console.log(toCalDate(toInt(dayDate)));
