@@ -51,6 +51,22 @@ const Room = () => {
     );
   };
 
+  const setResult = () => {
+    // roomFormsRatings: [[], [3, 2, 4], [0, 2, 3], [1, 0, 3]]
+    const newArr = [];
+    state.roomFormsRatings.map((rating) => {
+      if (rating.length > 0) {
+        newArr.push(1);
+      }
+    });
+
+    if (newArr.length === state.friendCount) {
+      return calculateRating();
+    } else {
+      return <h2>Waiting for results .....</h2>;
+    }
+  };
+
   return (
     <div className="room">
       <h1>Welcome to your Room!</h1>
@@ -73,13 +89,7 @@ const Room = () => {
           ))}
         </div>
       </div>
-      <div className="resultContainer">
-        {state.roomFormsRatings.length < state.friendCount ? (
-          <h2>Waiting for results .....</h2>
-        ) : (
-          calculateRating()
-        )}
-      </div>
+      <div className="resultContainer">{setResult()}</div>
     </div>
   );
 };
