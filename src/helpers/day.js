@@ -1,10 +1,3 @@
-// Example formats for reference
-// const dayInt = 1641945600000;
-// const dayDate = new Date(2022, 0, 12);
-// const dayDisplay = "Jan 12th";
-// const dayFormDate = "2022-01-12";
-// const dayCalDate = "12/01/2022";
-
 // -------------------
 // HELPER FUNCTIONS
 // -------------------
@@ -51,14 +44,6 @@ const weekArr = [
   "Saturday",
 ];
 
-// const convertDisplayToInt = (inpString) => {
-//   const splitInput = inpString.split(" ");
-//   const inpDay = Number(splitInput[1].substr(0, 2));
-//   const inpMonth = dateArr.indexOf(splitInput[0]);
-//   const inpYear = new Date().getFullYear();
-//   return Number(new Date(inpYear, inpMonth, inpDay));
-// };
-
 const datesArr = (date) => {
   const inpDay = formatDate(date.getDate());
   const inpMonth = formatDate(date.getMonth() + 1);
@@ -85,7 +70,6 @@ const toInt = (input, plus = 0) => {
   if (inputType === "integer") return Number(input) + plus * fDay;
   if (inputType === "calDate") return stringToInt(input, true) + plus * fDay;
   if (inputType === "formDate") return stringToInt(input, false) + plus * fDay;
-  // return convertDisplayToInt(input) + plus * fDay;
   return false;
 };
 
@@ -126,48 +110,3 @@ const day = {
 };
 
 module.exports = day;
-
-// Addition working
-// console.log(toCalDate(toInt(dayDate)));
-// console.log(toCalDate(toInt(dayDate, -1)));
-// console.log(toCalDate(toInt(dayDate, 1)));
-// console.log(toDisplay(dayFormDate, 1));
-// console.log(toInt(dayFormDate, 1));
-// console.log(toDate(dayFormDate, 1));
-// console.log(toFormDate(dayCalDate, 1));
-// console.log(toCalDate(dayFormDate, 1));
-
-// dayDisplay working
-// console.log(toDisplay(dayInt));
-// console.log(toDisplay(dayDate));
-// console.log(toDisplay(dayDisplay));
-// console.log(toDisplay(dayFormDate));
-// console.log(toDisplay(dayCalDate));
-
-// dayFormDate working
-// console.log(toFormDate(dayInt));
-// console.log(toFormDate(dayDate));
-// console.log(toFormDate(dayDisplay));
-// console.log(toFormDate(dayFormDate));
-// console.log(toFormDate(dayCalDate));
-
-// toCalDate working
-// console.log(toCalDate(dayInt));
-// console.log(toCalDate(dayDate));
-// console.log(toCalDate(dayDisplay));
-// console.log(toCalDate(dayFormDate));
-// console.log(toCalDate(dayCalDate));
-
-// toDate working
-// console.log(toDate(dayInt));
-// console.log(toDate(dayDate));
-// console.log(toDate(dayDisplay));
-// console.log(toDate(dayFormDate));
-// console.log(toDate(dayCalDate));
-
-// toInt working
-// console.log(toInt(dayInt));
-// console.log(toInt(dayDate));
-// console.log(toInt(dayDisplay));
-// console.log(toInt(dayFormDate));
-// console.log(toInt(dayCalDate));
