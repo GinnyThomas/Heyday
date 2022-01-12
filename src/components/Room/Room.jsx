@@ -4,18 +4,40 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 
 const Room = () => {
-  let navigate = useNavigate();
   const { state } = useLocation();
 
   const [buttonStatus, setButtonStatus] = useState(true);
   const [buttonClass, setButtonClass] = useState("");
 
+  // ---------------
+  // NAV HANDLING
+  // ---------------
+  
+  let navigate = useNavigate();
+
+  const proceedToRoomForm = (stateParams) => {
+    navigate("../room-form", { state: stateParams });
+  }
+
   // this need to be worked on further
-  const handleSubmit = (e) => {
+  const handleSubmit = (index) => {
     // if (e.target.value === ) {}
-    console.log(e.target);
+    // console.log(e.target);
     setButtonClass("buttonOnClick");
-    navigate("../room-form");
+
+    console.log("For testing, here's the index: " + index)
+
+    let params = {
+      roomID: state.roomID,
+      startDate: state.startDate,
+      endDate: state.endDate,
+      friendCount: state.friendCount,
+      friendCurrent: index,
+      roomFormsRatings: state.roomFormsRatings,
+      }
+
+    // navigate("../room-form");
+    proceedToRoomForm(params)
   };
 
   const calculateRating = () => {
@@ -60,6 +82,8 @@ const Room = () => {
     }
   };
 
+  console.log(state.friendCount)
+
   return (
     <div className="room">
       <h1>Welcome to your Room!</h1>
@@ -77,7 +101,7 @@ const Room = () => {
               className={"button " + buttonClass}
               id={index}
               user={user}
-              onClick={handleSubmit}
+              onClick={() => handleSubmit(index)}
             />
           ))}
         </div>
