@@ -81,8 +81,9 @@ const Room = () => {
       return <h2>Waiting for results .....</h2>;
     }
   };
-
-  console.log(state.friendCount)
+  
+  
+  console.log(`Friend count: ${state.friendCount}, array: [${state.roomFormsRatings}]`)
 
   return (
     <div className="room">

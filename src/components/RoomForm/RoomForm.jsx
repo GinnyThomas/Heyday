@@ -22,13 +22,17 @@ const RoomForm = () => {
   //   roomFormsRatings: []
   // }
 
-
-
   // ---------------
   // VALUES MANAGER
   // ---------------
 
-  const [datesArr, setDatesArr] = useState(Array.from(Array(5 + 1).fill(0)));
+  const getDuration = (start = state.startDate, end = state.endDate) => {
+    const startDigits = start.slice(-2)
+    const endDigits = end.slice(-2)
+    return Number(endDigits) - Number(startDigits)
+  }
+
+  const [datesArr, setDatesArr] = useState(Array.from(Array(getDuration() + 1).fill(0)));
 
   const updateBoxVals = (i, val) => {
     const newArr = datesArr
@@ -59,11 +63,11 @@ const RoomForm = () => {
     })
   }
 
-  const clickSubmit = () => {
+  const clickSubmit = (ind = state.friendCurrent) => {
     const newArr = datesArr
     console.log("Return to room, update the roomFormsRatings object to: " + newArr)
-    const newRoomFormsRatings = state.roomFormsRatings.splice()
-    newRoomFormsRatings.push(newArr)
+    const newRoomFormsRatings = state.roomFormsRatings
+    newRoomFormsRatings[ind] = newArr
     returnToRoom({
       roomID: state.roomID, 
       startDate: state.startDate, 
@@ -95,6 +99,8 @@ const RoomForm = () => {
   }
 
   const formatDate = (date) => date < 10 ? `0${date}` : `${date}`
+
+  console.log("Opening RoomForm with friend: "+state.friendCurrent)
 
   return (
     <div className="RoomForm">

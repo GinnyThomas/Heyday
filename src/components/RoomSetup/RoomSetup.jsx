@@ -26,13 +26,15 @@ const RoomSetup = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    const ratings = new Array(friendCount).fill([])
+
     let state = {
       roomID: 1,
       startDate: startDate,
       endDate: endDate,
       friendCount: friendCount,
       friendCurrent: -1,
-      roomFormsRatings: [],
+      roomFormsRatings: ratings,
       }
 
     console.log(state);
