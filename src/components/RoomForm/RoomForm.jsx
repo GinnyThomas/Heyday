@@ -14,6 +14,13 @@ const RoomForm = () => {
     roomFormsRatings: []
   }
 
+  const setupVals = () => {
+    const dateCount = state.endDate - state.startDate
+    return Array.from(Array(dateCount).fill(0))
+  }
+
+  let dateBoxVals = setupVals()
+
   const navigate = useNavigate();
 
   const returnToRoom = (stateParams) => {
@@ -35,7 +42,7 @@ const RoomForm = () => {
   const clickSubmit = (newArr) => {
     console.log("Return to room, update the roomFormsRatings object")
     const newRoomFormsRatings = state.roomFormsRatings.splice()
-    newRoomFormsRatings[state.friendCurrent] = newArr
+    newRoomFormsRatings.push(newArr)
     returnToRoom({
       roomID: state.roomID, 
       startDate: state.startDate, 
@@ -46,17 +53,15 @@ const RoomForm = () => {
     })
   }
 
-  const renderDateBox = (date, i) => {
-    console.log("loading date box: "+i)
+  const renderDateBox = (val, i) => {
+    // console.log("loading date box: "+i)
     return (
-      <DateBox key={`dateBox${i}`} date={date}/>
+      <DateBox key={`dateBox${i}`} date={i} value={val}/>
     )
   }
 
   const renderDateBoxes = () => {
-    const num = state.endDate - state.startDate
-    const newArr = Array.from(Array(num).keys())
-    const mappedArr = newArr.map((date, i) => {return renderDateBox(date, i)})
+    const mappedArr = dateBoxVals.map((val, i) => renderDateBox(val, i))
     return (
       <div>
         {mappedArr}
