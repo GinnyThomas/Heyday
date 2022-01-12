@@ -14,12 +14,27 @@ const RoomForm = () => {
     roomFormsRatings: []
   }
 
-  const setupVals = () => {
+  // ---------------
+  // VALUES MANAGER
+  // ---------------
+
+  const setupBoxVals = () => {
     const dateCount = state.endDate - state.startDate
     return Array.from(Array(dateCount).fill(0))
   }
 
-  let dateBoxVals = setupVals()
+  let dateBoxVals = setupBoxVals()
+
+  const updateBoxVals = (i, val) => {
+    const newArr = dateBoxVals
+    newArr[i] = val
+    dateBoxVals = newArr
+    console.log("Func called "+dateBoxVals)
+  }
+
+  // ---------------
+  // NAV MANAGER
+  // ---------------
 
   const navigate = useNavigate();
 
@@ -56,7 +71,7 @@ const RoomForm = () => {
   const renderDateBox = (val, i) => {
     // console.log("loading date box: "+i)
     return (
-      <DateBox key={`dateBox${i}`} date={i} value={val}/>
+      <DateBox key={`dateBox${i}`} index={i} value={val} onClick={(i, val) => updateBoxVals(i, val)}/>
     )
   }
 
