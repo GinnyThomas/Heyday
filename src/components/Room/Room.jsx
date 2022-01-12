@@ -1,4 +1,5 @@
 import "./room.scss";
+import ResponseForm from "./ResponseForm";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 
@@ -10,41 +11,21 @@ const Room = () => {
     endDate: 7,
     friendCount: 4,
     friendCurrent: 1,
-    roomFormsRatings: [
-      [1, 2, 3],
-      [3, 2, 4],
-      [0, 2, 3],
-      [1, 0, 3],
-    ],
+    roomFormsRatings: [[], [3, 2, 4], [0, 2, 3], [1, 0, 3]],
   };
   // const { state } = useLocation();
   const [buttonStatus, setButtonStatus] = useState(true);
   const [buttonClass, setButtonClass] = useState("");
+
   // this need to be worked on further
   const handleSubmit = (e) => {
+    // if (e.target.value === ) {}
+    console.log(e.target);
     setButtonClass("buttonOnClick");
-    navigate("../room-form");
+    // navigate("../room-form");
   };
 
   const calculateRating = () => {
-    // let datesCount = state.roomFormsRatings[0].length;
-    // let summedDateRanks = Array(datesCount);
-
-    // const newArr = summedDateRanks.map((date, index) => {
-    //   if (state.roomFormsRatings.each((rating) => rating[index] === 0)) {
-    //     date.push(0);
-    //   } else {
-    //     let sum = 0;
-    //     state.roomFormsRatings.each((rating) => (sum += rating[index]));
-    //     date.push(sum);
-    //   }
-    // });
-
-    // const max = Math.max(...newArr);
-    // const index = newArr.indexOf(max);
-
-    // const bestDate = index + state.startDate;
-
     let summedDateRanks = [];
     state.roomFormsRatings.forEach((sub) => {
       sub.forEach((num, index) => {
@@ -83,16 +64,12 @@ const Room = () => {
         <h3>Choose a response to fill out:</h3>
         <div className="container">
           {Array.from(Array(state.friendCount).keys()).map((user, index) => (
-            <button
+            <ResponseForm
               className={"button " + buttonClass}
-              type="button"
-              key={index + 1}
-              onClick={() => {
-                handleSubmit();
-              }}
-            >
-              Response {user + 1}
-            </button>
+              id={index}
+              user={user}
+              onClick={handleSubmit}
+            />
           ))}
         </div>
       </div>
