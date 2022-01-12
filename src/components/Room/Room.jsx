@@ -40,6 +40,11 @@ const Room = () => {
     proceedToRoomForm(params)
   };
 
+  const getBeginDate = (start = state.startDate) => {
+    const startDigits = start.slice(-2)
+    return Number(startDigits)
+  }
+
   const calculateRating = () => {
     let summedDateRanks = [];
     state.roomFormsRatings.forEach((sub) => {
@@ -55,7 +60,10 @@ const Room = () => {
     const max = Math.max(...summedDateRanks);
     const index = summedDateRanks.indexOf(max);
 
-    const bestDate = index + state.startDate;
+    const dateFirstPart = "2022-01-"
+    const dateSecondPart = getBeginDate() + index
+    
+    const bestDate = dateFirstPart + dateSecondPart
 
     return (
       <>
