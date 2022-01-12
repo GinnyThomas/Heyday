@@ -11,7 +11,7 @@ const RoomSetup = () => {
 
   const [startDate, setStartDate] = useState("2022-01-12");
   const [endDate, setEndDate] = useState("2022-01-19");
-  const [friendCount, setFriendCount] = useState(2);
+  const [friendCount, setFriendCount] = useState(3);
 
   const handleStartDate = (event) => {
     setStartDate(event.target.value)

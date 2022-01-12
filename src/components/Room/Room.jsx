@@ -96,7 +96,7 @@ const Room = () => {
       <div className="responseFormContainer">
         <h3>Choose a response to fill out:</h3>
         <div className="container">
-          {Array.from(Array(state.friendCount).keys()).map((user, index) => (
+          {Array.from(Array(Number(state.friendCount)).keys()).map((user, index) => (
             <ResponseForm
               className={"button " + buttonClass}
               id={index}
