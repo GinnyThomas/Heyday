@@ -31,16 +31,16 @@ import {MemoryRouter} from "react-router-dom";
 //     expect(history.location.pathname).toEqual('setup');
 //   });
 
-jest.mock('../../components/RoomSetup/RoomSetup');
+// jest.mock('../../components/RoomSetup/RoomSetup');
 
-    test('should render roomsetup page for RoomSetup page route', () => {
-        RoomSetup.mockImplementation(() => <div>RoomSetupPageMock</div>);
+//     test('should render roomsetup page for RoomSetup page route', () => {
+//         RoomSetup.mockImplementation(() => <div>RoomSetupPageMock</div>);
 
-        render(
-            <MemoryRouter initialEntries={['/setup']}>
-                <App/>
-            </MemoryRouter>
-        );
+//         render(
+//             <MemoryRouter initialEntries={['/setup']}>
+//                 <App/>
+//             </MemoryRouter>
+//         );
 
-        expect(screen.getByText("RoomSetupPageMock")).toBeInTheDocument();
-    });
+//         expect(screen.getByText("RoomSetupPageMock")).toBeInTheDocument();
+//     });
