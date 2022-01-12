@@ -29,7 +29,7 @@
       padding: 16px;
       overflow: hidden;
 
-      button {
+      .button {
         padding: 30px 30px;
         background-color: white;
         border-radius: 15px;
@@ -41,8 +41,14 @@
         cursor: pointer;
         &:hover {
           transform: translateY(-5px);
-          background-color: lightblue;
         }
+      }
+
+      .buttonOnClick {
+        background-color: lightblue;
+        opacity: 0.6;
+        transition: 0.25s;
+        color: black;
       }
     }
   }
