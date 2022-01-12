@@ -6,10 +6,17 @@ import { useState } from "react";
 
 const RoomForm = () => {
   // const { state } = useLocation();
+  const today = Date.now()
+  const day = (1000 * 60 * 60 * 24)
+  const duration = 8
+
+  const myStartDate = new Date(today)
+  const myEndDate = new Date(today + (day * duration))
+
   const state = {
     roomID: 1, 
-    startDate: 5, 
-    endDate: 12, 
+    startDate: myStartDate, 
+    endDate: myEndDate, 
     friendCount: 5, 
     friendCurrent: 1, 
     roomFormsRatings: []
@@ -19,7 +26,7 @@ const RoomForm = () => {
   // VALUES MANAGER
   // ---------------
 
-  const [datesArr, setDatesArr] = useState(Array.from(Array(state.endDate - state.startDate).fill(0)));
+  const [datesArr, setDatesArr] = useState(Array.from(Array(duration + 1).fill(0)));
 
   const updateBoxVals = (i, val) => {
     const newArr = datesArr
@@ -65,10 +72,14 @@ const RoomForm = () => {
     })
   }
 
+  // ---------------
+  // RENDERING
+  // ---------------
+
   const renderDateBox = (val, i) => {
     // console.log("loading date box: "+i)
     return (
-      <DateBox key={`dateBox${i}`} index={i} onClick={(i, val) => updateBoxVals(i, val)}/>
+      <DateBox key={`dateBox${i}`} index={i} date={new Date(today + (day * i))} onClick={(i, val) => updateBoxVals(i, val)}/>
     )
   }
 
@@ -81,12 +92,14 @@ const RoomForm = () => {
     )
   }
 
-  console.log("RoomForm loaded");
+  const formatDate = (date) => date < 10 ? `0${date}` : `${date}`
+
   return (
     <div className="RoomForm">
       <h1>Calendar 1</h1>
       <h3>What days work for you?</h3>
-      <p>First date: {state.startDate}, last date: {state.endDate}</p>
+      <p>First date: {formatDate(state.startDate.getDate())}/{formatDate(state.startDate.getMonth() + 1)}
+        , last date: {formatDate(state.endDate.getDate())}/{formatDate(state.startDate.getMonth() + 1)}</p>
       <div className="DateButtons">
         {renderDateBoxes()}
       </div>

@@ -17,17 +17,19 @@ const DateBox = (props) => {
     props.onClick(props.index, mVal)
   }
 
+  const formatDate = (date) => date < 10 ? `0${date}` : `${date}`
+
   return (
     <div className="DateBox">
-      <h4>{props.index}</h4>
-      <p><input type="radio" id="gold" name={`pref${props.index}`} className={goldStatus}
-        onClick={() => handleSelect(3)}></input></p>
-      <p><input type="radio" id="silver" name={`pref${props.index}`} className={silverStatus}
-        onClick={() => handleSelect(2)}></input></p>
-      <p><input type="radio" id="bronze" name={`pref${props.index}`} className={bronzeStatus}
-        onClick={() => handleSelect(1)}></input></p>
-      <p><input type="radio" id="no" name={`pref${props.index}`} className={ironStatus}
-        onClick={() => handleSelect(0)}></input></p>
+      <h4>{formatDate(props.date.getDate())}/{formatDate(props.date.getMonth() + 1)}</h4>
+      <input type="radio" id="gold" name={`pref${props.index}`} className={goldStatus}
+        onClick={() => handleSelect(3)}></input>
+      <input type="radio" id="silver" name={`pref${props.index}`} className={silverStatus}
+        onClick={() => handleSelect(2)}></input>
+      <input type="radio" id="bronze" name={`pref${props.index}`} className={bronzeStatus}
+        onClick={() => handleSelect(1)}></input>
+      <input type="radio" id="iron" name={`pref${props.index}`} className={ironStatus}
+        onClick={() => handleSelect(0)}></input>
     </div>
   );
 }
