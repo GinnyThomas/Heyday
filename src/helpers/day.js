@@ -1,7 +1,7 @@
 // Example formats for reference
 // const dayInt = 1641945600000;
 // const dayDate = new Date(2022, 0, 12);
-// const dayDisplay = "We. Jan 12th";
+// const dayDisplay = "Wednesday Jan 12th";
 // const dayFormDate = "2022-01-12";
 // const dayCalDate = "12/01/2022";
 
@@ -41,7 +41,15 @@ const dateArr = [
   "Dec",
 ];
 
-const weekArr = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const weekArr = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 
 const convertDisplayToInt = (inpString) => {
   const splitInput = inpString.split(" ");
