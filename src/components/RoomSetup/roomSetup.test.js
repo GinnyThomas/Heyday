@@ -25,19 +25,19 @@ import {MemoryRouter} from "react-router-dom";
 //       const { findByTest, history, findByLabelText } =
 //     renderWithRouter(<RoomSetup />,
 //         {
-//             route: "setup",
+//             route: "/setup",
 //         })
 //
 //     expect(history.location.pathname).toEqual('setup');
 //   });
 
-jest.mock('../../components/Landing/Landing');
+jest.mock('../../components/RoomSetup/RoomSetup');
 
     test('should render roomsetup page for RoomSetup page route', () => {
         RoomSetup.mockImplementation(() => <div>RoomSetupPageMock</div>);
 
         render(
-            <MemoryRouter initialEntries={['setup']}>
+            <MemoryRouter initialEntries={['/setup']}>
                 <App/>
             </MemoryRouter>
         );
