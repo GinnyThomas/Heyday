@@ -1,6 +1,7 @@
 import React from "react";
 import "./dateBox.scss";
 import { useState } from "react";
+import day from "../../helpers/day.js";
 
 const DateBox = (props) => {
 
@@ -17,11 +18,11 @@ const DateBox = (props) => {
     props.onClick(props.index, mVal)
   }
 
-  const formatDate = (date) => date < 10 ? `0${date}` : `${date}`
+  const boxDate = day.toInt(props.date, props.index)
 
   return (
     <div className="DateBox">
-      <h4>{props.index}</h4>
+      <h4>{day.weekDay(boxDate)} {day.display(boxDate)}</h4>
       <input type="radio" id="gold" name={`pref${props.index}`} className={goldStatus}
         onClick={() => handleSelect(3)}></input>
       <input type="radio" id="silver" name={`pref${props.index}`} className={silverStatus}
