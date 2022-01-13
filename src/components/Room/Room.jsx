@@ -22,7 +22,7 @@ const Room = () => {
 
 
   // GREY BUTTON OUT AFTER ROOMFORM IS SUBMITTED
-  const determinClass = (index) => { 
+  const determineClass = (index) => { 
     if (state.roomFormsRatings[index].length > 0) {
       return 'clickDiddyClick'
     } else {
@@ -126,7 +126,7 @@ const Room = () => {
           {Array.from(Array(Number(state.friendCount)).keys()).map( 
             (user, index) => (
               <ResponseForm
-                className={determinClass(index)}
+                className={determineClass(index)}
                 id={index}
                 user={user}
                 // onClick={() => handleSubmit(index)}   THIS WAS ORIGINAL LINE FROM MYOUNG AND ANDY STILL TO BE WORKED ON. LEFT INCASE NEEDED, BUT CODE AMENDED BELOW
