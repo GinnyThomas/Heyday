@@ -37,7 +37,7 @@ const RoomSetup = () => {
       roomFormsRatings: ratings,
       }
 
-    console.log(state);
+    console.log('RoomSetup.jsx: State: ', state);
     proceedToRoom(state)
   }
 

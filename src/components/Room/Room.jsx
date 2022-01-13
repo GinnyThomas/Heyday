@@ -4,6 +4,7 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 
 const Room = () => {
+
   const { state } = useLocation();
 
   const [buttonStatus, setButtonStatus] = useState(true);
@@ -19,13 +20,24 @@ const Room = () => {
     navigate("../room-form", { state: stateParams });
   };
 
+
+  // GREY BUTTON OUT AFTER ROOMFORM IS SUBMITTED
+  const determinClass = (index) => { 
+    if (state.roomFormsRatings[index].length > 0) {
+      return 'clickDiddyClick'
+    } else {
+      return 'button'
+    }
+  }
+  
+
   // this need to be worked on further
-  const handleSubmit = (index) => {
+  const handleSubmit = (e, index) => {           /// consider changing this name, WE're not submitting a form - WE're just entering it?
     // if (e.target.value === ) {}
     // console.log(e.target);
     setButtonClass("buttonOnClick");
 
-    console.log("For testing, here's the index: " + index);
+
 
     let params = {
       roomID: state.roomID,
@@ -77,7 +89,6 @@ const Room = () => {
   const setResult = () => {
     // roomFormsRatings: [[], [3, 2, 4], [0, 2, 3], [1, 0, 3]]
     const newArr = [];
-    console.log(state.roomFormsRatings) 
 
     state.roomFormsRatings.map((rating) => {
       if (rating.length > 0) {
@@ -93,6 +104,9 @@ const Room = () => {
       return <h2>Waiting for results .....</h2>;
     }
   };
+
+  console.log('Room.jsx state: ', state);
+
   console.log(
     `Friend count: ${state.friendCount}, array: [${state.roomFormsRatings}]`
   );
@@ -112,11 +126,11 @@ const Room = () => {
           {Array.from(Array(Number(state.friendCount)).keys()).map( 
             (user, index) => (
               <ResponseForm
-                className={"button " + buttonClass}
+                className={determinClass(index)}
                 id={index}
                 user={user}
                 // onClick={() => handleSubmit(index)}   THIS WAS ORIGINAL LINE FROM MYOUNG AND ANDY STILL TO BE WORKED ON. LEFT INCASE NEEDED, BUT CODE AMENDED BELOW
-                onClick={() => handleSubmit(index)} // trying to use the id of the button that is clicked is used to change the colour of ONLY that button as it has been clicked.
+                onClick={(e) => handleSubmit(e, index)} // trying to use the id of the button that is clicked is used to change the colour of ONLY that button as it has been clicked.
               />
             )
           )}
