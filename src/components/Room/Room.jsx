@@ -128,11 +128,12 @@ const Room = () => {
                 onClick={(e) => handleSubmit(e, index)}
               />
             )
-          )}
+          )} 
         </div>
       </div>
       <div className="resultContainer">{setResult()}</div>
     </div>
+    
   );
 };
 
