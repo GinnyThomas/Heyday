@@ -16,7 +16,7 @@ date to meet based on the submitted answers of your friends.
 - 
 Although the idea started with picking the best date, Anonymeet goes beyond that and can help 
 add anonymity to other stuff like picking a restaurant or an event location. Add your desired criteria and give it a
-[try.](#Running Anonymeet)
+[try.](#Running_Anonymeet)
 ----
 project screen shots can go here
 
@@ -40,8 +40,8 @@ information to go here based on where project is hosted
 ----
 
 
-If you are interested in trying your own React App, please click [here](#Installation/Creating an App) to find 
-information about doing so.  Additionally, you can click [here](#Available Scripts) to see scripts that can be run if 
+If you are interested in trying your own React App, please click [here](#Installation_/_Creating_an_App) to find 
+information about doing so.  Additionally, you can click [here](#Available_Scripts) to see scripts that can be run if 
 you have cloned or forked this repo.
 
 # Contributors
