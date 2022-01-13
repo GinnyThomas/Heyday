@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import {BrowserRouter, Route, Routes, withRouter} from "react-router-dom";
 import Room from "../Room/Room";
 import RoomSetup from "../RoomSetup/RoomSetup";
@@ -12,27 +12,45 @@ import {renderIntoDocument} from "react-dom/test-utils";
 import ReactDom from 'react-dom';
 
 it('renders RoomForm Correctly', () => {
-    const history = createMemoryHistory(['/', '/RoomForm']);
-    const {debug} = render(
-        <BrowserRouter history={history}>
-            <Routes>
-                <Route exact path="/" component={Room}/>
-                <Route path="room-form" render={() => <div className="RoomForm">Calendar 1</div>}/>
-            </Routes>
-        </BrowserRouter>
-    );
-
-    debug();
-})
-
-//     const { getByText } = render(
-//         <MemoryRouter>
-//             <RoomForm />
-//         </MemoryRouter>
+//     const history = createMemoryHistory(['/', '/RoomForm']);
+//     const {debug} = render(
+//         <BrowserRouter history={history}>
+//             <Routes>
+//                 <Route exact path="/" component={Room}/>
+//                 <Route path="room-form" render={() => <div className="RoomForm">Calendar 1</div>}/>
+//             </Routes>
+//         </BrowserRouter>
 //     );
-//     const leftClick = {button: 0}
-//     fireEvent.click(getByText(/Create New Event/i), leftClick)
+//
+// debug();
+//     expect(screen.getByText(/calendar 1/i)).toBeInTheDocument();
 // })
+
+    const { getByText } = render(
+        <MemoryRouter initialEntries={[{
+            "pathname": "/room-form",
+            "search": "",
+            "hash": "",
+            "state": {
+                "roomID": 1,
+                "startDate": "2022-01-12",
+                "endDate": "2022-01-19",
+                "friendCount": 3,
+                "friendCurrent": 0,
+                "roomFormsRatings": [
+                    [],
+                    [],
+                    []
+                ]
+            },
+            "key": "z61z32ot"
+        }]
+        }>
+            <RoomForm />
+        </MemoryRouter>
+    );
+    expect(screen.getByText(/calendar 1/i)).toBeInTheDocument();
+})
 
 // it doesn't matter what the above does on lines 20 & 21, loading RoomForm renders to Room page, as a null page
 // (I know its the room page because it shows code,
