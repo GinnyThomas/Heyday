@@ -8,43 +8,67 @@ import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
 import expressLink from "./helpers/expressLink.js";
 
 function App() {
-  const initState = {};
-  const [apiState, setApiState] = useState(initState);
+  // =====================
+  // EXPRESS LINK
+  // =====================
+  const initState = {},
+    [apiState, setApiState] = useState(setRoomData(defaultID)),
+    defaultID = 0;
 
-  const apiLoaded = () => apiState != initState && apiState.roomData != null;
+  // Sets the current Room Data set to equal that of the passed roomID
+  const setRoomData = (roomID) => expressLink.getRoomData(roomID, setApiState);
 
-  const getRoomData = () => expressLink.getRoomData(1, setApiState);
+  // Edits data in the Room with roomID, implementing roomState into it
+  const putRoomData = (roomID, roomState) =>
+    expressLink.putRoomData(roomID, roomState, setApiState);
 
-  const loadInitData = () => {
-    if (!apiLoaded()) getRoomData();
-  };
-  loadInitData();
+  // Creates a new Room; sets the current Room Data to the new room if true passed
+  const postRoomData = (roomState, setAsCurrent) =>
+    expressLink.postRoomData(roomState, setApiState, setAsCurrent);
 
-  // const incFriendCount = () => {
-  // fetch("http://localhost:9000/testAPI", {
-  //   method: "POST",
-  //   headers: { "Content-Type": "application/json" },
-  //   body: JSON.stringify({
-  //     retrieve: false,
-  //     roomID: 1,
-  //     friendCount: getFriendCount() + 1,
-  //   }),
-  // })
-  //   .then((res) => res.text())
-  //   .then((res) => setApiState({ roomData: res }));
-  // };
+  const apiLoaded = () => apiState !== initState && apiState.roomData != null;
 
+  const roomData = () => apiState.roomData;
+
+  if (!apiLoaded()) setRoomData(defaultID);
+
+  // =====================
+  // RENDERING
+  // =====================
   const pageLoading = () => {
     return <div>Loading...</div>;
   };
 
   const pageContent = () => {
-    console.log(apiState.roomData);
-    const friendCount = apiState.roomData.friendCount;
+    console.log(roomData());
+    const friendCount = roomData().friendCount;
     return (
       <div className="App">
         <p className="App-intro">Friend count: {friendCount}</p>
-        {/* <button onClick={() => incFriendCount()}>Increase friend count</button> */}
+        <button
+          onClick={() =>
+            putRoomData(defaultID, {
+              friendCount: roomData().friendCount + 1,
+            })
+          }
+        >
+          Increase friend count
+        </button>
+        <button
+          onClick={() =>
+            postRoomData(
+              {
+                startDate: 1,
+                endDate: 2,
+                friendCount: 18,
+                roomFormsRatings: [],
+              },
+              false
+            )
+          }
+        >
+          Add Room
+        </button>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Landing />} />
