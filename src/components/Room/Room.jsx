@@ -77,9 +77,12 @@ const Room = () => {
   const setResult = () => {
     // roomFormsRatings: [[], [3, 2, 4], [0, 2, 3], [1, 0, 3]]
     const newArr = [];
+    console.log(state.roomFormsRatings) 
+
     state.roomFormsRatings.map((rating) => {
       if (rating.length > 0) {
         newArr.push(1);
+        //The corresponding button which links to the form / with the same ID should now turn grey
       }
     });
 
@@ -93,7 +96,7 @@ const Room = () => {
   console.log(
     `Friend count: ${state.friendCount}, array: [${state.roomFormsRatings}]`
   );
-
+  
   return (
     <div className="room">
       <h1>Welcome to your Room!</h1>
@@ -106,13 +109,14 @@ const Room = () => {
       <div className="responseFormContainer">
         <h3>Choose a response to fill out:</h3>
         <div className="container">
-          {Array.from(Array(Number(state.friendCount)).keys()).map(
+          {Array.from(Array(Number(state.friendCount)).keys()).map( 
             (user, index) => (
               <ResponseForm
                 className={"button " + buttonClass}
                 id={index}
                 user={user}
-                onClick={() => handleSubmit(index)}
+                // onClick={() => handleSubmit(index)}   THIS WAS ORIGINAL LINE FROM MYOUNG AND ANDY STILL TO BE WORKED ON. LEFT INCASE NEEDED, BUT CODE AMENDED BELOW
+                onClick={() => handleSubmit(index)} // trying to use the id of the button that is clicked is used to change the colour of ONLY that button as it has been clicked.
               />
             )
           )}
