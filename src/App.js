@@ -5,62 +5,46 @@ import RoomForm from "./components/RoomForm/RoomForm";
 import * as ReactDOM from "react-dom";
 import { useState } from "react";
 import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
+import expressLink from "./helpers/expressLink.js";
 
 function App() {
   const initState = {};
   const [apiState, setApiState] = useState(initState);
 
-  const apiLoaded = () => apiState != initState && apiState.apiResponse != null;
+  const apiLoaded = () => apiState != initState && apiState.roomData != null;
 
-  const getFriendCount = () => {
-    if (apiLoaded()) {
-      return JSON.parse(apiState.apiResponse).friendCount;
-    }
-  };
-
-  const callAPI = () => {
-    fetch("http://localhost:9000/testAPI", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        retrieve: true,
-        roomID: 1,
-      }),
-    })
-      .then((res) => res.text())
-      .then((res) => setApiState({ apiResponse: res }));
-  };
+  const getRoomData = () => expressLink.getRoomData(1, setApiState);
 
   const loadInitData = () => {
-    if (!apiLoaded()) callAPI();
+    if (!apiLoaded()) getRoomData();
   };
   loadInitData();
 
-  const incFriendCount = () => {
-    fetch("http://localhost:9000/testAPI", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        retrieve: false,
-        roomID: 1,
-        friendCount: getFriendCount() + 1,
-      }),
-    })
-      .then((res) => res.text())
-      .then((res) => setApiState({ apiResponse: res }));
-  };
+  // const incFriendCount = () => {
+  // fetch("http://localhost:9000/testAPI", {
+  //   method: "POST",
+  //   headers: { "Content-Type": "application/json" },
+  //   body: JSON.stringify({
+  //     retrieve: false,
+  //     roomID: 1,
+  //     friendCount: getFriendCount() + 1,
+  //   }),
+  // })
+  //   .then((res) => res.text())
+  //   .then((res) => setApiState({ roomData: res }));
+  // };
 
   const pageLoading = () => {
     return <div>Loading...</div>;
   };
 
   const pageContent = () => {
-    console.log(apiState);
-    const friendCount = getFriendCount();
+    console.log(apiState.roomData);
+    const friendCount = apiState.roomData.friendCount;
     return (
       <div className="App">
         <p className="App-intro">Friend count: {friendCount}</p>
-        <button onClick={() => incFriendCount()}>Increase friend count</button>
+        {/* <button onClick={() => incFriendCount()}>Increase friend count</button> */}
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Landing />} />
