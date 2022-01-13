@@ -24,6 +24,7 @@ const Room = () => {
   // GREY BUTTON OUT AFTER ROOMFORM IS SUBMITTED
   const determineClass = (index) => { 
     if (state.roomFormsRatings[index].length > 0) {
+       
       return 'clickDiddyClick'
     } else {
       return 'button'
