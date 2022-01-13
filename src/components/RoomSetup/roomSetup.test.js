@@ -1,9 +1,7 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import {render} from '@testing-library/react';
 import RoomSetup from "./RoomSetup";
-import { MemoryRouter } from "react-router-dom";
-import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
-import userEvent from '@testing-library/user-event'
+import {MemoryRouter} from "react-router-dom";
 
 test("it renders RoomSetup component correctly and date field is present", () => {
     const { getByText } = render(

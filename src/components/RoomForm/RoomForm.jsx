@@ -6,8 +6,6 @@ import { useState } from "react";
 
 const RoomForm = () => {
   const { state } = useLocation();
-  console.log(state)
-  console.log(useLocation())
   // const today = Date.now()
   // const day = (1000 * 60 * 60 * 24)
   // const duration = 8
