@@ -29,15 +29,12 @@ const Room = () => {
       return 'button'
     }
   }
-  
 
   // this need to be worked on further
   const handleSubmit = (e, index) => {           /// consider changing this name, WE're not submitting a form - WE're just entering it?
     // if (e.target.value === ) {}
     // console.log(e.target);
     setButtonClass("buttonOnClick");
-
-
 
     let params = {
       roomID: state.roomID,
@@ -93,7 +90,6 @@ const Room = () => {
     state.roomFormsRatings.map((rating) => {
       if (rating.length > 0) {
         newArr.push(1);
-        //The corresponding button which links to the form / with the same ID should now turn grey
       }
     });
 
@@ -129,8 +125,7 @@ const Room = () => {
                 className={determineClass(index)}
                 id={index}
                 user={user}
-                // onClick={() => handleSubmit(index)}   THIS WAS ORIGINAL LINE FROM MYOUNG AND ANDY STILL TO BE WORKED ON. LEFT INCASE NEEDED, BUT CODE AMENDED BELOW
-                onClick={(e) => handleSubmit(e, index)} // trying to use the id of the button that is clicked is used to change the colour of ONLY that button as it has been clicked.
+                onClick={(e) => handleSubmit(e, index)}
               />
             )
           )}
