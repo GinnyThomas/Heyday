@@ -12,7 +12,7 @@ function App() {
   // EXPRESS LINK
   // =====================
   const initState = {},
-    [apiState, setApiState] = useState(setRoomData(defaultID)),
+    [apiState, setApiState] = useState(initState),
     defaultID = 0;
 
   // Sets the current Room Data set to equal that of the passed roomID
