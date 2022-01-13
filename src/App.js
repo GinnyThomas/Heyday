@@ -33,6 +33,15 @@ function App() {
   if (!apiLoaded()) setRoomData(defaultID);
 
   // =====================
+  // QUICK FUNCTIONS
+  // =====================
+
+  const incFriendCount = (inc) =>
+    putRoomData(roomData().roomID, {
+      friendCount: roomData().friendCount + inc,
+    });
+
+  // =====================
   // RENDERING
   // =====================
   const pageLoading = () => {
@@ -45,15 +54,7 @@ function App() {
     return (
       <div className="App">
         <p className="App-intro">Friend count: {friendCount}</p>
-        <button
-          onClick={() =>
-            putRoomData(defaultID, {
-              friendCount: roomData().friendCount + 1,
-            })
-          }
-        >
-          Increase friend count
-        </button>
+        <button onClick={() => incFriendCount(1)}>Increase friend count</button>
         <button
           onClick={() =>
             postRoomData(
