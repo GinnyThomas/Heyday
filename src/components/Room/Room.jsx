@@ -44,7 +44,7 @@ const Room = () => {
     };
 
     // DISABLES LINK TO ROOM IF FORM HAS BEEN SUBMITTED
-    if(determineClass(index) === 'clickDiddyClick'){
+    if(determineClass(index) === 'clickDiddyClick') {
       console.log("Form has been submitted, form is not accessible")
     } else {
       proceedToRoomForm(params);
