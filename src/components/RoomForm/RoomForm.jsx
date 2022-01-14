@@ -38,7 +38,7 @@ const RoomForm = (props) => {
   const navigate = useNavigate();
 
   const returnToRoom = (stateParams) => {
-    navigate("../room", { state: stateParams });
+    navigate(`../room/:${roomData.roomID}`, { state: stateParams });
   }
 
   const clickCancel = () => {
