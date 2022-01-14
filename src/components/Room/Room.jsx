@@ -47,7 +47,7 @@ const Room = () => {
 
     // navigate("../room-form");
     if(determineClass(index) === 'clickDiddyClick'){
-      console.log("Form has been submitted, room is not accessible")
+      console.log("Form has been submitted, form is not accessible")
     } else {
     proceedToRoomForm(params);
     }
