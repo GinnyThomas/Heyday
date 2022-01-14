@@ -1,4 +1,4 @@
-const expressURL = "http://localhost:9000/testAPI";
+const expressURL = "http://localhost:9000";
 
 const getExpressURL = () => expressURL;
 
