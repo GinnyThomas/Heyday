@@ -24,7 +24,6 @@ const Room = () => {
   // GREY BUTTON OUT AFTER ROOMFORM IS SUBMITTED
   const determineClass = (index) => { 
     if (state.roomFormsRatings[index].length > 0) {
-       
       return 'clickDiddyClick'
     } else {
       return 'button'
@@ -47,7 +46,11 @@ const Room = () => {
     };
 
     // navigate("../room-form");
+    if(determineClass(index) === 'clickDiddyClick'){
+      console.log("Form has been submitted, room is not accessible")
+    } else {
     proceedToRoomForm(params);
+    }
   };
 
   const getBeginDate = (start = state.startDate) => {
