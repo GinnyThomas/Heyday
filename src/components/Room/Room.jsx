@@ -3,8 +3,9 @@ import ResponseForm from "./ResponseForm";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 
-const Room = () => {
-  const { state } = useLocation();
+const Room = (props) => {
+  // const { state } = useLocation();
+const state = props.getRoom()
 
   const [buttonStatus, setButtonStatus] = useState(true);
   const [buttonClass, setButtonClass] = useState("");

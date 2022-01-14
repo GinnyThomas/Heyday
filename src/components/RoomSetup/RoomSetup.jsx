@@ -4,7 +4,8 @@ import ReactDOM from "react-dom";
 import { useState } from 'react'
 
 const RoomSetup = (props) => {
-
+  let navigate = useNavigate();
+  
   // ---------------
   // STATE HANDLING
   // ---------------
@@ -34,25 +35,25 @@ const RoomSetup = (props) => {
       roomID: 1,
       startDate: startDate,
       endDate: endDate,
-      friendCount: friendCount,
+      friendCount: intFriendCount,
       friendCurrent: -1,
       roomFormsRatings: ratings,
       }
 
-    props.createRoom({startDate: startDate, endDate: endDate, friendCount: intFriendCount, roomFormsRatings: ratings})
+    props.createRoom({startDate: startDate, endDate: endDate, friendCount: intFriendCount, roomFormsRatings: ratings},navigate)
 
-    console.log(state);
-    proceedToRoom(state)
+    // console.log(state);
+    // proceedToRoom(state)
   }
 
   // ---------------
   // NAV HANDLING
   // ---------------
   
-  let navigate = useNavigate();
+
 
   const proceedToRoom = (stateParams) => {
-    navigate("../room", { state: stateParams });
+    navigate(`../room/${props.getRoomId()}`, { state: stateParams });
   }
 
   return (

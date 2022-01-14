@@ -4,7 +4,7 @@ import RoomSetup from "./components/RoomSetup/RoomSetup";
 import RoomForm from "./components/RoomForm/RoomForm";
 import * as ReactDOM from "react-dom";
 import { useState } from "react";
-import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
+import {Routes, Route, Link, BrowserRouter, useNavigate} from "react-router-dom";
 import expressLink from "./helpers/expressLink.js";
 
 function App() {
@@ -23,8 +23,8 @@ function App() {
     expressLink.putRoomData(roomID, roomState, setApiState);
 
   // Creates a new Room; sets the current Room Data to the new room if true passed
-  const createRoom = (roomState, setAsCurrent = false) =>
-    expressLink.postRoomData(roomState, setApiState, setAsCurrent);
+  const createRoom = (roomState, navigate, setAsCurrent = true) =>
+    expressLink.postRoomData(roomState, setApiState, setAsCurrent, navigate);
 
   const apiLoaded = () => apiState !== initState && apiState.roomData != null;
 
@@ -61,10 +61,11 @@ function App() {
               element={
                 <RoomSetup
                   createRoom={(rState, setCur) => createRoom(rState, setCur)}
+                  getRoomId={() => myRoomID}
                 />
               }
             />
-            <Route path="room" element={<Room />} />
+            <Route path={`room/${myRoomID}`} element={<Room getRoom={() => roomData()} />} />
             <Route path="room-form" element={<RoomForm />} />
           </Routes>
         </BrowserRouter>

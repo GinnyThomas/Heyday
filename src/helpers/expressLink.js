@@ -1,3 +1,4 @@
+const {useNavigate} = require("react-router-dom");
 const expressURL = "http://localhost:9000";
 
 const getExpressURL = () => expressURL;
@@ -39,7 +40,7 @@ const putRoomData = (putRoomID, putRoomState, setState) => {
   updateRoomData(putRoomState, setState);
 };
 
-const postRoomData = (postRoomDa, setState, setAsCurrent) => {
+const postRoomData = (postRoomDa, setState, setAsCurrent, navigate) => {
   fetch(expressURL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -50,6 +51,7 @@ const postRoomData = (postRoomDa, setState, setAsCurrent) => {
       if (setAsCurrent) {
         const roomSpecificData = res[res.length - 1];
         setState({ roomData: roomSpecificData });
+        navigate(`../room/${roomSpecificData.roomID}`);
       }
     });
 };
