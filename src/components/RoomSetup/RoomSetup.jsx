@@ -26,7 +26,7 @@ const RoomSetup = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const ratings = new Array(friendCount).fill([])
+    const ratings = new Array(Number(friendCount)).fill([])
 
     let state = {
       roomID: 1,
@@ -37,7 +37,7 @@ const RoomSetup = () => {
       roomFormsRatings: ratings,
       }
 
-    console.log(state);
+    console.log('RoomSetup.jsx: State: ', state);
     proceedToRoom(state)
   }
 
