@@ -1,3 +1,4 @@
+import "./app.scss";
 import Room from "./components/Room/Room";
 import Landing from "./components/Landing/Landing";
 import RoomSetup from "./components/RoomSetup/RoomSetup";
