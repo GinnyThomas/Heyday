@@ -31,14 +31,14 @@ const RoomSetup = (props) => {
 
     const ratings = new Array(intFriendCount).fill([])
 
-    let state = {
-      roomID: 1,
-      startDate: startDate,
-      endDate: endDate,
-      friendCount: intFriendCount,
-      friendCurrent: -1,
-      roomFormsRatings: ratings,
-      }
+    // let state = {
+    //   roomID: 1,
+    //   startDate: startDate,
+    //   endDate: endDate,
+    //   friendCount: intFriendCount,
+    //   friendCurrent: -1,
+    //   roomFormsRatings: ratings,
+    //   }
 
     props.createRoom({startDate: startDate, endDate: endDate, friendCount: intFriendCount, roomFormsRatings: ratings},navigate)
 

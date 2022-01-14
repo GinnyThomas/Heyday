@@ -10,16 +10,28 @@ import {
   Link,
   BrowserRouter,
   useNavigate,
+  useParams,
 } from "react-router-dom";
 import expressLink from "./helpers/expressLink.js";
 
 function App() {
   // =====================
-  // EXPRESS LINK
+  // EXPRESS API STATE
   // =====================
-  const initState = {},
-    [apiState, setApiState] = useState(initState),
-    defaultID = 0;
+  const initState = {
+      roomData: {
+        roomID: "xxxxxxxxxxx",
+        startDate: "2000-01-01",
+        endDate: "2000-02-01",
+        friendCount: 1,
+        roomFormsRatings: [[]],
+      },
+    },
+    [apiState, setApiState] = useState(initState);
+
+  // =====================
+  // EXPRESS FUNCTIONS
+  // =====================
 
   // Sets the current Room Data set to equal that of the passed roomID
   const setRoom = (roomID) => expressLink.getRoomData(roomID, setApiState);
@@ -28,34 +40,18 @@ function App() {
   const editRoom = (roomID, roomState) =>
     expressLink.putRoomData(roomID, roomState, setApiState);
 
-  // Creates a new Room; sets the current Room Data to the new room if true passed
-  const createRoom = (roomState, navigate, setAsCurrent = true) =>
-    expressLink.postRoomData(roomState, setApiState, setAsCurrent, navigate);
-
-  const apiLoaded = () => apiState !== initState && apiState.roomData != null;
+  // Creates a new Room; goes to the relevant room if goToRoom === true
+  const createRoom = (roomState, navigate, goToRoom = true) =>
+    expressLink.postRoomData(roomState, setApiState, goToRoom, navigate);
 
   const roomData = () => apiState.roomData;
 
   // =====================
-  // QUICK FUNCTIONS
-  // =====================
-
-  const incFriendCount = (inc) =>
-    editRoom(roomData().roomID, {
-      friendCount: roomData().friendCount + inc,
-    });
-
-  // =====================
   // RENDERING
   // =====================
-  const pageLoading = () => {
-    return <div>Loading...</div>;
-  };
 
   const pageContent = () => {
-    console.log(roomData());
     const myRoomID = roomData().roomID;
-    const friendCount = roomData().friendCount;
     return (
       <div className="App">
         <p>{myRoomID}</p>
@@ -82,15 +78,24 @@ function App() {
                 />
               }
             />
-            <Route path="room-form" element={<RoomForm />} />
+            <Route
+              path="room-form/:roomidnum"
+              component={myRoomID}
+              element={
+                <RoomForm
+                  setRoom={(id) => setRoom(id)}
+                  getRoom={() => roomData()}
+                  getRoomId={() => myRoomID}
+                />
+              }
+            />
           </Routes>
         </BrowserRouter>
       </div>
     );
   };
 
-  if (!apiLoaded()) setRoom(defaultID);
-  return apiLoaded() ? pageContent() : pageLoading();
+  return pageContent();
 }
 
 export default App;

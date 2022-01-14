@@ -1,24 +1,37 @@
 import React from "react";
 import "./roomForm.scss";
 import DateBox from "./DateBox";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, useParams} from "react-router-dom";
 import { useState } from "react";
 import day from "../../helpers/day.js";
 
-const RoomForm = () => {
-  const { state } = useLocation();
+const RoomForm = (props) => {
 
+  const urlRoomID = useParams().roomidnum.slice(1)
+  if (props.getRoomId() !== urlRoomID) {
+    console.log("Refreshing")
+    props.setRoom(urlRoomID)
+  }
+
+  const roomData = props.getRoom()
+
+  const { state } = useLocation();
+  
   // ---------------
   // VALUES MANAGER
   // ---------------
 
-  const getDuration = (start = state.startDate, end = state.endDate) => {
+  const getDuration = (start = roomData.startDate, end = roomData.endDate) => {
     const startDigits = start.slice(-2)
     const endDigits = end.slice(-2)
     return Number(endDigits) - Number(startDigits)
   }
 
-  const [datesArr, setDatesArr] = useState(Array.from(Array(getDuration() + 1).fill(0)));
+  console.log(getDuration())
+
+  const datesArrZeros = Array.from(Array(getDuration() + 1).fill(0))
+  
+  const [datesArr, setDatesArr] = useState(datesArrZeros);
 
   const updateBoxVals = (i, val) => {
     const newArr = datesArr
@@ -69,7 +82,9 @@ const RoomForm = () => {
   // ---------------
 
   const renderDateBox = (val, i) => {
-    // console.log("loading date box: "+i)
+    if (datesArr.length !== getDuration() + 1) {
+      setDatesArr(datesArrZeros)
+    }
     return (
       <DateBox key={`dateBox${i}`} index={i} date={state.startDate} onClick={(i, val) => updateBoxVals(i, val)}/>
     )
@@ -88,6 +103,7 @@ const RoomForm = () => {
 
   return (
     <div className="RoomForm">
+      <p>{getDuration()}</p>
       <h1>Calendar {state.friendCurrent + 1}</h1>
       <h3>What days work for you?</h3>
       <p>First date: {day.toCalDate(state.startDate)}
