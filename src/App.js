@@ -16,28 +16,28 @@ function App() {
     defaultID = 0;
 
   // Sets the current Room Data set to equal that of the passed roomID
-  const setRoomData = (roomID) => expressLink.getRoomData(roomID, setApiState);
+  const setRoom = (roomID) => expressLink.getRoomData(roomID, setApiState);
 
   // Edits data in the Room with roomID, implementing roomState into it
-  const putRoomData = (roomID, roomState) =>
+  const editRoom = (roomID, roomState) =>
     expressLink.putRoomData(roomID, roomState, setApiState);
 
   // Creates a new Room; sets the current Room Data to the new room if true passed
-  const postRoomData = (roomState, setAsCurrent) =>
+  const createRoom = (roomState, setAsCurrent = true) =>
     expressLink.postRoomData(roomState, setApiState, setAsCurrent);
 
   const apiLoaded = () => apiState !== initState && apiState.roomData != null;
 
   const roomData = () => apiState.roomData;
 
-  if (!apiLoaded()) setRoomData(defaultID);
+  if (!apiLoaded()) setRoom(defaultID);
 
   // =====================
   // QUICK FUNCTIONS
   // =====================
 
   const incFriendCount = (inc) =>
-    putRoomData(roomData().roomID, {
+    editRoom(roomData().roomID, {
       friendCount: roomData().friendCount + inc,
     });
 
@@ -50,30 +50,22 @@ function App() {
 
   const pageContent = () => {
     console.log(roomData());
+    const myRoomID = roomData().roomID;
     const friendCount = roomData().friendCount;
     return (
       <div className="App">
-        <p className="App-intro">Friend count: {friendCount}</p>
-        <button onClick={() => incFriendCount(1)}>Increase friend count</button>
-        <button
-          onClick={() =>
-            postRoomData(
-              {
-                startDate: 1,
-                endDate: 2,
-                friendCount: 18,
-                roomFormsRatings: [],
-              },
-              false
-            )
-          }
-        >
-          Add Room
-        </button>
+        <p>{myRoomID}</p>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Landing />} />
-            <Route path="setup" element={<RoomSetup />} />
+            <Route
+              path="setup"
+              element={
+                <RoomSetup
+                  createRoom={(rState, setCur) => createRoom(rState, setCur)}
+                />
+              }
+            />
             <Route path="room" element={<Room />} />
             <Route path="room-form" element={<RoomForm />} />
           </Routes>

@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import ReactDOM from "react-dom";
 import { useState } from 'react'
 
-const RoomSetup = () => {
+const RoomSetup = (props) => {
 
   // ---------------
   // STATE HANDLING
@@ -26,7 +26,9 @@ const RoomSetup = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const ratings = new Array(friendCount).fill([])
+    const intFriendCount = Number(friendCount)
+
+    const ratings = new Array(intFriendCount).fill([])
 
     let state = {
       roomID: 1,
@@ -36,6 +38,8 @@ const RoomSetup = () => {
       friendCurrent: -1,
       roomFormsRatings: ratings,
       }
+
+    props.createRoom({startDate: startDate, endDate: endDate, friendCount: intFriendCount, roomFormsRatings: ratings})
 
     console.log(state);
     proceedToRoom(state)
