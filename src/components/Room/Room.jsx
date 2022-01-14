@@ -23,7 +23,7 @@ const Room = () => {
 
   // GREY BUTTON OUT AFTER ROOMFORM IS SUBMITTED
   const determineClass = (index) => { 
-    if (state.roomFormsRatings[index].length > 0) {
+    if (Number(state.roomFormsRatings[index]).length > 0) {
       return 'clickDiddyClick'
     } else {
       return 'button'
@@ -47,7 +47,7 @@ const Room = () => {
     if(determineClass(index) === 'clickDiddyClick'){
       console.log("Form has been submitted, form is not accessible")
     } else {
-    proceedToRoomForm(params);
+      proceedToRoomForm(params);
     }
   };
 
@@ -92,7 +92,6 @@ const Room = () => {
   for (let i = 0; i < ratingsArr.length; i++) {
     total += ratingsArr[i];
   }
-  console.log(total);
 
   const setResult = () => {
     const newArr = [];
@@ -107,12 +106,11 @@ const Room = () => {
     });
 
     if ((total === 0) && (newArr.length == state.friendCount)) {
-      return <h2>No one is available on any date! <br></br>Perhaps try different dates?</h2>
+      return <h2>No one is available on any date! <br></br> Perhaps try different dates?</h2>;
     } else if (newArr.length == state.friendCount) {
-      console.log(newArr.length);
       return calculateRating();
     } else {
-      return <h2>Waiting for results...</h2>
+      return <h2>Waiting for results...</h2>;
     }
   };
 

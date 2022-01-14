@@ -25,5 +25,5 @@ it('renders Room Correctly', () => {
             <Room />
         </MemoryRouter>
     );
-    expect(screen.getByText(/welcome to your room!/i)).toBeInTheDocument();
+    expect(screen.getByText(/Welcome to your room!/i)).toBeInTheDocument();
 })
