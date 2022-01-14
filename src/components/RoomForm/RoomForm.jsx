@@ -18,18 +18,14 @@ const RoomForm = (props) => {
   // VALUES MANAGER
   // ---------------
 
-  const getDuration = (start = roomData.startDate, end = roomData.endDate) => {
-    const startDigits = start.slice(-2)
-    const endDigits = end.slice(-2)
-    return Number(endDigits) - Number(startDigits)
-  }
+  const dayCount = () => day.difference(roomData.startDate, roomData.endDate) + 1
 
-  const datesArrZeros = Array.from(Array(getDuration() + 1).fill(0))
+  const datesArrBase = Array.from(Array(dayCount()).fill(0))
   
-  const [datesArr, setDatesArr] = useState(datesArrZeros);
+  const [datesArr, setDatesArr] = useState(datesArrBase);
 
   const updateBoxVals = (i, val) => {
-    const newArr = datesArr
+    const newArr = datesArr.slice()
     newArr[i] = val
     setDatesArr(newArr)
     console.log("Updated datesArr to "+newArr)
@@ -77,8 +73,8 @@ const RoomForm = (props) => {
   // ---------------
 
   const renderDateBox = (val, i) => {
-    if (datesArr.length !== getDuration() + 1) {
-      setDatesArr(datesArrZeros)
+    if (datesArr.length !== dayCount()) {
+      setDatesArr(datesArrBase)
     }
     return (
       <DateBox key={`dateBox${i}`} index={i} date={roomData.startDate} onClick={(i, val) => updateBoxVals(i, val)}/>

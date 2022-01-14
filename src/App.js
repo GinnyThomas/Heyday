@@ -22,7 +22,7 @@ function App() {
       roomData: {
         roomID: "xxxxxxxxxxx",
         startDate: "2000-01-01",
-        endDate: "2000-02-01",
+        endDate: "2000-01-02",
         friendCount: 1,
         roomFormsRatings: [[]],
       },
