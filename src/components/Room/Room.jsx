@@ -123,7 +123,7 @@ const Room = () => {
           {Array.from(Array(Number(state.friendCount)).keys()).map( 
             (user, index) => (
               <ResponseForm
-                className={determineClass(index)}
+                className={determineClass(index)} 
                 id={index}
                 user={user}
                 onClick={(e) => handleSubmit(e, index)}
