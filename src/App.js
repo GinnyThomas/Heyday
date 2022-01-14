@@ -4,14 +4,7 @@ import RoomSetup from "./components/RoomSetup/RoomSetup";
 import RoomForm from "./components/RoomForm/RoomForm";
 import * as ReactDOM from "react-dom";
 import { useState } from "react";
-import {
-  Routes,
-  Route,
-  Link,
-  BrowserRouter,
-  useNavigate,
-  useParams,
-} from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import expressLink from "./helpers/expressLink.js";
 
 function App() {
@@ -86,6 +79,7 @@ function App() {
                   setRoom={(id) => setRoom(id)}
                   getRoom={() => roomData()}
                   getRoomId={() => myRoomID}
+                  editRoom={(id, state) => editRoom(id, state)}
                 />
               }
             />

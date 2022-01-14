@@ -37,35 +37,22 @@ const RoomForm = (props) => {
 
   const navigate = useNavigate();
 
-  const returnToRoom = (stateParams) => {
-    navigate(`../room/:${roomData.roomID}`, { state: stateParams });
+  const returnToRoom = () => {
+    navigate(`../room/:${roomData.roomID}`);
   }
 
   const clickCancel = () => {
     console.log("Return to room with all parameters unchanged.")
-    returnToRoom({
-      roomID: state.roomID, 
-      startDate: state.startDate, 
-      endDate: state.endDate, 
-      friendCount: state.friendCount, 
-      friendCurrent: state.friendCurrent, 
-      roomFormsRatings: state.roomFormsRatings
-    })
+    returnToRoom()
   }
 
-  const clickSubmit = (ind = state.friendCurrent) => {
-    const newArr = datesArr
+  const clickSubmit = () => {
+    const newArr = datesArr.slice()
     console.log("Return to room, update the roomFormsRatings object to: " + newArr)
-    const newRoomFormsRatings = state.roomFormsRatings
-    newRoomFormsRatings[ind] = newArr
-    returnToRoom({
-      roomID: state.roomID, 
-      startDate: state.startDate, 
-      endDate: state.endDate, 
-      friendCount: state.friendCount, 
-      friendCurrent: state.friendCurrent, 
-      roomFormsRatings: newRoomFormsRatings
-    })
+    const roomArr = roomData.roomFormsRatings.slice()
+    roomArr[state.friendCurrent] = newArr
+    props.editRoom(roomData.roomID, {roomFormsRatings: roomArr})
+    returnToRoom()
   }
 
   // ---------------
