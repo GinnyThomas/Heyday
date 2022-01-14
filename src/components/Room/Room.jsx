@@ -66,7 +66,8 @@ const Room = () => {
           summedDateRanks[index] = num;
         }
       });
-    });
+      return summedDateRanks}
+    );
 
     const max = Math.max(...summedDateRanks);
     const index = summedDateRanks.indexOf(max);
@@ -85,20 +86,33 @@ const Room = () => {
     );
   };
 
+  const ratingsArr = [1, 2, 3];
+  let total = 0;
+
+  for (let i = 0; i < ratingsArr.length; i++) {
+    total += ratingsArr[i];
+  }
+  console.log(total);
+
   const setResult = () => {
     const newArr = [];
-
-    state.roomFormsRatings.map((rating) => {
-      if (rating.length > 0) {
+    let total = 0
+    state.roomFormsRatings.map((ratingsArr) => {
+      if (ratingsArr.length > 0) {
+        for (let i = 0; i < ratingsArr.length; i++) {
+          total += ratingsArr[i];
+        }
         newArr.push(1);
       }
     });
 
-    if (newArr.length == state.friendCount) {
+    if ((total === 0) && (newArr.length == state.friendCount)) {
+      return <h2>No one is available on any date! <br></br>Perhaps try different dates?</h2>
+    } else if (newArr.length == state.friendCount) {
       console.log(newArr.length);
       return calculateRating();
     } else {
-      return <h2>Waiting for results .....</h2>;
+      return <h2>Waiting for results...</h2>
     }
   };
 
