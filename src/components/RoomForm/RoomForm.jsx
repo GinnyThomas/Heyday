@@ -8,15 +8,12 @@ import day from "../../helpers/day.js";
 const RoomForm = (props) => {
 
   const urlRoomID = useParams().roomidnum.slice(1)
-  if (props.getRoomId() !== urlRoomID) {
-    console.log("Refreshing")
-    props.setRoom(urlRoomID)
-  }
+  if (props.getRoomId() !== urlRoomID) props.setRoom(urlRoomID)
 
   const roomData = props.getRoom()
 
   const { state } = useLocation();
-  
+
   // ---------------
   // VALUES MANAGER
   // ---------------
@@ -26,8 +23,6 @@ const RoomForm = (props) => {
     const endDigits = end.slice(-2)
     return Number(endDigits) - Number(startDigits)
   }
-
-  console.log(getDuration())
 
   const datesArrZeros = Array.from(Array(getDuration() + 1).fill(0))
   
@@ -86,7 +81,7 @@ const RoomForm = (props) => {
       setDatesArr(datesArrZeros)
     }
     return (
-      <DateBox key={`dateBox${i}`} index={i} date={state.startDate} onClick={(i, val) => updateBoxVals(i, val)}/>
+      <DateBox key={`dateBox${i}`} index={i} date={roomData.startDate} onClick={(i, val) => updateBoxVals(i, val)}/>
     )
   }
 
@@ -99,15 +94,14 @@ const RoomForm = (props) => {
     )
   }
 
-  console.log("Opening RoomForm with friend: "+state.friendCurrent)
+  // console.log("Opening RoomForm with friend: "+state.friendCurrent)
 
   return (
     <div className="RoomForm">
-      <p>{getDuration()}</p>
       <h1>Calendar {state.friendCurrent + 1}</h1>
       <h3>What days work for you?</h3>
-      <p>First date: {day.toCalDate(state.startDate)}
-        , last date: {day.toCalDate(state.endDate)}</p>
+      <p>First date: {day.toCalDate(roomData.startDate)}
+        , last date: {day.toCalDate(roomData.endDate)}</p>
       <div className="DateButtons">
         {renderDateBoxes()}
       </div>
