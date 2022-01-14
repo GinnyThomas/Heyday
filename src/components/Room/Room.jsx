@@ -6,10 +6,6 @@ import { useState } from "react";
 const Room = (props) => {
   // const { state } = useLocation();
   
-  // let urlRoomID = useParams().roomidnum.slice(1)
-  // console.log("Parameters:")
-  // console.log(urlRoomID)
-  
   let urlRoomID = useParams().roomidnum.slice(1)
   if (props.getRoomId() !== urlRoomID) props.setRoom(urlRoomID)
 
