@@ -23,14 +23,12 @@ function App() {
     expressLink.putRoomData(roomID, roomState, setApiState);
 
   // Creates a new Room; sets the current Room Data to the new room if true passed
-  const createRoom = (roomState, setAsCurrent = true) =>
+  const createRoom = (roomState, setAsCurrent = false) =>
     expressLink.postRoomData(roomState, setApiState, setAsCurrent);
 
   const apiLoaded = () => apiState !== initState && apiState.roomData != null;
 
   const roomData = () => apiState.roomData;
-
-  if (!apiLoaded()) setRoom(defaultID);
 
   // =====================
   // QUICK FUNCTIONS
@@ -74,6 +72,7 @@ function App() {
     );
   };
 
+  if (!apiLoaded()) setRoom(defaultID);
   return apiLoaded() ? pageContent() : pageLoading();
 }
 
