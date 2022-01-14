@@ -30,10 +30,8 @@ const Room = () => {
     }
   }
 
-  // this need to be worked on further
-  const handleSubmit = (e, index) => {           /// consider changing this name, WE're not submitting a form - WE're just entering it?
-    // if (e.target.value === ) {}
-    // console.log(e.target);
+  const handleSubmit = (e, index) => {           
+ 
     setButtonClass("buttonOnClick");
 
     let params = {
@@ -45,7 +43,7 @@ const Room = () => {
       roomFormsRatings: state.roomFormsRatings,
     };
 
-    // navigate("../room-form");
+    // DISABLES LINK TO ROOM IF FORM HAS BEEN SUBMITTED
     if(determineClass(index) === 'clickDiddyClick'){
       console.log("Form has been submitted, form is not accessible")
     } else {
@@ -88,7 +86,6 @@ const Room = () => {
   };
 
   const setResult = () => {
-    // roomFormsRatings: [[], [3, 2, 4], [0, 2, 3], [1, 0, 3]]
     const newArr = [];
 
     state.roomFormsRatings.map((rating) => {
