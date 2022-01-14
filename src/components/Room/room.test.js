@@ -14,7 +14,7 @@ render(
                 "roomID": 1,
                 "startDate": "2022-01-12",
                 "endDate": "2022-01-19",
-                "friendCount": "7",
+                "friendCount": "4",
                 "friendCurrent": -1,
                 "roomFormsRatings": [
                     []
