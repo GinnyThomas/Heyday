@@ -7,12 +7,18 @@ import day from "../../helpers/day.js";
 
 const RoomForm = (props) => {
 
+  const navigate = useNavigate();
+
   const urlRoomID = useParams().roomidnum.slice(1)
   if (props.getRoomId() !== urlRoomID) props.setRoom(urlRoomID)
 
   const roomData = props.getRoom()
 
   const { state } = useLocation();
+
+  const friendInt = () => {
+    return (state === null) ? -1 : state.friendCurrent
+  }
 
   // ---------------
   // VALUES MANAGER
@@ -35,8 +41,6 @@ const RoomForm = (props) => {
   // NAV MANAGER
   // ---------------
 
-  const navigate = useNavigate();
-
   const returnToRoom = () => {
     navigate(`../room/:${roomData.roomID}`);
   }
@@ -50,7 +54,7 @@ const RoomForm = (props) => {
     const newArr = datesArr.slice()
     console.log("Return to room, update the roomFormsRatings object to: " + newArr)
     const roomArr = roomData.roomFormsRatings.slice()
-    roomArr[state.friendCurrent] = newArr
+    roomArr[friendInt()] = newArr
     props.editRoom(roomData.roomID, {roomFormsRatings: roomArr})
     returnToRoom()
   }
@@ -59,10 +63,8 @@ const RoomForm = (props) => {
   // RENDERING
   // ---------------
 
-  const renderDateBox = (val, i) => {
-    if (datesArr.length !== dayCount()) {
-      setDatesArr(datesArrBase)
-    }
+  const renderDateBox = (_v, i) => {
+    if (datesArr.length !== dayCount()) setDatesArr(datesArrBase)
     return (
       <DateBox key={`dateBox${i}`} index={i} date={roomData.startDate} onClick={(i, val) => updateBoxVals(i, val)}/>
     )
@@ -70,28 +72,35 @@ const RoomForm = (props) => {
 
   const renderDateBoxes = () => {
     const mappedArr = datesArr.map((val, i) => renderDateBox(val, i))
+    return <div>{mappedArr}</div>
+  }
+
+  const renderContent = () => {
     return (
-      <div>
-        {mappedArr}
+      <div className="RoomForm">
+        <h1>Calendar {friendInt() + 1}</h1>
+        <h3>What days work for you?</h3>
+        <p>First date: {day.toCalDate(roomData.startDate)}
+          , last date: {day.toCalDate(roomData.endDate)}</p>
+        <div className="DateButtons">
+          {renderDateBoxes()}
+        </div>
+        <button onClick={() => clickSubmit()}>Submit</button>
+        <button onClick={() => clickCancel()}>Cancel</button>
+      </div>
+    );
+  }
+
+  const blockContent = () => {
+    return (
+      <div className="RoomFormError">
+        <p>Content unavailable</p>
+        <button onClick={() => clickCancel()}>Return to room</button>
       </div>
     )
   }
 
-  // console.log("Opening RoomForm with friend: "+state.friendCurrent)
-
-  return (
-    <div className="RoomForm">
-      <h1>Calendar {state.friendCurrent + 1}</h1>
-      <h3>What days work for you?</h3>
-      <p>First date: {day.toCalDate(roomData.startDate)}
-        , last date: {day.toCalDate(roomData.endDate)}</p>
-      <div className="DateButtons">
-        {renderDateBoxes()}
-      </div>
-      <button onClick={() => clickSubmit()}>Submit</button>
-      <button onClick={() => clickCancel()}>Cancel</button>
-    </div>
-  );
+  return friendInt() >= 0 ? renderContent() : blockContent()
 };
 
 export default RoomForm
