@@ -4,7 +4,13 @@ import RoomSetup from "./components/RoomSetup/RoomSetup";
 import RoomForm from "./components/RoomForm/RoomForm";
 import * as ReactDOM from "react-dom";
 import { useState } from "react";
-import {Routes, Route, Link, BrowserRouter, useNavigate} from "react-router-dom";
+import {
+  Routes,
+  Route,
+  Link,
+  BrowserRouter,
+  useNavigate,
+} from "react-router-dom";
 import expressLink from "./helpers/expressLink.js";
 
 function App() {
@@ -65,7 +71,17 @@ function App() {
                 />
               }
             />
-            <Route path={`room/${myRoomID}`} element={<Room getRoom={() => roomData()} />} />
+            <Route
+              path={`room/:roomidnum`}
+              component={myRoomID}
+              element={
+                <Room
+                  setRoom={(id) => setRoom(id)}
+                  getRoom={() => roomData()}
+                  getRoomId={() => myRoomID}
+                />
+              }
+            />
             <Route path="room-form" element={<RoomForm />} />
           </Routes>
         </BrowserRouter>

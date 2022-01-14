@@ -5,7 +5,15 @@ import { useState } from "react";
 
 const Room = (props) => {
   // const { state } = useLocation();
-const state = props.getRoom()
+  
+  // let urlRoomID = useParams().roomidnum.slice(1)
+  // console.log("Parameters:")
+  // console.log(urlRoomID)
+  
+  let urlRoomID = useParams().roomidnum.slice(1)
+  if (props.getRoomId() !== urlRoomID) props.setRoom(urlRoomID)
+
+  const state = props.getRoom()
 
   const [buttonStatus, setButtonStatus] = useState(true);
   const [buttonClass, setButtonClass] = useState("");
