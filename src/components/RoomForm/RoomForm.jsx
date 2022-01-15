@@ -1,6 +1,7 @@
 import React from "react";
 import "./roomForm.scss";
 import DateBox from "./DateBox";
+import DateButton from "./DateButton";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import day from "../../helpers/day.js";
@@ -71,7 +72,7 @@ const RoomForm = () => {
   const renderDateBox = (val, i) => {
     // console.log("loading date box: "+i)
     return (
-      <DateBox key={`dateBox${i}`} index={i} date={state.startDate} onClick={(i, val) => updateBoxVals(i, val)}/>
+      <DateButton key={`dateBox${i}`} index={i} date={state.startDate} onClick={(i, val) => updateBoxVals(i, val)}/>
     )
   }
 

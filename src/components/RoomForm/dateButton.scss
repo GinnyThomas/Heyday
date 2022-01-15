@@ -1,0 +1,56 @@
+.DateBlock {
+  margin: 1%;
+  width: 12%;
+  display: inline-block;
+  text-align: center;
+}
+
+.DateButtonBox {
+  background-color: rgb(197, 197, 197);
+  border-radius: 10px;
+  padding: 2px 0;
+}
+
+.RankingButton {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+}
+
+h4 {
+  padding: 0;
+  margin: 5px;
+}
+
+#gold {
+  background-color: goldenrod;
+}
+
+#silver {
+  background-color: rgb(139, 180, 199);
+}
+
+#bronze {
+  background-color: rgb(136, 83, 40);
+}
+
+#iron {
+  background-color: rgb(129, 129, 129);
+}
+
+input[type="radio"] {
+  appearance: none;
+  margin: 3px;
+  font-size: 18px;
+  width: 1.15em;
+  height: 1.15em;
+  border-radius: 50%;
+}
+
+.checked {
+  border: 0.2em solid rgb(47, 0, 255);
+}
+
+.unchecked {
+  border: 0.1em solid rgb(151, 151, 151);
+}
