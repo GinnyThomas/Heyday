@@ -94,7 +94,7 @@ const RoomForm = (props) => {
   const blockContent = () => {
     return (
       <div className="RoomFormError">
-        <p>Content unavailable</p>
+        <p>Please choose a response form that's not in use.</p>
         <button onClick={() => clickCancel()}>Return to room</button>
       </div>
     )
