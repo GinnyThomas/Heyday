@@ -34,15 +34,7 @@ const dateArr = [
   "Dec",
 ];
 
-const weekArr = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
+const weekArr = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 const datesArr = (date) => {
   const inpDay = formatDate(date.getDate());
@@ -95,18 +87,31 @@ const display = (input, plus = 0) => {
   return `${dateArr[inpMonth]} ${myDate.getDate()}${suffix}`;
 };
 
+const displayCal = (input, plus = 0) => {
+  const myDates = datesArr(toDate(input, plus));
+  return `${myDates[0]}/${myDates[1]}`;
+};
+
 const weekDay = (input, plus = 0) => {
   const myDate = toDate(input, plus);
   return weekArr[myDate.getDay()];
 };
 
+const sinceMonday = (input, plus = 0) => {
+  const inWeekDay = weekDay(input, plus);
+  const dayIndex = weekArr.findIndex((wkday) => wkday === inWeekDay);
+  return dayIndex == 0 ? 6 : dayIndex - 1;
+};
+
 const day = {
-  toInt,
-  toDate,
-  toCalDate,
-  toFormDate,
-  display,
-  weekDay,
+  toInt, // e.g. 1641945600000
+  toDate, // e.g. new Date(1641945600000)
+  toCalDate, // e.g. 12/01/2022
+  toFormDate, // e.g. 2022-01-12
+  display, // e.g. Jan 12th
+  displayCal, // e.g. 12/01
+  weekDay, // e.g. Wed
+  sinceMonday, // e.g. 2
 };
 
 module.exports = day;
