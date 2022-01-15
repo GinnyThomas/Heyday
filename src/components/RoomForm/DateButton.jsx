@@ -10,7 +10,7 @@ const DateButton = (props) => {
 
   return (
     <div className="DateBlock">
-      <h4>Date</h4>
+      <h4>{day.display(props.date)}</h4>
       <div className="DateButtonBox">
         <button className="RankingButton"></button>
       </div>
