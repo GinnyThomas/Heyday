@@ -6,15 +6,29 @@
 }
 
 .DateButtonBox {
-  background-color: rgb(197, 197, 197);
-  border-radius: 10px;
-  padding: 2px 0;
+  background-color: rgba(197, 197, 197, 0);
+  border-radius: 18px;
+  padding: 2px;
+  text-align: center;
 }
 
 .RankingButton {
-  width: 60px;
-  height: 60px;
-  border-radius: 10px;
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 18px;
+  position: relative;
+}
+
+.RankingButtonText {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.weekend {
+  background-color: rgb(54, 54, 54);
 }
 
 h4 {
@@ -22,20 +36,20 @@ h4 {
   margin: 5px;
 }
 
-#gold {
-  background-color: goldenrod;
+.ButtonCol03 {
+  background-color: gold;
 }
 
-#silver {
-  background-color: rgb(139, 180, 199);
+.ButtonCol02 {
+  background-color: rgb(176, 195, 223);
 }
 
-#bronze {
-  background-color: rgb(136, 83, 40);
+.ButtonCol01 {
+  background-color: rgb(205, 127, 50);
 }
 
-#iron {
-  background-color: rgb(129, 129, 129);
+.ButtonCol00 {
+  background-color: rgb(255, 255, 255);
 }
 
 input[type="radio"] {

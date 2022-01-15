@@ -69,18 +69,28 @@ const RoomForm = () => {
   // RENDERING
   // ---------------
 
-  const renderDateBox = (val, i) => {
+  const renderDateBox = (i) => {
     // console.log("loading date box: "+i)
     return (
-      <DateButton key={`dateBox${i}`} index={i} date={state.startDate} onClick={(i, val) => updateBoxVals(i, val)}/>
+      <DateButton key={`dateBox${i}`} index={i} visible={true} date={state.startDate} onClick={(i, val) => updateBoxVals(i, val)}/>
+    )
+  }
+
+  const renderHiddenBox = (i) => {
+    return (
+      <DateButton key={`hiddenBox${i}`} index={i} visible={false} date={state.startDate} onClick={(i, val) => updateBoxVals(i, val)}/>
     )
   }
 
   const renderDateBoxes = () => {
-    const mappedArr = datesArr.map((val, i) => renderDateBox(val, i))
+    let hiddenArr = new Array(day.sinceMonday(state.startDate)).fill(0)
+    if (getDuration() < 7) hiddenArr = []
+    const hiddenBoxes = hiddenArr.map((_val, i) => renderHiddenBox(i))
+    const dateBoxes = datesArr.map((_val, i) => renderDateBox(i))
     return (
       <div>
-        {mappedArr}
+        {hiddenBoxes}
+        {dateBoxes}
       </div>
     )
   }
