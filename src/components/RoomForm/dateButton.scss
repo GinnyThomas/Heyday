@@ -16,6 +16,7 @@
   width: 100%;
   padding-top: 100%;
   border-radius: 18px;
+  border: none;
   position: relative;
 }
 
@@ -28,7 +29,7 @@
 }
 
 .weekend {
-  background-color: rgb(54, 54, 54);
+  // background-color: rgb(54, 54, 54);
 }
 
 h4 {
@@ -53,10 +54,9 @@ h4 {
 }
 
 .hiddenText {
-  visibility: hidden;
+  color: rgb(200, 200, 200);
 }
 
 .hiddenBox {
-  border: none;
-  background-color: rgb(204, 204, 204);
+  background-color: rgb(220, 220, 220);
 }

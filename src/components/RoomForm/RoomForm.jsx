@@ -69,28 +69,31 @@ const RoomForm = () => {
   // RENDERING
   // ---------------
 
-  const renderDateBox = (i) => {
-    // console.log("loading date box: "+i)
-    return (
-      <DateButton key={`dateBox${i}`} index={i} visible={true} date={state.startDate} onClick={(i, val) => updateBoxVals(i, val)}/>
-    )
+  const renderDateBox = (i) => <DateButton key={`dateBox${i}`} index={i} visible={true} date={state.startDate} onClick={(i, val) => updateBoxVals(i, val)}/>
+
+  const renderHiddenBox = (i) => <DateButton key={`hiddenBox${i}`} index={i} visible={false} date={state.startDate}/>
+
+  const beforeDates = () => {
+    const beforeCount = (getDuration() < 7) ? 0 : day.sinceMonday(state.startDate)
+    const hiddenArr = new Array(beforeCount).fill(0)
+    return hiddenArr.map((_val, i) => renderHiddenBox(i - beforeCount))
   }
 
-  const renderHiddenBox = (i) => {
-    return (
-      <DateButton key={`hiddenBox${i}`} index={i} visible={false} date={state.startDate} onClick={(i, val) => updateBoxVals(i, val)}/>
-    )
+  const afterDates = () => {
+    const afterCount = (getDuration() < 7 || day.toDate(state.endDate).getDay() === 0) ? 0 : 6 - day.sinceMonday(state.endDate)
+    const hiddenArr = new Array(afterCount).fill(0)
+    return hiddenArr.map((_val, i) => renderHiddenBox(i + getDuration() + 1))
   }
 
   const renderDateBoxes = () => {
-    let hiddenArr = new Array(day.sinceMonday(state.startDate)).fill(0)
-    if (getDuration() < 7) hiddenArr = []
-    const hiddenBoxes = hiddenArr.map((_val, i) => renderHiddenBox(i))
+    const beforeDateBoxes = beforeDates()
+    const afterDateBoxes = afterDates()
     const dateBoxes = datesArr.map((_val, i) => renderDateBox(i))
     return (
       <div>
-        {hiddenBoxes}
+        {beforeDateBoxes}
         {dateBoxes}
+        {afterDateBoxes}
       </div>
     )
   }
