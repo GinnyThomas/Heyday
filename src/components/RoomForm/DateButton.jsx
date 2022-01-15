@@ -29,13 +29,20 @@ const DateButton = (props) => {
       <h4>{day.displayCal(myDay)}</h4>
       <div className={`DateButtonBox ${workOrWeekend()}`}>
         <button className={`RankingButton ButtonCol0${value}`} onClick={() => handleClick()}>
-          <span className="RankingButtonText">{day.weekDay(myDay).slice(0,1)}</span>
+          <span className="RankingButtonText">{day.weekDay(myDay)}</span>
         </button>
       </div>
     </div>
   );
 
-  const hiddenContent = () => <div className="DateBlock"></div>
+  const hiddenContent = () => (
+    <div className="DateBlock">
+      <h4 className="hiddenText">{day.displayCal(myDay)}</h4>
+      <div className={`DateButtonBox`}>
+        <button className={`RankingButton hiddenBox`}></button>
+      </div>
+    </div>
+  );
 
   return props.visible ? visibleContent() : hiddenContent()
 }

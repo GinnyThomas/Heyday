@@ -33,7 +33,7 @@
 
 h4 {
   padding: 0;
-  margin: 5px;
+  margin: 5px 0 2px;
 }
 
 .ButtonCol03 {
@@ -52,19 +52,11 @@ h4 {
   background-color: rgb(255, 255, 255);
 }
 
-input[type="radio"] {
-  appearance: none;
-  margin: 3px;
-  font-size: 18px;
-  width: 1.15em;
-  height: 1.15em;
-  border-radius: 50%;
+.hiddenText {
+  visibility: hidden;
 }
 
-.checked {
-  border: 0.2em solid rgb(47, 0, 255);
-}
-
-.unchecked {
-  border: 0.1em solid rgb(151, 151, 151);
+.hiddenBox {
+  border: none;
+  background-color: rgb(204, 204, 204);
 }
