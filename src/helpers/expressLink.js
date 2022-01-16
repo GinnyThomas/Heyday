@@ -61,8 +61,7 @@ const resetRoomData = (setState) => {
   })
     .then((res) => res.json())
     .then((res) => {
-      const roomSpecificData = res[0];
-      setState({ roomData: roomSpecificData });
+      setState({ roomData: res[0] });
     });
 };
 

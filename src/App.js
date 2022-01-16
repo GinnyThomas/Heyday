@@ -48,7 +48,7 @@ function App() {
     return (
       <div className="App">
         <p>
-          <span>{myRoomID} </span>
+          <span>{myRoomID} - </span>
           <button onClick={() => expressLink.resetRoomData(setApiState)}>
             Reset Database
           </button>
