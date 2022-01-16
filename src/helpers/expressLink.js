@@ -1,4 +1,3 @@
-const { useNavigate } = require("react-router-dom");
 const expressURL = "http://localhost:9000";
 
 const getExpressURL = () => expressURL;
@@ -16,7 +15,7 @@ const updateRoomData = (putRoomDa, setState) => {
     .then((res) => res.json())
     .then((res) => {
       const roomSpecificData = res.find(
-        (room) => room.roomID == putRoomDa.roomID
+        (room) => room.roomID === putRoomDa.roomID
       );
       setState({ roomData: roomSpecificData });
     });
@@ -30,7 +29,7 @@ const getRoomData = (getRoomID, setState) => {
   fetch(expressURL)
     .then((res) => res.json())
     .then((res) => {
-      const roomSpecificData = res.find((room) => room.roomID == getRoomID);
+      const roomSpecificData = res.find((room) => room.roomID === getRoomID);
       setState({ roomData: roomSpecificData });
     });
 };
@@ -56,11 +55,23 @@ const postRoomData = (postRoomDa, setState, setAsCurrent, navigate) => {
     });
 };
 
+const resetRoomData = (setState) => {
+  fetch(expressURL, {
+    method: "DELETE",
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      const roomSpecificData = res[0];
+      setState({ roomData: roomSpecificData });
+    });
+};
+
 const expressLink = {
   getExpressURL,
   getRoomData,
   putRoomData,
   postRoomData,
+  resetRoomData,
 };
 
 module.exports = expressLink;
