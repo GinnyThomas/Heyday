@@ -125,13 +125,13 @@ const Room = () => {
         </div>
         <h1>Welcome to your Room!</h1>
         <div className="dataContainer">
-          <h3>When are you available for a meetup between</h3>
+          <h3>When are you available for a meetup between:</h3>
           <p>
             {state.startDate} - {state.endDate}
           </p>
         </div>
         <div className="responseFormContainer">
-          <h3>Choose a response to fill out:</h3>
+          <h3>Please complete one of the available Response Forms below.</h3>
           <div className="container">
             {Array.from(Array(Number(state.friendCount)).keys()).map(
               (user, index) => (
@@ -144,6 +144,10 @@ const Room = () => {
               )
             )}
           </div>
+          <p>
+            You won't be able to access forms that are being used or have
+            already been completed by someone in your group.
+          </p>
         </div>
         <div className="resultContainer">{setResult()}</div>
       </div>

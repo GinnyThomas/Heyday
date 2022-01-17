@@ -53,10 +53,14 @@ const RoomSetup = () => {
 
   return (
     <div className="roomsetup">
-      <div className="backgroundContainer">
-        <img src="assets/ResponseForm/Rectangle1.png" alt="background wave" />
-        {/* <img src="assets/ResponseForm/Rectangle1.png" alt="background wave" />
-        <img src="assets/ResponseForm/Rectangle1.png" alt="background wave" /> */}
+      <div className="wave1Container">
+        <img src="assets/RoomSetup/wave1.png" alt="background wave" />
+      </div>
+      <div className="wave2Container">
+        <img src="assets/RoomSetup/wave2.png" alt="background wave" />
+      </div>
+      <div className="wave3Container">
+        <img src="assets/RoomSetup/wave3.png" alt="background wave" />
       </div>
       <div
         className="homebtnContainer"

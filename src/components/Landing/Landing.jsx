@@ -7,8 +7,11 @@ const Landing = () => {
 
   return (
     <div className="landing">
-      <div className="backgroundContainer">
+      <div className="rec1Container">
         <img src="assets/LandingPage/Rectangle1.png" alt="background wave" />
+      </div>
+      <div className="rec2Container">
+        <img src="assets/LandingPage/Rectangle2.png" alt="background wave" />
       </div>
       <div className="hambtnContainer">
         <img src="assets/Hamburger_menu.png" alt="Home Button" />
@@ -26,7 +29,7 @@ const Landing = () => {
           <span>meet up.</span>
         </h2>
         <p className="landingText">
-          Press start to get going with your meet up
+          Press button below to get started with your meet up.
         </p>
       </div>
       <button

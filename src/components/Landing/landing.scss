@@ -1,5 +1,4 @@
 .landing {
-  background-color: antiquewhite;
   height: 100vh;
   width: 100%;
   display: flex;
@@ -7,9 +6,24 @@
   font-family: Roboto;
   font-style: normal;
 
-  .backgroundContainer {
+  .rec1Container {
+    overflow: visible;
     position: absolute;
-    width: 100%;
+    width: 3391px;
+    height: 968px;
+    left: -1400px;
+    z-index: 0;
+    img {
+      height: 100%;
+    }
+  }
+
+  .rec2Container {
+    overflow: hidden;
+    position: absolute;
+    width: 3391px;
+    height: 968px;
+    left: -1239px;
     z-index: 0;
     img {
       height: 100%;
