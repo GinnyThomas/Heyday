@@ -1,0 +1,62 @@
+.DateBlock {
+  margin: 1%;
+  width: 12%;
+  display: inline-block;
+  text-align: center;
+}
+
+.DateButtonBox {
+  background-color: rgba(197, 197, 197, 0);
+  border-radius: 18px;
+  padding: 2px;
+  text-align: center;
+}
+
+.RankingButton {
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 18px;
+  border: none;
+  position: relative;
+}
+
+.RankingButtonText {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.weekend {
+  // background-color: rgb(54, 54, 54);
+}
+
+h4 {
+  padding: 0;
+  margin: 5px 0 2px;
+}
+
+.ButtonCol03 {
+  background-color: gold;
+}
+
+.ButtonCol02 {
+  background-color: rgb(176, 195, 223);
+}
+
+.ButtonCol01 {
+  background-color: rgb(205, 127, 50);
+}
+
+.ButtonCol00 {
+  background-color: rgb(255, 255, 255);
+}
+
+.hiddenText {
+  color: rgb(200, 200, 200);
+}
+
+.hiddenBox {
+  background-color: rgb(220, 220, 220);
+}

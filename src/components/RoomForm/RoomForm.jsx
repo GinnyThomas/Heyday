@@ -1,7 +1,8 @@
 import React from "react";
 import "./roomForm.scss";
 import DateBox from "./DateBox";
-import { useNavigate, useLocation, useParams} from "react-router-dom";
+import DateButton from "./DateButton";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { useState } from "react";
 import day from "../../helpers/day.js";
 
@@ -63,17 +64,31 @@ const RoomForm = (props) => {
   // RENDERING
   // ---------------
 
-  const renderDateBox = (_v, i) => {
-    if (datesArr.length !== dayCount()) setDatesArr(datesArrBase)
-    return (
-      <DateBox key={`dateBox${i}`} index={i} date={roomData.startDate} onClick={(i, val) => updateBoxVals(i, val)}/>
-    )
+  const renderDateBox = (i) => <DateButton key={`dateBox${i}`} index={i} visible={true} date={state.startDate} onClick={(i, val) => updateBoxVals(i, val)}/>
+
+  const renderHiddenBox = (i) => <DateButton key={`hiddenBox${i}`} index={i} visible={false} date={state.startDate}/>
+
+  const beforeDates = () => {
+    const beforeCount = (getDuration() < 7) ? 0 : day.sinceMonday(state.startDate)
+    const hiddenArr = new Array(beforeCount).fill(0)
+    return hiddenArr.map((_val, i) => renderHiddenBox(i - beforeCount))
+  }
+
+  const afterDates = () => {
+    const afterCount = (getDuration() < 7 || day.toDate(state.endDate).getDay() === 0) ? 0 : 6 - day.sinceMonday(state.endDate)
+    const hiddenArr = new Array(afterCount).fill(0)
+    return hiddenArr.map((_val, i) => renderHiddenBox(i + getDuration() + 1))
   }
 
   const renderDateBoxes = () => {
-    const mappedArr = datesArr.map((val, i) => renderDateBox(val, i))
-    return <div>{mappedArr}</div>
-  }
+    const beforeDateBoxes = beforeDates()
+    const afterDateBoxes = afterDates()
+    const dateBoxes = datesArr.map((_val, i) => renderDateBox(i))
+    return (
+      <div>
+        {beforeDateBoxes}
+        {dateBoxes}
+        {afterDateBoxes}
 
   const renderContent = () => {
     return (
