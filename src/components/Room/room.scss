@@ -1,12 +1,51 @@
 .room {
+  background-color: antiquewhite;
   height: 100vh;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  position: relative;
   align-items: center;
-  background-color: #d9d2e9ff;
+  flex-direction: column;
+  font-family: Roboto;
+  font-style: normal;
+
+  .homebtnContainer {
+    position: absolute;
+    top: 55px;
+    left: 50px;
+    z-index: 1;
+    transition: 0.25s;
+    cursor: pointer;
+    img {
+      height: 100%;
+    }
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  .hambtnContainer {
+    position: absolute;
+    top: 55px;
+    right: 50px;
+    z-index: 1;
+    transition: 0.25s;
+    cursor: pointer;
+    img {
+      width: 75px;
+      height: 75px;
+    }
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
 
   h1 {
-    font-size: 50px;
+    color: #253757;
+    font-weight: bold;
+    font-size: 60px;
+    margin: 55px 0 0;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   .dataContainer {
@@ -35,11 +74,8 @@
     margin-top: 40px;
   }
 
-.clickDiddyClick{
-  background-color: grey;
-  border-radius: 10px;
+  .clickDiddyClick {
+    background-color: grey;
+    border-radius: 10px;
+  }
 }
-
-}
-
-

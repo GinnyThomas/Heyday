@@ -4,7 +4,6 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 
 const Room = () => {
-
   const { state } = useLocation();
 
   const [buttonStatus, setButtonStatus] = useState(true);
@@ -20,18 +19,16 @@ const Room = () => {
     navigate("../room-form", { state: stateParams });
   };
 
-
   // GREY BUTTON OUT AFTER ROOMFORM IS SUBMITTED
-  const determineClass = (index) => { 
+  const determineClass = (index) => {
     if (state.roomFormsRatings[index].length > 0) {
-      return 'clickDiddyClick'
+      return "clickDiddyClick";
     } else {
-      return 'button'
+      return "button";
     }
-  }
+  };
 
-  const handleSubmit = (e, index) => {           
- 
+  const handleSubmit = (e, index) => {
     setButtonClass("buttonOnClick");
 
     let params = {
@@ -44,10 +41,10 @@ const Room = () => {
     };
 
     // DISABLES LINK TO ROOM IF FORM HAS BEEN SUBMITTED
-    if(determineClass(index) === 'clickDiddyClick'){
-      console.log("Form has been submitted, form is not accessible")
+    if (determineClass(index) === "clickDiddyClick") {
+      console.log("Form has been submitted, form is not accessible");
     } else {
-    proceedToRoomForm(params);
+      proceedToRoomForm(params);
     }
   };
 
@@ -102,14 +99,26 @@ const Room = () => {
     }
   };
 
-  console.log('Room.jsx state: ', state);
+  console.log("Room.jsx state: ", state);
 
   console.log(
     `Friend count: ${state.friendCount}, array: [${state.roomFormsRatings}]`
   );
-  
+
   return (
     <div className="room">
+      <div
+        className="homebtnContainer"
+        onClick={() => {
+          navigate("../");
+        }}
+      >
+        <img src="assets/Home.png" alt="Home Button" />
+      </div>
+      <div className="hambtnContainer">
+        <img src="assets/Hamburger_menu.png" alt="Home Button" />
+      </div>
+      
       <h1>Welcome to your Room!</h1>
       <div className="dataContainer">
         <h3>You'll be meeting up between:</h3>
@@ -120,7 +129,7 @@ const Room = () => {
       <div className="responseFormContainer">
         <h3>Choose a response to fill out:</h3>
         <div className="container">
-          {Array.from(Array(Number(state.friendCount)).keys()).map( 
+          {Array.from(Array(Number(state.friendCount)).keys()).map(
             (user, index) => (
               <ResponseForm
                 className={determineClass(index)}
@@ -129,12 +138,11 @@ const Room = () => {
                 onClick={(e) => handleSubmit(e, index)}
               />
             )
-          )} 
+          )}
         </div>
       </div>
       <div className="resultContainer">{setResult()}</div>
     </div>
-    
   );
 };
 
