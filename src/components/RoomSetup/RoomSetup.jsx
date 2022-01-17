@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react";
+import "./roomSetup.scss";
 import { useParams, useNavigate } from "react-router-dom";
 import ReactDOM from "react-dom";
-import { useState } from 'react'
+import { useState } from "react";
 
 const RoomSetup = () => {
-
   // ---------------
   // STATE HANDLING
   // ---------------
@@ -14,19 +14,19 @@ const RoomSetup = () => {
   const [friendCount, setFriendCount] = useState(3);
 
   const handleStartDate = (event) => {
-    setStartDate(event.target.value)
-  }
+    setStartDate(event.target.value);
+  };
   const handleEndDate = (event) => {
-    setEndDate(event.target.value)
-  }
+    setEndDate(event.target.value);
+  };
   const handleFriendCount = (event) => {
-    setFriendCount(event.target.value)
-  }
+    setFriendCount(event.target.value);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const ratings = new Array(Number(friendCount)).fill([])
+    const ratings = new Array(Number(friendCount)).fill([]);
 
     let state = {
       roomID: 1,
@@ -35,61 +35,65 @@ const RoomSetup = () => {
       friendCount: friendCount,
       friendCurrent: -1,
       roomFormsRatings: ratings,
-      }
+    };
 
-    console.log('RoomSetup.jsx: State: ', state);
-    proceedToRoom(state)
-  }
+    console.log("RoomSetup.jsx: State: ", state);
+    proceedToRoom(state);
+  };
 
   // ---------------
   // NAV HANDLING
   // ---------------
-  
+
   let navigate = useNavigate();
 
   const proceedToRoom = (stateParams) => {
     navigate("../room", { state: stateParams });
-  }
+  };
 
   return (
     <div className="roomsetup">
       <div className="roomsetup_form">
         <form onSubmit={handleSubmit}>
-          <label>Start Date
-            <input 
-              type='date' 
-              placeholder='dd/mm/yyyy'
+          <label>
+            Start Date
+            <input
+              type="date"
+              placeholder="dd/mm/yyyy"
               name="startDate"
               value={startDate}
               onChange={handleStartDate}
             ></input>
           </label>
-          <label>End Date
-            <input 
-              type='date' 
-              placeholder='dd/mm/yyyy'
+          <label>
+            End Date
+            <input
+              type="date"
+              placeholder="dd/mm/yyyy"
               name="endDate"
               value={endDate}
-              onChange={handleEndDate}>
-            </input>
+              onChange={handleEndDate}
+            ></input>
           </label>
-          <label>Number of Attendees
+          <label>
+            Number of Attendees
             <input
-              type='number'
+              type="number"
               name="friendCount"
               value={friendCount}
-              onChange={handleFriendCount}>  
-            </input>
+              onChange={handleFriendCount}
+            ></input>
           </label>
-          <button type='submit' 
-          // onClick={() => { navigate("../room");}}
+          <button
+            type="submit"
+            // onClick={() => { navigate("../room");}}
           >
             Submit Preferences
           </button>
-        </form>   
+        </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RoomSetup
+export default RoomSetup;
