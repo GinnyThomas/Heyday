@@ -1,7 +1,7 @@
 const testData = [
-  [0, 1, 0, 0, 3, 2],
-  [0, 0, 1, 0, 0, 0],
-  [0, 1, 2, 1, 1, 2],
+  [0, 1, 0, 0, 2, 2],
+  [0, 0, 1, 0, 2, 0],
+  [0, 1, 2, 1, 2, 2],
 ];
 
 const isReady = (formsArr) => {
@@ -57,7 +57,20 @@ const bestDays = (formsArr) => {
   aScores.forEach((score, i) => {
     if (score === highScore) myBestDays.push(i);
   });
-  return (highScore === 0) ? [-1] : myBestDays 
+  return highScore === 0 ? [-1] : myBestDays;
+};
+
+// =====================
+// EXTRAS
+// =====================
+
+const sumArr = (arr) => arr.reduce((pre, pos) => pre + pos);
+
+const getMedalCount = (formsArr, dayIndex, medalNumber) => {
+  const medals = formsArr.map((form) =>
+    form[dayIndex] === medalNumber ? 1 : 0
+  );
+  return sumArr(medals);
 };
 
 // =====================
@@ -69,6 +82,22 @@ const getBestDay = (formsArr) => {
   return bestDaysArr[0];
 };
 
+const medalCounts = (formsArr, bestDay) => {
+  return [
+    getMedalCount(formsArr, bestDay, 3),
+    getMedalCount(formsArr, bestDay, 2),
+    getMedalCount(formsArr, bestDay, 1),
+  ];
+};
+
+const finalResult = {
+  getBestDay,
+  isReady,
+  medalCounts,
+};
+
+module.exports = finalResult;
+
 // What days are everyone free? DONE
 // Of those days, which are the best?
 // Of the best, which are the soonest?
@@ -78,11 +107,5 @@ const getBestDay = (formsArr) => {
 // console.log(availableDays(testData)); // expect: [1, 4]
 // console.log(dayScore(testData, 2)); // 4
 // console.log(dayScores(testData)); // [0, 4, 3, 1, 5]
-console.log(getBestDay(testData)); // [4, 5]
-
-const finalResult = {
-    getBestDay,
-    isReady
-  };
-  
-  module.exports = finalResult;
+// console.log(getBestDay(testData)); // [4, 5]
+console.log(medalCounts(testData, 4)); // 1
