@@ -15,9 +15,13 @@
     top: 55px;
     left: 50px;
     z-index: 1;
+    transition: 0.25s;
     cursor: pointer;
     img {
       height: 100%;
+    }
+    &:hover {
+      transform: translateY(-5px);
     }
   }
 
@@ -26,10 +30,14 @@
     top: 55px;
     right: 50px;
     z-index: 1;
+    transition: 0.25s;
     cursor: pointer;
     img {
       width: 75px;
       height: 75px;
+    }
+    &:hover {
+      transform: translateY(-5px);
     }
   }
 
@@ -47,32 +55,113 @@
     font-weight: bold;
     font-size: 60px;
     margin: 55px 0 0;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   .roomsetup_form {
-    display: flex;
+    margin: 200px auto 0;
     z-index: 1;
-    .dateTextContainer {
+
+    .formContainer {
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      margin: 0 auto 20px;
     }
-    input {
-      width: 250px;
-      height: 50px;
-      background: #ffffff;
-      border: 3px solid #e25050;
-      box-sizing: border-box;
-      border-radius: 8px;
-      color: #19181a;
-      font-family: Roboto;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 18px;
-      line-height: 24px;
-      padding: 0 0 0 15px;
+
+    .dateContainer {
+      display: flex;
+      flex-direction: column;
+
+      .inputContainer {
+        display: flex;
+        flex-direction: row;
+        input {
+          width: 250px;
+          height: 50px;
+          background: #ffffff;
+          border: 3px solid #e25050;
+          box-sizing: border-box;
+          border-radius: 8px;
+          color: #19181a;
+          font-family: Roboto;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 18px;
+          line-height: 24px;
+          padding: 0 0 0 15px;
+          margin-top: 10px;
+          outline: none;
+        }
+
+        .endInput {
+          margin: 0 0 0 30px;
+          margin-top: 10px;
+        }
+      }
+
+      .textContainer {
+        width: 540px;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        h2 {
+          font-size: 25px;
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+        p {
+          font-size: 18px;
+          margin-bottom: 10px;
+        }
+      }
     }
+    .groupContainer {
+      display: flex;
+      flex-direction: column;
+      margin-left: 25px;
+      .inputContainer {
+        display: flex;
+        flex-direction: row;
+
+        input {
+          width: 250px;
+          height: 50px;
+          background: #ffffff;
+          border: 3px solid #e25050;
+          box-sizing: border-box;
+          border-radius: 8px;
+          color: #19181a;
+          font-family: Roboto;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 18px;
+          line-height: 24px;
+          padding: 0 0 0 15px;
+          margin-top: 10px;
+          outline: none;
+        }
+      }
+
+      .textContainer {
+        width: 260px;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        h2 {
+          font-size: 25px;
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+        p {
+          width: 250px;
+          font-size: 18px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+
     button {
       display: flex;
       align-items: center;
       justify-content: center;
+      float: right;
       width: 250px;
       height: 50px;
       background: #e25050;
@@ -84,6 +173,7 @@
       line-height: 37px;
       color: #ffffff;
       transition: 0.25s;
+      margin-right: 10px;
       cursor: pointer;
       z-index: 1;
       &:hover {
