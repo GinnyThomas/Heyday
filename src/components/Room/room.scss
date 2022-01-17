@@ -9,6 +9,21 @@
   font-family: Roboto;
   font-style: normal;
 
+  .downarrContainer {
+    position: absolute;
+    bottom: 55px;
+    left: calc(50% - 47.5px);
+    z-index: 1;
+    transition: 0.25s;
+    cursor: pointer;
+    img {
+      height: 100%;
+    }
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
   .homebtnContainer {
     position: absolute;
     top: 55px;

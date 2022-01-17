@@ -21,12 +21,12 @@ const Landing = () => {
           Welcome to <span>Anonymeet</span>
         </h1>
         <h2 className="landingCatchPhrase">
-          Organise meetings with <br />
-          complete <br />
-          <span>anonymity</span>
+          Find the most convenient day for <br />
+          everyone in your group to <br />
+          <span>meet up.</span>
         </h2>
         <p className="landingText">
-          Find the most convenient day for everyone in your group to meet up.
+          Press start to get going with your meet up
         </p>
       </div>
       <button

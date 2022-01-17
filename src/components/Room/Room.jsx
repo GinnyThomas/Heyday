@@ -1,5 +1,6 @@
 import "./room.scss";
 import ResponseForm from "./ResponseForm";
+import Results from "./Results";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 
@@ -106,43 +107,48 @@ const Room = () => {
   );
 
   return (
-    <div className="room">
-      <div
-        className="homebtnContainer"
-        onClick={() => {
-          navigate("../");
-        }}
-      >
-        <img src="assets/Home.png" alt="Home Button" />
-      </div>
-      <div className="hambtnContainer">
-        <img src="assets/Hamburger_menu.png" alt="Home Button" />
-      </div>
-      
-      <h1>Welcome to your Room!</h1>
-      <div className="dataContainer">
-        <h3>You'll be meeting up between:</h3>
-        <p>
-          {state.startDate} - {state.endDate}
-        </p>
-      </div>
-      <div className="responseFormContainer">
-        <h3>Choose a response to fill out:</h3>
-        <div className="container">
-          {Array.from(Array(Number(state.friendCount)).keys()).map(
-            (user, index) => (
-              <ResponseForm
-                className={determineClass(index)}
-                id={index}
-                user={user}
-                onClick={(e) => handleSubmit(e, index)}
-              />
-            )
-          )}
+    <>
+      <div className="room">
+        <div
+          className="homebtnContainer"
+          onClick={() => {
+            navigate("../");
+          }}
+        >
+          <img src="assets/Home.png" alt="Home Button" />
         </div>
+        <div className="hambtnContainer">
+          <img src="assets/Hamburger_menu.png" alt="Home Button" />
+        </div>
+        <div className="downarrContainer">
+          <img src="assets/Expand_down_double.png" alt="Home Button" />
+        </div>
+        <h1>Welcome to your Room!</h1>
+        <div className="dataContainer">
+          <h3>When are you available for a meetup between</h3>
+          <p>
+            {state.startDate} - {state.endDate}
+          </p>
+        </div>
+        <div className="responseFormContainer">
+          <h3>Choose a response to fill out:</h3>
+          <div className="container">
+            {Array.from(Array(Number(state.friendCount)).keys()).map(
+              (user, index) => (
+                <ResponseForm
+                  className={determineClass(index)}
+                  id={index}
+                  user={user}
+                  onClick={(e) => handleSubmit(e, index)}
+                />
+              )
+            )}
+          </div>
+        </div>
+        <div className="resultContainer">{setResult()}</div>
       </div>
-      <div className="resultContainer">{setResult()}</div>
-    </div>
+      <Results />
+    </>
   );
 };
 
