@@ -6,6 +6,7 @@
   flex-direction: column;
   font-family: Roboto;
   font-style: normal;
+
   .backgroundContainer {
     position: absolute;
     width: 100%;
@@ -14,6 +15,19 @@
       height: 100%;
     }
   }
+
+  .hambtnContainer {
+    position: absolute;
+    top: 55px;
+    right: 50px;
+    z-index: 2;
+    cursor: pointer;
+    img {
+      width: 75px;
+      height: 75px;
+    }
+  }
+
   .calImgContainer {
     position: absolute;
     top: 165px;

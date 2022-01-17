@@ -10,6 +10,9 @@ const Landing = () => {
       <div className="backgroundContainer">
         <img src="assets/LandingPage/Rectangle1.png" alt="background wave" />
       </div>
+      <div className="hambtnContainer">
+        <img src="assets/Hamburger_menu.png" alt="Home Button" />
+      </div>
       <div className="calImgContainer">
         <img src="assets/LandingPage/Other16.png" alt="Image of calendar" />
       </div>
