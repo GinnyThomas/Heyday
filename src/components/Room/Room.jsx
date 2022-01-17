@@ -3,6 +3,7 @@ import ResponseForm from "./ResponseForm";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import finalResult from "../../helpers/calculation.js"
+import day from "../../helpers/day.js";
 
 const Room = (props) => {
   // -------------------
@@ -59,75 +60,22 @@ const Room = (props) => {
     }
   };
 
-  const getBeginDate = (start = state.startDate) => {
-    const startDigits = start.slice(-2);
-    return Number(startDigits);
-  };
-
-  const calculateRating = () => {
-    let summedDateRanks = [];
-    state.roomFormsRatings.forEach((sub) => {
-      sub.forEach((num, index) => {
-        if (summedDateRanks[index]) {
-          summedDateRanks[index] += num;
-        } else {
-          summedDateRanks[index] = num;
-        }
-      });
-      return summedDateRanks}
-    );
-
-    const max = Math.max(...summedDateRanks);
-    const index = summedDateRanks.indexOf(max);
-
-    const dateFirstPart = "2022-01-";
-    const dateSecondPart = getBeginDate() + index;
-
-    const bestDate = dateFirstPart + dateSecondPart;
-
-    return (
-      <>
-        <h2>SUCCESS!</h2>
-        <p>The best day for everyone:</p>
-        <p className="result">{bestDate}</p>
-      </>
-    );
-  };
-
-  const ratingsArr = [1, 2, 3];
-  let total = 0;
-
-  for (let i = 0; i < ratingsArr.length; i++) {
-    total += ratingsArr[i];
-  }
+  // const getBeginDate = (start = state.startDate) => {
+  //   const startDigits = start.slice(-2);
+  //   return Number(startDigits);
+  // };
 
   const setResult = () => {
-    // const newArr = [];
-    // let total = 0
-    // state.roomFormsRatings.map((ratingsArr) => {
-    //   if (ratingsArr.length > 0) {
-    //     for (let i = 0; i < ratingsArr.length; i++) {
-    //       total += ratingsArr[i];
-    //     }
-    //     newArr.push(1);
-    //   }
-    // });
-
-    // if ((total === 0) && (newArr.length == state.friendCount)) {
-    //   return <h2>No one is available on any date! <br></br> Perhaps try different dates?</h2>;
-    // } else if (newArr.length == state.friendCount) {
-    //   return calculateRating();
-    // } else {
-    //   return <h2>Waiting for results...</h2>;
-    // }
-    if(!finalResult.isReady()){
-      return <h2>Waiting for results...</h2>;
-    } else {
-      const bestDay = finalResult.getBestDay
-      if(bestDay < 0) return <h2>No one is available on any date! <br></br> Perhaps try different dates?</h2>;
-      return calculateRating();
-    } 
-
+    if(!finalResult.isReady(state.roomFormsRatings)) return <h2>Waiting for results...</h2>;
+    const bestDay = finalResult.getBestDay(state.roomFormsRatings)
+    if(bestDay < 0) return <h2>No one is available on any date! <br></br> Perhaps try different dates?</h2>;
+    return (
+      <div>
+        <h2>SUCCESS!</h2>
+        <p>The best day for everyone:</p>
+        <p className="result">{day.toCalDate(state.startDate, bestDay)}</p>
+      </div>
+    );
   };
 
   console.log('Room.jsx state: ', state);
