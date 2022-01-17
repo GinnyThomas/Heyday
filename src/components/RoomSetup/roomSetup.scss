@@ -1,9 +1,94 @@
 .roomsetup {
   background-color: antiquewhite;
+  color: #e25050;
   height: 100vh;
   width: 100%;
   display: flex;
+  position: relative;
+  align-items: center;
   flex-direction: column;
   font-family: Roboto;
   font-style: normal;
+
+  .homebtnContainer {
+    position: absolute;
+    top: 55px;
+    left: 50px;
+    z-index: 1;
+    cursor: pointer;
+    img {
+      height: 100%;
+    }
+  }
+
+  .hambtnContainer {
+    position: absolute;
+    top: 55px;
+    right: 50px;
+    z-index: 1;
+    cursor: pointer;
+    img {
+      width: 75px;
+      height: 75px;
+    }
+  }
+
+  .backgroundContainer {
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+    img {
+      height: 100%;
+    }
+  }
+
+  .title {
+    color: #253757;
+    font-weight: bold;
+    font-size: 60px;
+    margin: 55px 0 0;
+  }
+
+  .roomsetup_form {
+    display: flex;
+    z-index: 1;
+    .dateTextContainer {
+    }
+    input {
+      width: 250px;
+      height: 50px;
+      background: #ffffff;
+      border: 3px solid #e25050;
+      box-sizing: border-box;
+      border-radius: 8px;
+      color: #19181a;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 24px;
+      padding: 0 0 0 15px;
+    }
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 250px;
+      height: 50px;
+      background: #e25050;
+      box-shadow: 0px 10px 20px rgba(101, 41, 255, 0.15);
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 37px;
+      color: #ffffff;
+      transition: 0.25s;
+      cursor: pointer;
+      z-index: 1;
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+  }
 }

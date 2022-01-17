@@ -53,10 +53,34 @@ const RoomSetup = () => {
 
   return (
     <div className="roomsetup">
+      <div className="backgroundContainer">
+        <img src="assets/ResponseForm/Rectangle1.png" alt="background wave" />
+        {/* <img src="assets/ResponseForm/Rectangle1.png" alt="background wave" />
+        <img src="assets/ResponseForm/Rectangle1.png" alt="background wave" /> */}
+      </div>
+      <div
+        className="homebtnContainer"
+        onClick={() => {
+          navigate("../");
+        }}
+      >
+        <img src="assets/Home.png" alt="Home Button" />
+      </div>
+      <div className="hambtnContainer">
+        <img src="assets/Hamburger_menu.png" alt="Home Button" />
+      </div>
+      <h1 className="title">Room set-up</h1>
       <div className="roomsetup_form">
         <form onSubmit={handleSubmit}>
+          <div className="dateTextContainer">
+            <h2>1. Choose a time range for a meetup</h2>
+            <p>
+              For example, if you want a meetup some time in March 2025, set
+              your start date as 01/03/2025 and your end date as 31/03/2025.
+            </p>
+          </div>
           <label>
-            Start Date
+            Start date:
             <input
               type="date"
               placeholder="dd/mm/yyyy"
@@ -66,7 +90,7 @@ const RoomSetup = () => {
             ></input>
           </label>
           <label>
-            End Date
+            End date:
             <input
               type="date"
               placeholder="dd/mm/yyyy"
@@ -75,8 +99,12 @@ const RoomSetup = () => {
               onChange={handleEndDate}
             ></input>
           </label>
+          <div className="groupTextContainer">
+            <h2>2. Choose a group size</h2>
+            <p>This is the number of people you want to attend the meetup.</p>
+          </div>
           <label>
-            Number of Attendees
+            Group Size:
             <input
               type="number"
               name="friendCount"
@@ -88,7 +116,7 @@ const RoomSetup = () => {
             type="submit"
             // onClick={() => { navigate("../room");}}
           >
-            Submit Preferences
+            Submit
           </button>
         </form>
       </div>
