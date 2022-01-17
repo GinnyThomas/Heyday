@@ -3,9 +3,15 @@ import ResponseForm from "./ResponseForm";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 
-const Room = () => {
+const Room = (props) => {
+  // -------------------
+  // HANDLING ROOM DATA
+  // -------------------
+  
+  const urlRoomID = useParams().roomidnum.slice(1)
+  if (props.getRoomId() !== urlRoomID) props.setRoom(urlRoomID)
 
-  const { state } = useLocation();
+  const state = props.getRoom()
 
   const [buttonStatus, setButtonStatus] = useState(true);
   const [buttonClass, setButtonClass] = useState("");
@@ -17,7 +23,7 @@ const Room = () => {
   let navigate = useNavigate();
 
   const proceedToRoomForm = (stateParams) => {
-    navigate("../room-form", { state: stateParams });
+    navigate(`../room-form/:${state.roomID}`, { state: stateParams });
   };
 
 

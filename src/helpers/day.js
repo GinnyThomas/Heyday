@@ -100,6 +100,17 @@ const weekDay = (input, plus = 0) => {
   return weekArr[myDate.getDay()];
 };
 
+const isWeekend = (input) => {
+  const inWeekDay = weekDay(input);
+  return inWeekDay === "Sunday" || inWeekDay === "Saturday";
+};
+
+const difference = (start, end) => {
+  const startInt = toInt(start);
+  const endInt = toInt(end);
+  return parseInt((endInt - startInt) / fDay);
+};
+
 const day = {
   toInt,
   toDate,
@@ -107,6 +118,8 @@ const day = {
   toFormDate,
   display,
   weekDay,
+  isWeekend,
+  difference,
 };
 
 module.exports = day;
