@@ -130,6 +130,7 @@ const Room = (props) => {
   return (
     <div className="room">
       <h1>Welcome to your Room!</h1>
+      <div className="clickableLink"><button value={`localhost:3000/:${urlRoomID}`}>Copy Shareable Link</button></div>
       <div className="dataContainer">
         <h3>You'll be meeting up between:</h3>
         <p>
