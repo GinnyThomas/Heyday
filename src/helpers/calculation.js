@@ -1,10 +1,10 @@
 const testData = [
   [0, 1, 0, 0, 3, 2],
-  [0, 2, 1, 0, 1, 1],
+  [0, 0, 1, 0, 0, 0],
   [0, 1, 2, 1, 1, 2],
 ];
 
-const allFormsComplete = (formsArr) => {
+const isReady = (formsArr) => {
   const valueArr = formsArr.map((form) => form.length);
   //   console.log("Form Lengths: " + valueArr);
   return !valueArr.includes(0);
@@ -57,7 +57,7 @@ const bestDays = (formsArr) => {
   aScores.forEach((score, i) => {
     if (score === highScore) myBestDays.push(i);
   });
-  return myBestDays;
+  return (highScore === 0) ? [-1] : myBestDays 
 };
 
 // =====================
@@ -78,4 +78,11 @@ const getBestDay = (formsArr) => {
 // console.log(availableDays(testData)); // expect: [1, 4]
 // console.log(dayScore(testData, 2)); // 4
 // console.log(dayScores(testData)); // [0, 4, 3, 1, 5]
-// console.log(getBestDay(testData)); // [4, 5]
+console.log(getBestDay(testData)); // [4, 5]
+
+const finalResult = {
+    getBestDay,
+    isReady
+  };
+  
+  module.exports = finalResult;

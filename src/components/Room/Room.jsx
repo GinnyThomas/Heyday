@@ -2,6 +2,7 @@ import "./room.scss";
 import ResponseForm from "./ResponseForm";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
+import finalResult from "../../helpers/calculation.js"
 
 const Room = (props) => {
   // -------------------
@@ -101,24 +102,32 @@ const Room = (props) => {
   }
 
   const setResult = () => {
-    const newArr = [];
-    let total = 0
-    state.roomFormsRatings.map((ratingsArr) => {
-      if (ratingsArr.length > 0) {
-        for (let i = 0; i < ratingsArr.length; i++) {
-          total += ratingsArr[i];
-        }
-        newArr.push(1);
-      }
-    });
+    // const newArr = [];
+    // let total = 0
+    // state.roomFormsRatings.map((ratingsArr) => {
+    //   if (ratingsArr.length > 0) {
+    //     for (let i = 0; i < ratingsArr.length; i++) {
+    //       total += ratingsArr[i];
+    //     }
+    //     newArr.push(1);
+    //   }
+    // });
 
-    if ((total === 0) && (newArr.length == state.friendCount)) {
-      return <h2>No one is available on any date! <br></br> Perhaps try different dates?</h2>;
-    } else if (newArr.length == state.friendCount) {
-      return calculateRating();
-    } else {
+    // if ((total === 0) && (newArr.length == state.friendCount)) {
+    //   return <h2>No one is available on any date! <br></br> Perhaps try different dates?</h2>;
+    // } else if (newArr.length == state.friendCount) {
+    //   return calculateRating();
+    // } else {
+    //   return <h2>Waiting for results...</h2>;
+    // }
+    if(!finalResult.isReady()){
       return <h2>Waiting for results...</h2>;
-    }
+    } else {
+      const bestDay = finalResult.getBestDay
+      if(bestDay < 0) return <h2>No one is available on any date! <br></br> Perhaps try different dates?</h2>;
+      return calculateRating();
+    } 
+
   };
 
   console.log('Room.jsx state: ', state);
