@@ -2,27 +2,37 @@ import React from "react";
 import "./roomForm.scss";
 import DateBox from "./DateBox";
 import DateButton from "./DateButton";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { useState } from "react";
 import day from "../../helpers/day.js";
 
-const RoomForm = () => {
+const RoomForm = (props) => {
+
+  const navigate = useNavigate();
+
+  const urlRoomID = useParams().roomidnum.slice(1)
+  if (props.getRoomId() !== urlRoomID) props.setRoom(urlRoomID)
+
+  const roomData = props.getRoom()
+
   const { state } = useLocation();
+
+  const friendInt = () => {
+    return (state === null) ? -1 : state.friendCurrent
+  }
 
   // ---------------
   // VALUES MANAGER
   // ---------------
 
-  const getDuration = (start = state.startDate, end = state.endDate) => {
-    const startDigits = start.slice(-2)
-    const endDigits = end.slice(-2)
-    return Number(endDigits) - Number(startDigits)
-  }
+  const dayCount = () => day.difference(roomData.startDate, roomData.endDate) + 1
 
-  const [datesArr, setDatesArr] = useState(Array.from(Array(getDuration() + 1).fill(0)));
+  const datesArrBase = Array.from(Array(dayCount()).fill(0))
+  
+  const [datesArr, setDatesArr] = useState(datesArrBase);
 
   const updateBoxVals = (i, val) => {
-    const newArr = datesArr
+    const newArr = datesArr.slice()
     newArr[i] = val
     setDatesArr(newArr)
     console.log("Updated datesArr to "+newArr)
@@ -32,37 +42,22 @@ const RoomForm = () => {
   // NAV MANAGER
   // ---------------
 
-  const navigate = useNavigate();
-
-  const returnToRoom = (stateParams) => {
-    navigate("../room", { state: stateParams });
+  const returnToRoom = () => {
+    navigate(`../room/:${roomData.roomID}`);
   }
 
   const clickCancel = () => {
     console.log("Return to room with all parameters unchanged.")
-    returnToRoom({
-      roomID: state.roomID, 
-      startDate: state.startDate, 
-      endDate: state.endDate, 
-      friendCount: state.friendCount, 
-      friendCurrent: state.friendCurrent, 
-      roomFormsRatings: state.roomFormsRatings
-    })
+    returnToRoom()
   }
 
-  const clickSubmit = (ind = state.friendCurrent) => {
-    const newArr = datesArr
+  const clickSubmit = () => {
+    const newArr = datesArr.slice()
     console.log("Return to room, update the roomFormsRatings object to: " + newArr)
-    const newRoomFormsRatings = state.roomFormsRatings
-    newRoomFormsRatings[ind] = newArr
-    returnToRoom({
-      roomID: state.roomID, 
-      startDate: state.startDate, 
-      endDate: state.endDate, 
-      friendCount: state.friendCount, 
-      friendCurrent: state.friendCurrent, 
-      roomFormsRatings: newRoomFormsRatings
-    })
+    const roomArr = roomData.roomFormsRatings.slice()
+    roomArr[friendInt()] = newArr
+    props.editRoom(roomData.roomID, {roomFormsRatings: roomArr})
+    returnToRoom()
   }
 
   // ---------------
@@ -94,25 +89,33 @@ const RoomForm = () => {
         {beforeDateBoxes}
         {dateBoxes}
         {afterDateBoxes}
+
+  const renderContent = () => {
+    return (
+      <div className="RoomForm">
+        <h1>Calendar {friendInt() + 1}</h1>
+        <h3>What days work for you?</h3>
+        <p>First date: {day.toCalDate(roomData.startDate)}
+          , last date: {day.toCalDate(roomData.endDate)}</p>
+        <div className="DateButtons">
+          {renderDateBoxes()}
+        </div>
+        <button onClick={() => clickSubmit()}>Submit</button>
+        <button onClick={() => clickCancel()}>Cancel</button>
+      </div>
+    );
+  }
+
+  const blockContent = () => {
+    return (
+      <div className="RoomFormError">
+        <p>Please choose a response form that's not in use.</p>
+        <button onClick={() => clickCancel()}>Return to room</button>
       </div>
     )
   }
 
-  console.log("Opening RoomForm with friend: "+state.friendCurrent)
-
-  return (
-    <div className="RoomForm">
-      <h1>Calendar {state.friendCurrent + 1}</h1>
-      <h3>What days work for you?</h3>
-      <p>First date: {day.toCalDate(state.startDate)}
-        , last date: {day.toCalDate(state.endDate)}</p>
-      <div className="DateButtons">
-        {renderDateBoxes()}
-      </div>
-      <button onClick={() => clickSubmit()}>Submit</button>
-      <button onClick={() => clickCancel()}>Cancel</button>
-    </div>
-  );
+  return friendInt() >= 0 ? renderContent() : blockContent()
 };
 
 export default RoomForm

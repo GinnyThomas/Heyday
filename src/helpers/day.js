@@ -97,6 +97,17 @@ const weekDay = (input, plus = 0) => {
   return weekArr[myDate.getDay()];
 };
 
+const isWeekend = (input) => {
+  const inWeekDay = weekDay(input);
+  return inWeekDay === "Sunday" || inWeekDay === "Saturday";
+};
+
+const difference = (start, end) => {
+  const startInt = toInt(start);
+  const endInt = toInt(end);
+  return parseInt((endInt - startInt) / fDay);
+};
+
 const sinceMonday = (input, plus = 0) => {
   const inWeekDay = weekDay(input, plus);
   const dayIndex = weekArr.findIndex((wkday) => wkday === inWeekDay);
@@ -112,6 +123,8 @@ const day = {
   displayCal, // e.g. 12/01
   weekDay, // e.g. Wed
   sinceMonday, // e.g. 2
+  isWeekend,
+  difference,
 };
 
 module.exports = day;
