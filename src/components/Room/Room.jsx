@@ -109,6 +109,15 @@ const Room = () => {
   return (
     <>
       <div className="room">
+        <div className="wave1Container">
+          <img src="assets/Room/wave1.png" alt="background wave" />
+        </div>
+        <div className="wave2Container">
+          <img src="assets/Room/wave2.png" alt="background wave" />
+        </div>
+        <div className="calImg">
+          <img src="assets/Room/Saly-42.png" alt="Image of Calendar" />
+        </div>
         <div
           className="homebtnContainer"
           onClick={() => {

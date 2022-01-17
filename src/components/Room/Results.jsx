@@ -4,6 +4,15 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 const Results = () => {
   return (
     <div className="results">
+      <div className="wave1Container">
+        <img src="assets/Result/wave1.png" alt="background wave" />
+      </div>
+      <div className="wave2Container">
+        <img src="assets/Result/wave2.png" alt="background wave" />
+      </div>
+      <div className="wave3Container">
+        <img src="assets/Result/wave3.png" alt="background wave" />
+      </div>
       <div className="homebtnContainer">
         <img src="assets/Home.png" alt="Home Button" />
       </div>
