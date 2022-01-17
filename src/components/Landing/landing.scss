@@ -75,6 +75,11 @@
     color: #ffffff;
     padding: 0px;
     margin: 0 auto;
+    transition: 0.25s;
+    cursor: pointer;
     z-index: 1;
+    &:hover {
+      transform: translateY(-5px);
+    }
   }
 }
