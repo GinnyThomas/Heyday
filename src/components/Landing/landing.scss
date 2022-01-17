@@ -21,10 +21,14 @@
     top: 55px;
     right: 50px;
     z-index: 2;
+    transition: 0.25s;
     cursor: pointer;
     img {
       width: 75px;
       height: 75px;
+    }
+    &:hover {
+      transform: translateY(-5px);
     }
   }
 
