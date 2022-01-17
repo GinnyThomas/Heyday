@@ -1,8 +1,61 @@
-# Getting Started with Create React App
+# Anonymeet
+
+----
+### Description
+This application is an anonymous preference survey app to arrange a meet-up with friends.  It is a web based 
+application. 
+
+The idea of Anonymeet, prior to being named, came from [Matt Zimmer](https://github.com/Zimmja). Although
+getting together with friends is fun, the process of finding the day that works best for everyone can be a headache, 
+especially when you often find yourself committing to a day you would rather not because that is when so-and-so if free.
+
+Anonymeet puts anonymous into your next meeting by using algorithms to calculate the best 
+date to meet based on the submitted answers of your friends.  
+
+- this portion may be removed if we do not meet stretch goals
+- 
+Although the idea started with picking the best date, Anonymeet goes beyond that and can help 
+add anonymity to other stuff like picking a restaurant or an event location. Add your desired criteria and give it a
+[try.](#running-anonymeet)
+----
+project screen shots can go here
+
+----
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+We also used
+- [React Router](https://reactrouter.com/)
+- [React Testing Library](https://testing-library.com/)
+- [Express](https://expressjs.com/)
+- [Sass](https://sass-lang.com/)
+
+We selected these technologies to gain additional JavaScript and React knowledge prior to finishing the Maker's 
+Bootcamp. Sass was used to enhance features of CSS styling.
+
+----
+## Running Anonymeet
+information to go here based on where project is hosted
+
+----
+
+
+If you are interested in trying your own React App, please click [here](#installation--creating-an-app) to find 
+information about doing so.  Additionally, you can click [here](#available-scripts) to see scripts that can be run if 
+you have cloned or forked this repo.
+
+# Contributors
+- [Matt Zimmer](https://github.com/Zimmja)
+- [Myoung Bae](https://github.com/mhbae-dev)
+- [Andrew Bird](https://github.com/AndyBird88)
+- [Ryan Grimes](https://github.com/RPGrimes)
+- [Courtney Stow](https://github.com/Court534)
+- [Ginny Thomas](https://github.com/ginnyamazed)
+
+### License
+[GPL-3.0](https://choosealicense.com/licenses/gpl-3.0/)
 ## Available Scripts
+If you have our project on your local device the following are ome of the available scripts.
 
 In the project directory, you can run:
 
@@ -19,7 +72,7 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### `npm run build` 
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -28,60 +81,18 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-# Anonymeet
 
-This application is an anonymous preference survey app to arrange a meet-up with friends.  It is a web based application.
+### Installation / Creating an App
+To duplicate starting a new project with the same technology we used:
 
-## App Requirements
-You should be able to interact with your code via a REPL like IRB or the JavaScript console. (You don't need to
-implement a command line interface that takes input from STDIN.)
-Deposits, withdrawal.
-Account statement (date, amount, balance) printing.
-Data can be kept in memory (it doesn't need to be stored to a database or anything).
+Open Terminal and go to the desired pre-project directory.
 
-## Usage
-Open terminal
+You’ll need to have Node 14.0.0 or later version on your local development machine
 ```
-$ node
-
-npm start
+npx create-react-app my-app
+cd my-app
+```
+```
+npm install react-router-dom@6
 npm install sass
-
 ```
-Include the example code in Usage as a file in your repo -- maybe as example.js. It's great to have README code that users can actually run if they clone the repository.
-This project uses node and npm. Go check them out if you don't have them locally installed.
-$ npm install --global standard-readme-spec
-
-
-### Installation
-To use the codebase on your computer, Use
-```bash
-$ npm install react-router-dom@6
-
-```
-
-
-## Usage
-Open terminal
-```
-$ node
-
-
-```
-
-
-
-## Contributing
-
-### License
-[MIT](https://choosealicense.com/licenses/mit/)
-
-
-Name -- self-explanatory names are best. collide-2d-aabb-aabb sounds promising, though it assumes I know what an "aabb" is. If the name sounds too vague or unrelated, it may be a signal to move on.
-One-liner -- having a one-liner that describes the module is useful for getting an idea of what the module does in slightly greater detail. collide-2d-aabb-aabb says it
-Determines whether a moving axis-aligned bounding box (AABB) collides with other AABBs.
-Awesome: it defines what an AABB is, and what the module does. Now to gauge how well it'd fit into my code:
-Usage -- rather than starting to delve into the API docs, it'd be great to see what the module looks like in action. I can quickly determine whether the example JS fits the desired style and problem. People have lots of opinions on things like promises/callbacks and ES6. If it does fit the bill, then I can proceed to greater detail.
-API -- the name, description, and usage of this module all sound appealing to me. I'm very likely to use this module at this point. I just need to scan the API to make sure it does exactly what I need and that it will integrate easily into my codebase. The API section ought to detail the module's objects and functions, their signatures, return types, callbacks, and events in detail. Types should be included where they aren't obvious. Caveats should be made clear.
-Installation -- if I've read this far down, then I'm sold on trying out the module. If there are nonstandard installation notes, here's where they'd go, but even if it's just a regular npm install, I'd like to see that mentioned, too. New users start using Node all the time, so having a link to npmjs.org and an install command provides them the resources to figure out how Node modules work.
-License -- most modules put this at the very bottom, but this might actually be better to have higher up; you're likely to exclude a module VERY quickly if it has a license incompatible with your work. I generally stick to the MIT/BSD/X11/ISC flavours. If you have a non-permissive license, stick it at the very top of the module to prevent any confusion.

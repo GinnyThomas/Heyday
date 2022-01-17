@@ -26,13 +26,20 @@ const Room = (props) => {
     navigate(`../room-form/:${state.roomID}`, { state: stateParams });
   };
 
-  // this need to be worked on further
-  const handleSubmit = (index) => {
-    // if (e.target.value === ) {}
-    // console.log(e.target);
-    setButtonClass("buttonOnClick");
 
-    console.log("For testing, here's the index: " + index);
+  // GREY BUTTON OUT AFTER ROOMFORM IS SUBMITTED
+
+  const determineClass = (index) => { 
+    if (state.roomFormsRatings[index].length > 0) {
+      return 'clickDiddyClick'
+    } else {
+      return 'button'
+    }
+  }
+
+  const handleSubmit = (e, index) => {           
+
+    setButtonClass("buttonOnClick");
 
     let params = {
       roomID: state.roomID,
@@ -43,8 +50,12 @@ const Room = (props) => {
       roomFormsRatings: state.roomFormsRatings,
     };
 
-    // navigate("../room-form");
-    proceedToRoomForm(params);
+    // DISABLES LINK TO ROOM IF FORM HAS BEEN SUBMITTED
+    if(determineClass(index) === 'clickDiddyClick') {
+      console.log("Form has been submitted, form is not accessible")
+    } else {
+      proceedToRoomForm(params);
+    }
   };
 
   const getBeginDate = (start = state.startDate) => {
@@ -62,7 +73,8 @@ const Room = (props) => {
           summedDateRanks[index] = num;
         }
       });
-    });
+      return summedDateRanks}
+    );
 
     const max = Math.max(...summedDateRanks);
     const index = summedDateRanks.indexOf(max);
@@ -81,26 +93,40 @@ const Room = (props) => {
     );
   };
 
+  const ratingsArr = [1, 2, 3];
+  let total = 0;
+
+  for (let i = 0; i < ratingsArr.length; i++) {
+    total += ratingsArr[i];
+  }
+
   const setResult = () => {
-    // roomFormsRatings: [[], [3, 2, 4], [0, 2, 3], [1, 0, 3]]
     const newArr = [];
-    state.roomFormsRatings.map((rating) => {
-      if (rating.length > 0) {
+    let total = 0
+    state.roomFormsRatings.map((ratingsArr) => {
+      if (ratingsArr.length > 0) {
+        for (let i = 0; i < ratingsArr.length; i++) {
+          total += ratingsArr[i];
+        }
         newArr.push(1);
       }
     });
 
-    if (newArr.length == state.friendCount) {
-      console.log(newArr.length);
+    if ((total === 0) && (newArr.length == state.friendCount)) {
+      return <h2>No one is available on any date! <br></br> Perhaps try different dates?</h2>;
+    } else if (newArr.length == state.friendCount) {
       return calculateRating();
     } else {
-      return <h2>Waiting for results .....</h2>;
+      return <h2>Waiting for results...</h2>;
     }
   };
+
+  console.log('Room.jsx state: ', state);
+
   console.log(
     `Friend count: ${state.friendCount}, array: [${state.roomFormsRatings}]`
   );
-
+  
   return (
     <div className="room">
       <h1>Welcome to your Room!</h1>
@@ -113,20 +139,21 @@ const Room = (props) => {
       <div className="responseFormContainer">
         <h3>Choose a response to fill out:</h3>
         <div className="container">
-          {Array.from(Array(Number(state.friendCount)).keys()).map(
+          {Array.from(Array(Number(state.friendCount)).keys()).map( 
             (user, index) => (
               <ResponseForm
-                className={"button " + buttonClass}
+                className={determineClass(index)} 
                 id={index}
                 user={user}
-                onClick={() => handleSubmit(index)}
+                onClick={(e) => handleSubmit(e, index)}
               />
             )
-          )}
+          )} 
         </div>
       </div>
       <div className="resultContainer">{setResult()}</div>
     </div>
+    
   );
 };
 
