@@ -6,10 +6,6 @@ import { useState } from "react";
 import finalResult from "../../helpers/calculation.js"
 import day from "../../helpers/day.js";
 
-<<<<<<< HEAD
-const Room = () => {
-  const { state } = useLocation();
-=======
 const Room = (props) => {
   // -------------------
   // HANDLING ROOM DATA
@@ -19,7 +15,6 @@ const Room = (props) => {
   if (props.getRoomId() !== urlRoomID) props.setRoom(urlRoomID)
 
   const state = props.getRoom()
->>>>>>> main
 
   const [buttonStatus, setButtonStatus] = useState(true);
   const [buttonClass, setButtonClass] = useState("");
@@ -35,12 +30,8 @@ const Room = (props) => {
   };
 
   // GREY BUTTON OUT AFTER ROOMFORM IS SUBMITTED
-<<<<<<< HEAD
-  const determineClass = (index) => {
-=======
 
   const determineClass = (index) => { 
->>>>>>> main
     if (state.roomFormsRatings[index].length > 0) {
       return "clickDiddyClick";
     } else {
@@ -48,12 +39,8 @@ const Room = (props) => {
     }
   };
 
-<<<<<<< HEAD
-  const handleSubmit = (e, index) => {
-=======
   const handleSubmit = (e, index) => {           
 
->>>>>>> main
     setButtonClass("buttonOnClick");
 
     let params = {
@@ -66,13 +53,8 @@ const Room = (props) => {
     };
 
     // DISABLES LINK TO ROOM IF FORM HAS BEEN SUBMITTED
-<<<<<<< HEAD
-    if (determineClass(index) === "clickDiddyClick") {
-      console.log("Form has been submitted, form is not accessible");
-=======
     if(determineClass(index) === 'clickDiddyClick') {
       console.log("Form has been submitted, form is not accessible")
->>>>>>> main
     } else {
       proceedToRoomForm(params);
     }
