@@ -78,10 +78,10 @@ const getHighScoreDay = (formsArr) => {
   return scores.indexOf(highScore);
 };
 
-const getSoonestDay = (formsArr) => {
-  const available = availableDays(formsArr);
-  return available[0];
-};
+// const getSoonestDay = (formsArr) => {
+//   const available = availableDays(formsArr);
+//   return available[0];
+// };
 
 const medalCounts = (formsArr, bestDay) =>
   [3, 2, 1, 0].map((val) => getMedalCount(formsArr, bestDay, val));
