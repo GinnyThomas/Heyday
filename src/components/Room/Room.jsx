@@ -176,7 +176,7 @@ const Room = (props) => {
           onClose={() => setIsOpen(false)}
         />
       </div>
-      <Results id="results" formRatings={[[0,3,1],[1,3,0],[2,3,1]]} date={state.startDate} />
+      <Results id="results" formRatings={[[0,2,1],[1,3,0],[2,3,1]]} date={state.startDate} />
     </>
   );
 };

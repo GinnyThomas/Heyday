@@ -18,7 +18,10 @@ const Results = (props) => {
   const handleSubmit = () => {};
 
   const output = finalResult.getFinalResult(props.formRatings)
-  const best = output.best
+  const best = day.toInt(props.date, output.best)
+  const bestMedals = output.bestMedals
+
+  const displayBest = `${day.weekDay(best)} ${day.display(best)}`
 
   return (
     <div className="results">
@@ -55,20 +58,19 @@ const Results = (props) => {
       <div className="whiteBox"></div>
       <div className="resultContainer">
         <h2>The best day for everyone is:</h2>
-        <h3>{props.date}</h3>
-        <p>{best}</p>
+        <h3>{displayBest}</h3>
         <ul className="iconContainer">
           <li>
             <img src="/assets/RoomForm/gold.png" alt="gold button" />
-            <p>x 6 </p>
+            <p>x{bestMedals[0]}</p>
           </li>
           <li>
             <img src="/assets/RoomForm/silver.png" alt="silver button" />
-            <p>x 5 </p>
+            <p>x{bestMedals[1]}</p>
           </li>
           <li>
             <img src="/assets/RoomForm/bronze.png" alt="bronze button" />
-            <p>x 3 </p>
+            <p>x{bestMedals[2]}</p>
           </li>
         </ul>
         <ul className="otherResults">
