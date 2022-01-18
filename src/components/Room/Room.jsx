@@ -113,7 +113,7 @@ const Room = (props) => {
           <img src="assets/Room/wave2.png" alt="background wave" />
         </div>
         <div className="calImg">
-          <img src="assets/Room/Saly-42.png" alt="Image of Calendar" />
+          <img src="assets/Room/Saly-42.png" alt="Calendar" />
         </div>
         <div
           className="homebtnContainer"
@@ -124,7 +124,7 @@ const Room = (props) => {
           <img src="assets/Home.png" alt="Home Button" />
         </div>
         <div className="hambtnContainer">
-          <img src="assets/Hamburger_menu.png" alt="Home Button" />
+          <img src="assets/Hamburger_menu.png" alt="Hamburger Menu Button" />
         </div>
         <div className="downarrContainer">
           <img src="assets/Expand_down_double.png" alt="Home Button" />

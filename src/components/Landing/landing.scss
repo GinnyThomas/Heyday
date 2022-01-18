@@ -1,6 +1,6 @@
 .landing {
   overflow-y: hidden;
-  height: 100vh;
+  height: 3720px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -23,6 +23,50 @@
     position: absolute;
     top: -25px;
     left: -1239px;
+    z-index: 0;
+    img {
+      height: 100%;
+    }
+  }
+
+  .mid1Container {
+    overflow: visible;
+    position: absolute;
+    top: 1674px;
+    left: -1933px;
+    z-index: 0;
+    img {
+      height: 100%;
+    }
+  }
+
+  .mid2Container {
+    overflow: hidden;
+    position: absolute;
+    top: 1459px;
+    left: -1459px;
+    z-index: 0;
+    img {
+      height: 100%;
+    }
+  }
+
+  .bot1Container {
+    overflow: visible;
+    position: absolute;
+    top: 2777px;
+    left: -209px;
+    z-index: 0;
+    img {
+      height: 100%;
+    }
+  }
+
+  .bot2Container {
+    overflow: hidden;
+    position: absolute;
+    top: 2709px;
+    left: -426px;
     z-index: 0;
     img {
       height: 100%;
@@ -63,7 +107,7 @@
     color: white;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     z-index: 1;
-    padding-top: 100px;
+    padding-top: 55px;
     .landingTitle {
       font-size: 80px;
       font-weight: bold;
@@ -84,7 +128,7 @@
       }
     }
     .landingText {
-      margin: 0 0 90px 0;
+      margin: 0 0 44px 0;
       width: 500px;
       font-weight: bold;
       font-size: 30px;
@@ -111,6 +155,42 @@
     z-index: 1;
     &:hover {
       transform: translateY(-5px);
+    }
+  }
+
+  .introSection {
+    display: flex;
+    margin: 220px auto;
+    padding: 0 160px;
+    .textContainer {
+      font-family: Mulish;
+      font-style: normal;
+      color: #253757;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      width: 365px;
+
+      h2 {
+        font-weight: 900;
+        font-size: 32px;
+      }
+
+      p {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        margin-top: 40px;
+      }
+    }
+
+    .listContainer {
+      li {
+        background-color: #ffffff;
+        opacity: 0.6;
+        border: 10px solid #ffffff;
+        box-sizing: border-box;
+        box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+        border-radius: 50px;
+      }
     }
   }
 }

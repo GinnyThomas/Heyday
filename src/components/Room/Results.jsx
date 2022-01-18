@@ -14,10 +14,10 @@ const Results = () => {
         <img src="assets/Result/wave3.png" alt="background wave" />
       </div>
       <div className="homebtnContainer">
-        <img src="assets/Home.png" alt="Home Button" />
+        <img src="../../../public/assets/Home.png" alt="Home Button" />
       </div>
       <div className="hambtnContainer">
-        <img src="assets/Hamburger_menu.png" alt="Home Button" />
+        <img src="assets/Hamburger_menu.png" alt="Hamburger Menu Button" />
       </div>
       <div className="uparrContainer">
         <img src="assets/Expand_up_double.png" alt="Home Button" />
