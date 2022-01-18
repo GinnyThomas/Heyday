@@ -136,13 +136,15 @@ const Room = (props) => {
     <>
       <h1>Welcome to your Room!</h1>
       {renderTopButtons()}
-      <div className="dataContainer">
-        <h3>When are you available for a meetup between:</h3>
-        <p>{day.display(state.startDate)} - {day.display(state.endDate)}</p>
-      </div>
-      <div className="responseFormContainer">
-        <h3>Please complete one of the available Response Forms below.</h3>
-        {renderResponseForms()}
+      <div className="MainContent">
+        <div className="dataContainer">
+          <h3>When are you available for a meetup between:</h3>
+          <p>{day.display(state.startDate)} - {day.display(state.endDate)}</p>
+        </div>
+        <div className="responseFormContainer">
+          <h3>Please complete one of the available Response Forms below.</h3>
+          {renderResponseForms()}
+        </div>
       </div>
       <p className="waiting">Waiting for results ...</p>
     </>
