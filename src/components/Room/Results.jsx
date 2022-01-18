@@ -1,8 +1,10 @@
 import "./results.scss";
 import { Link } from "react-scroll";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
+import finalResult from "../../helpers/calculation.js";
+import day from "../../helpers/day.js";
 
-const Results = ({ date }) => {
+const Results = (props) => {
   // ---------------
   // NAV HANDLING
   // ---------------
@@ -14,6 +16,9 @@ const Results = ({ date }) => {
   // ---------------
 
   const handleSubmit = () => {};
+
+  const output = finalResult.getFinalResult(props.formRatings)
+  const best = output.best
 
   return (
     <div className="results">
@@ -50,7 +55,8 @@ const Results = ({ date }) => {
       <div className="whiteBox"></div>
       <div className="resultContainer">
         <h2>The best day for everyone is:</h2>
-        <h3>{date}</h3>
+        <h3>{props.date}</h3>
+        <p>{best}</p>
         <ul className="iconContainer">
           <li>
             <img src="/assets/RoomForm/gold.png" alt="gold button" />
