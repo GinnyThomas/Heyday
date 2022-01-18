@@ -164,8 +164,8 @@ const Room = (props) => {
               )
             )}
           </div>
-          <p className="waiting">Waiting for results ...</p>
         </div>
+        <p className="waiting">Waiting for results ...</p>
         {/* <div className="resultContainer">{setResult()}</div> */}
         <Modal
           className="modal"
