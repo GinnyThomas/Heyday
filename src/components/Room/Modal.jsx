@@ -11,13 +11,12 @@ export default function Modal({ open, onClose }) {
     <>
       <div className="overlay"></div>
       <div className="modal">
-        <div onClick={onClose}>
-          <img
-            className="closeBtn"
-            src="/assets/CloseIcon.png"
-            alt="close icon"
-          />
-        </div>
+        <img
+          className="closeBtn"
+          src="/assets/CloseIcon.png"
+          alt="close icon"
+          onClick={onClose}
+        />
         <h1 className="title">Edit Room set-up</h1>
         <form className="roomsetup_form" onSubmit={handleSubmit}>
           <div className="formContainer">
