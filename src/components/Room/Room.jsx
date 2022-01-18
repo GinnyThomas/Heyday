@@ -3,9 +3,23 @@ import ResponseForm from "./ResponseForm";
 import Results from "./Results";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
+import finalResult from "../../helpers/calculation.js"
+import day from "../../helpers/day.js";
 
+<<<<<<< HEAD
 const Room = () => {
   const { state } = useLocation();
+=======
+const Room = (props) => {
+  // -------------------
+  // HANDLING ROOM DATA
+  // -------------------
+  
+  const urlRoomID = useParams().roomidnum.slice(1)
+  if (props.getRoomId() !== urlRoomID) props.setRoom(urlRoomID)
+
+  const state = props.getRoom()
+>>>>>>> main
 
   const [buttonStatus, setButtonStatus] = useState(true);
   const [buttonClass, setButtonClass] = useState("");
@@ -17,11 +31,16 @@ const Room = () => {
   let navigate = useNavigate();
 
   const proceedToRoomForm = (stateParams) => {
-    navigate("../room-form", { state: stateParams });
+    navigate(`../room-form/:${state.roomID}`, { state: stateParams });
   };
 
   // GREY BUTTON OUT AFTER ROOMFORM IS SUBMITTED
+<<<<<<< HEAD
   const determineClass = (index) => {
+=======
+
+  const determineClass = (index) => { 
+>>>>>>> main
     if (state.roomFormsRatings[index].length > 0) {
       return "clickDiddyClick";
     } else {
@@ -29,7 +48,12 @@ const Room = () => {
     }
   };
 
+<<<<<<< HEAD
   const handleSubmit = (e, index) => {
+=======
+  const handleSubmit = (e, index) => {           
+
+>>>>>>> main
     setButtonClass("buttonOnClick");
 
     let params = {
@@ -42,65 +66,42 @@ const Room = () => {
     };
 
     // DISABLES LINK TO ROOM IF FORM HAS BEEN SUBMITTED
+<<<<<<< HEAD
     if (determineClass(index) === "clickDiddyClick") {
       console.log("Form has been submitted, form is not accessible");
+=======
+    if(determineClass(index) === 'clickDiddyClick') {
+      console.log("Form has been submitted, form is not accessible")
+>>>>>>> main
     } else {
       proceedToRoomForm(params);
     }
   };
 
-  const getBeginDate = (start = state.startDate) => {
-    const startDigits = start.slice(-2);
-    return Number(startDigits);
-  };
+  // const getBeginDate = (start = state.startDate) => {
+  //   const startDigits = start.slice(-2);
+  //   return Number(startDigits);
+  // };
 
-  const calculateRating = () => {
-    let summedDateRanks = [];
-    state.roomFormsRatings.forEach((sub) => {
-      sub.forEach((num, index) => {
-        if (summedDateRanks[index]) {
-          summedDateRanks[index] += num;
-        } else {
-          summedDateRanks[index] = num;
-        }
-      });
-    });
-
-    const max = Math.max(...summedDateRanks);
-    const index = summedDateRanks.indexOf(max);
-
-    const dateFirstPart = "2022-01-";
-    const dateSecondPart = getBeginDate() + index;
-
-    const bestDate = dateFirstPart + dateSecondPart;
-
+  const setResult = () => {
+    const roomForms = state.roomFormsRatings
+    if(!finalResult.isReady(roomForms)) return <h2>Waiting for results...</h2>;
+    const bestDay = finalResult.getBestDay(roomForms)
+    const medalCounts = finalResult.medalCounts(roomForms, bestDay)
+    if(bestDay < 0) return <h2>No one is available on any date! <br></br> Perhaps try different dates?</h2>;
     return (
-      <>
+      <div>
         <h2>SUCCESS!</h2>
         <p>The best day for everyone:</p>
-        <p className="result">{bestDate}</p>
-      </>
+        <p className="result">{day.toCalDate(state.startDate, bestDay)}</p>
+        <p>Gold: {medalCounts[0]}</p>
+        <p>Silver: {medalCounts[1]}</p>
+        <p>Bronze: {medalCounts[2]}</p>
+      </div>
     );
   };
 
-  const setResult = () => {
-    const newArr = [];
-
-    state.roomFormsRatings.map((rating) => {
-      if (rating.length > 0) {
-        newArr.push(1);
-      }
-    });
-
-    if (newArr.length == state.friendCount) {
-      console.log(newArr.length);
-      return calculateRating();
-    } else {
-      return <h2>Waiting for results .....</h2>;
-    }
-  };
-
-  console.log("Room.jsx state: ", state);
+  console.log('Room.jsx state: ', state);
 
   console.log(
     `Friend count: ${state.friendCount}, array: [${state.roomFormsRatings}]`
@@ -133,6 +134,9 @@ const Room = () => {
           <img src="assets/Expand_down_double.png" alt="Home Button" />
         </div>
         <h1>Welcome to your Room!</h1>
+        <div className="clickableLink">
+        <button value={`localhost:3000/room/:${urlRoomID}`} onClick={() => {navigator.clipboard.writeText(`localhost:3000/room/:${urlRoomID}`)}}>Copy Shareable Link</button>
+      </div>
         <div className="dataContainer">
           <h3>When are you available for a meetup between:</h3>
           <p>
