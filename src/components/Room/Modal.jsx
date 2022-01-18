@@ -3,13 +3,23 @@ import "./modal.scss";
 export default function Modal({ open, onClose }) {
   if (!open) return null;
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onClose();
+  };
   return (
     <>
       <div className="overlay"></div>
       <div className="modal">
-        <button onClick={onClose}>Close Edit Form</button>
+        <div onClick={onClose}>
+          <img
+            className="closeBtn"
+            src="assets/CloseIcon.png"
+            alt="close icon"
+          />
+        </div>
         <h1 className="title">Edit Room set-up</h1>
-        <form className="roomsetup_form" >
+        <form className="roomsetup_form" onSubmit={handleSubmit}>
           <div className="formContainer">
             <div className="dateContainer">
               <div className="textContainer">
