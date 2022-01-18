@@ -82,10 +82,12 @@ const Landing = () => {
         <h2>Technologies</h2>
         <ul className="cards">
           <li>
+            <div>
+            </div>
             <img
-              src="assets/LandingPage/JavaScript.png"
-              alt="JavaScript logo"
-            />
+                src="assets/LandingPage/JavaScript.png"
+                alt="JavaScript logo"
+              />
             <h2>Language</h2>
             <h3>JavaScript</h3>
           </li>

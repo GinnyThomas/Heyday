@@ -193,4 +193,55 @@
       }
     }
   }
+
+  .technologies {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Mulish;
+    z-index: 3;
+    h2 {
+      font-size: 32px;
+      font-style: normal;
+      color: #253757;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      li {
+        text-align: center;
+        position: relative;
+        div {
+          position: absolute;
+          width: 180px;
+          height: 180px;
+          background: #ffffff;
+          opacity: 0.6;
+          border: 10px solid #ffffff;
+          box-sizing: border-box;
+          box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+          border-radius: 50px;
+          z-index: 0;
+        }
+        img {
+          width: 130px;
+          height: 130px;
+          z-index: 1;
+        }
+        h2 {
+          font-weight: bold;
+          font-size: 60px;
+        }
+        h3 {
+          font-style: normal;
+          font-weight: bold;
+          font-size: 25px;
+        }
+      }
+    }
+  }
 }
