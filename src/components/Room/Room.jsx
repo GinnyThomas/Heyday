@@ -100,10 +100,10 @@ const Room = (props) => {
 
   // Handle Shareable Link Alert
   const handleAlert = (e) => {
-    alert(
-      `Your shareable link\n localhost:3000/room/:${urlRoomID}\n has been copied to the clipboard.`
-    );
-    navigator.clipboard.writeText(`localhost:3000/room/:${urlRoomID}`);
+    navigator.clipboard.writeText(`localhost:3000/room/:${urlRoomID}`)
+    .then(() => {
+      alert(`Your shareable link\n localhost:3000/room/:${urlRoomID}\n has been copied to the clipboard.`)
+    })
     e.preventDefault();
   };
 
