@@ -125,3 +125,11 @@ const finalResult = {
 };
 
 module.exports = finalResult;
+
+const test = [
+  [0, 2, 1],
+  [0, 1, 3],
+  [0, 2, 1],
+];
+
+console.log(getFinalResult(test));

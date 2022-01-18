@@ -58,22 +58,19 @@ const Room = (props) => {
   const responseFormClass = (index) => (state.roomFormsRatings[index].length > 0) ? "clickDiddyClick" : "button";
 
   // -------------------
-  // RENDERING
+  // RENDER ELEMENTS
   // -------------------
 
-  const renderBackground = () => {
-    return (
+  const renderBackground = () => (
       <>
         <div className="wave1Container"><img src="/assets/Room/wave1.png" alt="background wave" /></div>
         <div className="wave2Container"><img src="/assets/Room/wave2.png" alt="background wave" /></div>
         <div className="calImg"><img src="/assets/Room/Saly-42.png" alt="Calendar" /></div>
       </>
     )
-  }
 
   // Include the Home button, Hamburger and Down arrows
-  const renderIcons = () => {
-    return (
+  const renderIcons = () => (
       <>
       <div
           className="homebtnContainer"
@@ -93,10 +90,8 @@ const Room = (props) => {
       </div>
       </>
     )
-  }
 
-  const renderTopButtons = () => {
-    return (
+  const renderTopButtons = () => (
       <>
         <div className="btnContainer">
           <button
@@ -109,10 +104,8 @@ const Room = (props) => {
         </div>
       </>
     )
-  }
 
-  const renderResponseForms = () => {
-    return (
+  const renderResponseForms = () => (
       <>
         <div className="container">
           {Array.from(Array(Number(state.friendCount)).keys()).map(
@@ -129,10 +122,8 @@ const Room = (props) => {
         </div>
       </>
     )
-  }
 
-  const renderMainContent = () => {
-    return (
+  const renderMainContent = () => (
     <>
       <h1>Welcome to your Room!</h1>
       {renderTopButtons()}
@@ -149,7 +140,14 @@ const Room = (props) => {
       <p className="waiting">Waiting for results ...</p>
     </>
     )
-  }
+
+  // -------------------
+  // RENDER
+  // -------------------
+
+  const mOCKaRRAY01 = [[2,0,1],[1,0,3],[2,0,1]] // No secondary
+  const mOCKaRRAY02 = [[0,3,1],[1,0,1],[2,3,1]] // High score, secondary is free score
+  const mOCKaRRAY03 = [[0,3,1],[1,0,1],[2,1,1]] // Free score, secondary is high score
 
   return (
     <>
@@ -163,7 +161,7 @@ const Room = (props) => {
           onClose={() => setIsOpen(false)}
         />
       </div>
-      <Results id="results" formRatings={[[0,2,1],[1,3,0],[2,3,1]]} date={state.startDate} />
+      <Results id="results" formRatings={mOCKaRRAY03} date={state.startDate} />
     </>
   );
 };
