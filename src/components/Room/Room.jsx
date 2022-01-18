@@ -68,7 +68,8 @@ const Room = (props) => {
 
   const setResult = () => {
     const roomForms = state.roomFormsRatings;
-    if (!finalResult.isReady(roomForms)) return <h2>Waiting for results...</h2>;
+    if (!finalResult.isReady(roomForms))
+      return <h2 className="waiting">Waiting for results...</h2>;
     const bestDay = finalResult.getBestDay(roomForms);
     const medalCounts = finalResult.medalCounts(roomForms, bestDay);
     if (bestDay < 0)
@@ -132,7 +133,7 @@ const Room = (props) => {
           <img src="/assets/Expand_down_double.png" alt="Home Button" />
         </div>
         <h1>Welcome to your Room!</h1>
-        <div className="clickableLink">
+        <div className="btnContainer">
           <button
             value={`localhost:3000/room/:${urlRoomID}`}
             onClick={() => {
@@ -141,8 +142,8 @@ const Room = (props) => {
           >
             Copy Shareable Link
           </button>
+          <button onClick={() => setIsOpen(true)}>Edit Room set-up</button>
         </div>
-        <button onClick={() => setIsOpen(true)}>Edit Room set-up</button>
         <div className="dataContainer">
           <h3>When are you available for a meetup between:</h3>
           <p>
@@ -163,15 +164,16 @@ const Room = (props) => {
               )
             )}
           </div>
-          <p>
-            You won't be able to access forms that are being used or have
-            already been completed by someone in your group.
-          </p>
+          <p className="waiting">Waiting for results ...</p>
         </div>
-        <div className="resultContainer">{setResult()}</div>
-        <Modal className="modal" open={isOpen} onClose={() => setIsOpen(false)} />
+        {/* <div className="resultContainer">{setResult()}</div> */}
+        <Modal
+          className="modal"
+          open={isOpen}
+          onClose={() => setIsOpen(false)}
+        />
       </div>
-      <Results date={2020}/>
+      <Results date={2020} />
     </>
   );
 };
