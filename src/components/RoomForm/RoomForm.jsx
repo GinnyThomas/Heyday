@@ -140,21 +140,29 @@ const RoomForm = (props) => {
         <div className="hambtnContainer">
           <img src="/assets/Hamburger_menu.png" alt="Hamburger Menu Button" />
         </div>
-        <h2>Response Form</h2>
-        <h3>
-          When are you available for a meetup between{" "}
-          {day.toCalDate(roomData.startDate)} and{" "}
-          {day.toCalDate(roomData.endDate)}?
-        </h3>
-        <p>Click on the calendar buttons below to cycle through the options:</p>
-        <div className="DateButtons">{renderDateBoxes()}</div>
-        <p>
-          Please note: to ensure your response is private, no one will be able
-          to access or edit this form once you have submitted it, including you.
-          Please make sure you've made the correct choices before submitting.
-        </p>
-        <button onClick={() => clickSubmit()}>Submit</button>
-        <button onClick={() => clickCancel()}>Cancel</button>
+        <div className="resonseContainer">
+          <h2>Response Form</h2>
+          <h3>
+            When are you available for a meetup between{" "}
+            {day.toCalDate(roomData.startDate)} and{" "}
+            {day.toCalDate(roomData.endDate)}?
+          </h3>
+          <p>
+            Click on the calendar buttons below to cycle through the options:
+          </p>
+
+          <div className="DateButtons">{renderDateBoxes()}</div>
+          <p>
+            Please note: to ensure your response is private, no one will be able
+            to access or edit this form once you have submitted it, including
+            you. Please make sure you've made the correct choices before
+            submitting.
+          </p>
+          <div className="btnContainer">
+            <button onClick={() => clickSubmit()}>Submit</button>
+            <button onClick={() => clickCancel()}>Cancel</button>
+          </div>
+        </div>
       </div>
     );
   };
