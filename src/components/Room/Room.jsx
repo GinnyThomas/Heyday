@@ -109,13 +109,13 @@ const Room = (props) => {
     <>
       <div className="room">
         <div className="wave1Container">
-          <img src="assets/Room/wave1.png" alt="background wave" />
+          <img src="/assets/Room/wave1.png" alt="background wave" />
         </div>
         <div className="wave2Container">
-          <img src="assets/Room/wave2.png" alt="background wave" />
+          <img src="/assets/Room/wave2.png" alt="background wave" />
         </div>
         <div className="calImg">
-          <img src="assets/Room/Saly-42.png" alt="Calendar" />
+          <img src="/assets/Room/Saly-42.png" alt="Calendar" />
         </div>
         <div
           className="homebtnContainer"
@@ -123,13 +123,13 @@ const Room = (props) => {
             navigate("../");
           }}
         >
-          <img src="assets/Home.png" alt="Home Button" />
+          <img src="/assets/Home.png" alt="Home Button" />
         </div>
         <div className="hambtnContainer">
-          <img src="assets/Hamburger_menu.png" alt="Hamburger Menu Button" />
+          <img src="/assets/Hamburger_menu.png" alt="Hamburger Menu Button" />
         </div>
         <div className="downarrContainer">
-          <img src="assets/Expand_down_double.png" alt="Home Button" />
+          <img src="/assets/Expand_down_double.png" alt="Home Button" />
         </div>
         <h1>Welcome to your Room!</h1>
         <div className="clickableLink">
@@ -169,11 +169,9 @@ const Room = (props) => {
           </p>
         </div>
         <div className="resultContainer">{setResult()}</div>
-        <Modal className="modal" open={isOpen} onClose={() => setIsOpen(false)}>
-          
-        </Modal>
+        <Modal className="modal" open={isOpen} onClose={() => setIsOpen(false)} />
       </div>
-      <Results />
+      <Results date={2020}/>
     </>
   );
 };

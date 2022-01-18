@@ -9,12 +9,14 @@
 }
 
 .RoomForm {
+  overflow-y: hidden;
   width: 700px;
 
   .wave1Container {
     overflow: hidden;
     position: absolute;
-    left: -291px;
+    top: 119px;
+    left: -90px;
     z-index: 0;
     img {
       height: 100%;
@@ -24,8 +26,8 @@
   .wave2Container {
     overflow: hidden;
     position: absolute;
-    top: -227px;
-    left: -116px;
+    top: 445px;
+    left: -973px;
     z-index: 1;
     img {
       height: 100%;
@@ -35,6 +37,8 @@
   .wave3Container {
     overflow: hidden;
     position: absolute;
+    top: 242px;
+    left: -527px;
     z-index: 1;
     img {
       height: 100%;
@@ -77,4 +81,3 @@
   margin: 10%;
   text-align: left;
 }
-

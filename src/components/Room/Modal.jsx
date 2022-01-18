@@ -14,7 +14,7 @@ export default function Modal({ open, onClose }) {
         <div onClick={onClose}>
           <img
             className="closeBtn"
-            src="assets/CloseIcon.png"
+            src="/assets/CloseIcon.png"
             alt="close icon"
           />
         </div>

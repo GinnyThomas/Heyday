@@ -121,13 +121,13 @@ const RoomForm = (props) => {
     return (
       <div className="RoomForm">
         <div className="wave1Container">
-          <img src="assets/RoomForm/wave1.png" alt="background wave" />
+          <img src="/assets/RoomForm/wave1.png" alt="background wave" />
         </div>
         <div className="wave2Container">
-          <img src="assets/RoomForm/wave2.png" alt="background wave" />
+          <img src="/assets/RoomForm/wave2.png" alt="background wave" />
         </div>
         <div className="wave3Container">
-          <img src="assets/RoomForm/wave3.png" alt="background wave" />
+          <img src="/assets/RoomForm/wave3.png" alt="background wave" />
         </div>
         <div
           className="homebtnContainer"
@@ -135,18 +135,24 @@ const RoomForm = (props) => {
             navigate("../");
           }}
         >
-          <img src="assets/Home.png" alt="Home Button" />
+          <img src="/assets/Home.png" alt="Home Button" />
         </div>
         <div className="hambtnContainer">
-          <img src="assets/Hamburger_menu.png" alt="Hamburger Menu Button" />
+          <img src="/assets/Hamburger_menu.png" alt="Hamburger Menu Button" />
         </div>
-        <h1>Calendar {friendInt() + 1}</h1>
-        <h3>What days work for you?</h3>
-        <p>
-          First date: {day.toCalDate(roomData.startDate)}, last date:{" "}
-          {day.toCalDate(roomData.endDate)}
-        </p>
+        <h2>Response Form</h2>
+        <h3>
+          When are you available for a meetup between{" "}
+          {day.toCalDate(roomData.startDate)} and{" "}
+          {day.toCalDate(roomData.endDate)}?
+        </h3>
+        <p>Click on the calendar buttons below to cycle through the options:</p>
         <div className="DateButtons">{renderDateBoxes()}</div>
+        <p>
+          Please note: to ensure your response is private, no one will be able
+          to access or edit this form once you have submitted it, including you.
+          Please make sure you've made the correct choices before submitting.
+        </p>
         <button onClick={() => clickSubmit()}>Submit</button>
         <button onClick={() => clickCancel()}>Cancel</button>
       </div>
