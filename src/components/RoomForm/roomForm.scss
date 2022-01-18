@@ -1,7 +1,9 @@
 .RoomForm {
   overflow-y: hidden;
-  width: 700px;
-  overflow: hidden;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
   height: 100vh;
   width: 100%;
 
@@ -69,13 +71,59 @@
     }
   }
 
-  .resonseContainer {
+  h2 {
+    color: #253757;
+    font-weight: bold;
+    font-size: 60px;
+    margin: 55px 0 0;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+  }
+
+  .responseContainer {
     display: flex;
     position: relative;
     align-items: center;
     flex-direction: column;
-    z-index: 3;
+    z-index: 2;
+    margin: 40px 0 40px;
+    p {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      margin-top: 15px;
+    }
 
+    .instructions {
+      display: flex;
+      margin: 0 auto;
+      width: 1000px;
+      li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 60px;
+          height: 60px;
+        }
+      }
+    }
+  }
+
+  .submit {
+    display: flex;
+    position: absolute;
+    bottom: 80px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 1000px;
+    margin: 0 auto;
+    z-index: 2;
+    p {
+      margin-bottom: 20px;
+    }
     .btnContainer {
       button {
         display: flex;
@@ -102,9 +150,8 @@
       }
     }
   }
-}
 
-.DateButtons {
-  margin: 10%;
-  text-align: left;
+  .DateButtons {
+    z-index: 2;
+  }
 }

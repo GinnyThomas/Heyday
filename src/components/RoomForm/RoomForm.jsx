@@ -140,8 +140,8 @@ const RoomForm = (props) => {
         <div className="hambtnContainer">
           <img src="/assets/Hamburger_menu.png" alt="Hamburger Menu Button" />
         </div>
-        <div className="resonseContainer">
-          <h2>Response Form</h2>
+        <h2>Response Form</h2>
+        <div className="responseContainer">
           <h3>
             When are you available for a meetup between{" "}
             {day.toCalDate(roomData.startDate)} and{" "}
@@ -150,8 +150,29 @@ const RoomForm = (props) => {
           <p>
             Click on the calendar buttons below to cycle through the options:
           </p>
+          <ul className="instructions">
+            <li>
+              <img src="/assets/RoomForm/clear.png" alt="clear button" />
+              <p>: you're not available this day</p>
+            </li>
+            <li>
+              <img src="/assets/RoomForm/bronze.png" alt="bronze button" />
+              <p>: you're available, but it's not the most convenient day</p>
+            </li>
+            <li>
+              <img src="/assets/RoomForm/silver.png" alt="silver button" />
+              <p>: you're available and it's a convenient day</p>
+            </li>
+            <li>
+              <img src="/assets/RoomForm/gold.png" alt="gold button" />
+              <p>: you're available and it's a preferred day</p>
+            </li>
+          </ul>
+        </div>
 
-          <div className="DateButtons">{renderDateBoxes()}</div>
+        <div className="DateButtons">{renderDateBoxes()}</div>
+
+        <div className="submit">
           <p>
             Please note: to ensure your response is private, no one will be able
             to access or edit this form once you have submitted it, including
