@@ -5,14 +5,76 @@
   border-radius: 10px;
   padding: 40px 0;
   text-align: center;
+  width: 300px;
 }
 
 .RoomForm {
+  overflow-y: hidden;
   width: 700px;
-}
 
-.RoomFormError {
-  width: 300px;
+  .wave1Container {
+    overflow: hidden;
+    position: absolute;
+    top: 119px;
+    left: -90px;
+    z-index: 0;
+    img {
+      height: 100%;
+    }
+  }
+
+  .wave2Container {
+    overflow: hidden;
+    position: absolute;
+    top: 445px;
+    left: -973px;
+    z-index: 1;
+    img {
+      height: 100%;
+    }
+  }
+
+  .wave3Container {
+    overflow: hidden;
+    position: absolute;
+    top: 242px;
+    left: -527px;
+    z-index: 1;
+    img {
+      height: 100%;
+    }
+  }
+
+  .homebtnContainer {
+    position: absolute;
+    top: 55px;
+    left: 50px;
+    z-index: 3;
+    transition: 0.25s;
+    cursor: pointer;
+    img {
+      height: 100%;
+    }
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  .hambtnContainer {
+    position: absolute;
+    top: 55px;
+    right: 50px;
+    z-index: 3;
+    transition: 0.25s;
+    cursor: pointer;
+    img {
+      width: 75px;
+      height: 75px;
+    }
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
 }
 
 .DateButtons {

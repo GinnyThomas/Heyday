@@ -1,25 +1,168 @@
 .room {
+  overflow-y: hidden;
+  overflow: hidden;
   height: 100vh;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  position: relative;
   align-items: center;
-  background-color: #d9d2e9ff;
+  flex-direction: column;
+  font-family: Roboto;
+  font-style: normal;
+
+  .wave1Container {
+    overflow: hidden;
+    position: absolute;
+    top: 229px;
+    width: 2294px;
+    height: 374px;
+    left: -23px;
+    z-index: 0;
+    img {
+      height: 100%;
+    }
+  }
+  .wave2Container {
+    overflow: hidden;
+    position: absolute;
+    top: 480px;
+    left: -260px;
+    z-index: 0;
+    img {
+      height: 100%;
+    }
+  }
+
+  .calImg {
+    position: absolute;
+    top: 118px;
+    left: 32px;
+    width: 516px;
+    height: 511px;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .downarrContainer {
+    position: absolute;
+    bottom: 55px;
+    left: calc(50% - 47.5px);
+    z-index: 1;
+    transition: 0.25s;
+    cursor: pointer;
+    img {
+      height: 100%;
+    }
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  .homebtnContainer {
+    position: absolute;
+    top: 55px;
+    left: 50px;
+    z-index: 1;
+    transition: 0.25s;
+    cursor: pointer;
+    img {
+      height: 100%;
+    }
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  .hambtnContainer {
+    position: absolute;
+    top: 55px;
+    right: 50px;
+    z-index: 1;
+    transition: 0.25s;
+    cursor: pointer;
+    img {
+      width: 75px;
+      height: 75px;
+    }
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
 
   h1 {
-    font-size: 50px;
+    color: #253757;
+    font-weight: bold;
+    font-size: 60px;
+    margin: 55px 0 0;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+  }
+
+  .btnContainer {
+    z-index: 3;
+    margin: 30px 0 30px;
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      float: right;
+      width: 250px;
+      height: 50px;
+      background: #e25050;
+      box-shadow: 0px 10px 20px rgba(101, 41, 255, 0.15);
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 37px;
+      color: #ffffff;
+      transition: 0.25s;
+      margin-right: 10px;
+      cursor: pointer;
+      z-index: 1;
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
   }
 
   .dataContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 10px;
+    z-index: 2;
+    margin: 10px 0 25px;
+
+    h3 {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+    }
+
+    p {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 50px;
+      color: #e25050;
+      text-align: center;
+    }
   }
 
   .responseFormContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 3;
+
+    h3 {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
 
     .container {
       display: grid;
@@ -35,11 +178,18 @@
     margin-top: 40px;
   }
 
-.clickDiddyClick{
-  background-color: grey;
-  border-radius: 10px;
+  .clickDiddyClick {
+    background-color: grey;
+    border-radius: 10px;
+  }
+
+  .waiting {
+    position: absolute;
+    z-index: 3;
+    font-weight: bold;
+    font-size: 35px;
+    color: #253757;
+    bottom: 150px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
 }
-
-}
-
-

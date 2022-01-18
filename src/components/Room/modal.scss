@@ -1,74 +1,38 @@
-.roomsetup {
-  overflow-y: hidden;
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+}
+
+.modal {
+  position: fixed;
   color: #e25050;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  position: relative;
-  align-items: center;
-  flex-direction: column;
-  font-family: Roboto;
-  font-style: normal;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  box-sizing: border-box;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  padding: 50px;
+  z-index: 100;
 
-  .homebtnContainer {
+  .closeBtn {
     position: absolute;
-    top: 55px;
-    left: 50px;
-    z-index: 2;
+    top: 20px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
+    padding: 0;
     transition: 0.25s;
     cursor: pointer;
-    img {
-      height: 100%;
-    }
+    z-index: 100;
     &:hover {
       transform: translateY(-5px);
-    }
-  }
-
-  .hambtnContainer {
-    position: absolute;
-    top: 55px;
-    right: 50px;
-    z-index: 2;
-    transition: 0.25s;
-    cursor: pointer;
-    img {
-      width: 75px;
-      height: 75px;
-    }
-    &:hover {
-      transform: translateY(-5px);
-    }
-  }
-
-  .wave1Container {
-    overflow: hidden;
-    position: absolute;
-    top: 159px;
-    left: -824px;
-    z-index: 0;
-    img {
-      height: 100%;
-    }
-  }
-  .wave2Container {
-    overflow: hidden;
-    position: absolute;
-    top: 230px;
-    left: -317px;
-    z-index: 1;
-    img {
-      height: 100%;
-    }
-  }
-  .wave3Container {
-    overflow: hidden;
-    position: absolute;
-    top: 378px;
-    left: -1312px;
-    z-index: 0;
-    img {
-      height: 100%;
     }
   }
 
@@ -76,13 +40,13 @@
     color: #253757;
     font-weight: bold;
     font-size: 60px;
-    margin: 55px 0 0;
+    margin: 0;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     z-index: 1;
   }
 
   .roomsetup_form {
-    margin: 200px auto 0;
+    margin: 50px auto 0;
     z-index: 1;
 
     .formContainer {

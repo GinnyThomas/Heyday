@@ -1,12 +1,21 @@
 .button {
+  height: 200px;
   padding: 30px 30px;
-  background-color: white;
-  border-radius: 15px;
+  background: linear-gradient(to right, #d3cce3, #e9e4f0);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border-radius: 20px;
+  border: none;
   transition: 0.25s;
   display: flex;
   flex-direction: column;
   height: 100%;
-  color: black;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 35px;
+  color: #ffffff;
   cursor: pointer;
   &:hover {
     transform: translateY(-5px);
