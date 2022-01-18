@@ -7,10 +7,10 @@ const Landing = () => {
 
   return (
     <div className="landing">
-      <div className="rec1Container">
+      <div className="wave1Container">
         <img src="assets/LandingPage/Rectangle1.png" alt="background wave" />
       </div>
-      <div className="rec2Container">
+      <div className="wave2Container">
         <img src="assets/LandingPage/Rectangle2.png" alt="background wave" />
       </div>
       <div className="hambtnContainer">

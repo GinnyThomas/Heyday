@@ -3,18 +3,18 @@ import ResponseForm from "./ResponseForm";
 import Results from "./Results";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
-import finalResult from "../../helpers/calculation.js"
+import finalResult from "../../helpers/calculation.js";
 import day from "../../helpers/day.js";
 
 const Room = (props) => {
   // -------------------
   // HANDLING ROOM DATA
   // -------------------
-  
-  const urlRoomID = useParams().roomidnum.slice(1)
-  if (props.getRoomId() !== urlRoomID) props.setRoom(urlRoomID)
 
-  const state = props.getRoom()
+  const urlRoomID = useParams().roomidnum.slice(1);
+  if (props.getRoomId() !== urlRoomID) props.setRoom(urlRoomID);
+
+  const state = props.getRoom();
 
   const [buttonStatus, setButtonStatus] = useState(true);
   const [buttonClass, setButtonClass] = useState("");
@@ -31,7 +31,7 @@ const Room = (props) => {
 
   // GREY BUTTON OUT AFTER ROOMFORM IS SUBMITTED
 
-  const determineClass = (index) => { 
+  const determineClass = (index) => {
     if (state.roomFormsRatings[index].length > 0) {
       return "clickDiddyClick";
     } else {
@@ -39,8 +39,7 @@ const Room = (props) => {
     }
   };
 
-  const handleSubmit = (e, index) => {           
-
+  const handleSubmit = (e, index) => {
     setButtonClass("buttonOnClick");
 
     let params = {
@@ -53,8 +52,8 @@ const Room = (props) => {
     };
 
     // DISABLES LINK TO ROOM IF FORM HAS BEEN SUBMITTED
-    if(determineClass(index) === 'clickDiddyClick') {
-      console.log("Form has been submitted, form is not accessible")
+    if (determineClass(index) === "clickDiddyClick") {
+      console.log("Form has been submitted, form is not accessible");
     } else {
       proceedToRoomForm(params);
     }
@@ -66,11 +65,17 @@ const Room = (props) => {
   // };
 
   const setResult = () => {
-    const roomForms = state.roomFormsRatings
-    if(!finalResult.isReady(roomForms)) return <h2>Waiting for results...</h2>;
-    const bestDay = finalResult.getBestDay(roomForms)
-    const medalCounts = finalResult.medalCounts(roomForms, bestDay)
-    if(bestDay < 0) return <h2>No one is available on any date! <br></br> Perhaps try different dates?</h2>;
+    const roomForms = state.roomFormsRatings;
+    if (!finalResult.isReady(roomForms)) return <h2>Waiting for results...</h2>;
+    const bestDay = finalResult.getBestDay(roomForms);
+    const medalCounts = finalResult.medalCounts(roomForms, bestDay);
+    if (bestDay < 0)
+      return (
+        <h2>
+          No one is available on any date! <br></br> Perhaps try different
+          dates?
+        </h2>
+      );
     return (
       <div>
         <h2>SUCCESS!</h2>
@@ -83,11 +88,18 @@ const Room = (props) => {
     );
   };
 
-  console.log('Room.jsx state: ', state);
+  console.log("Room.jsx state: ", state);
 
   console.log(
     `Friend count: ${state.friendCount}, array: [${state.roomFormsRatings}]`
   );
+
+  // Handle Shareable Link Alert
+  const handleAlert = (e) => {
+    alert(`This is your shareable link!\n localhost:3000/room/:${urlRoomID}`);
+    navigator.clipboard.writeText(`localhost:3000/room/:${urlRoomID}`);
+    e.preventDefault();
+  };
 
   return (
     <>
@@ -117,8 +129,15 @@ const Room = (props) => {
         </div>
         <h1>Welcome to your Room!</h1>
         <div className="clickableLink">
-        <button value={`localhost:3000/room/:${urlRoomID}`} onClick={() => {navigator.clipboard.writeText(`localhost:3000/room/:${urlRoomID}`)}}>Copy Shareable Link</button>
-      </div>
+          <button
+            value={`localhost:3000/room/:${urlRoomID}`}
+            onClick={() => {
+              handleAlert();
+            }}
+          >
+            Copy Shareable Link
+          </button>
+        </div>
         <div className="dataContainer">
           <h3>When are you available for a meetup between:</h3>
           <p>
