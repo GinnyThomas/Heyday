@@ -6,6 +6,7 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import finalResult from "../../helpers/calculation.js";
 import day from "../../helpers/day.js";
+import { Link } from "react-scroll";
 
 const Room = (props) => {
   // -------------------
@@ -108,7 +109,7 @@ const Room = (props) => {
 
   return (
     <>
-      <div className="room">
+      <div id="room" className="room">
         <div className="wave1Container">
           <img src="/assets/Room/wave1.png" alt="background wave" />
         </div>
@@ -130,7 +131,9 @@ const Room = (props) => {
           <img src="/assets/Hamburger_menu.png" alt="Hamburger Menu Button" />
         </div>
         <div className="downarrContainer">
-          <img src="/assets/Expand_down_double.png" alt="Home Button" />
+          <Link to="results" spy={true} smooth={true}>
+            <img src="/assets/Expand_down_double.png" alt="Home Button" />
+          </Link>
         </div>
         <h1>Welcome to your Room!</h1>
         <div className="btnContainer">
@@ -173,7 +176,7 @@ const Room = (props) => {
           onClose={() => setIsOpen(false)}
         />
       </div>
-      <Results date={2020} />
+      <Results id="results" date={2020} />
     </>
   );
 };

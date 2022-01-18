@@ -1,5 +1,6 @@
 .room {
   overflow-y: hidden;
+  overflow: hidden;
   height: 100vh;
   width: 100%;
   display: flex;
@@ -98,7 +99,7 @@
   }
 
   .btnContainer {
-    z-index: 2;
+    z-index: 3;
     margin: 30px 0 30px;
     button {
       display: flex;
@@ -143,7 +144,7 @@
       font-family: Roboto;
       font-style: normal;
       font-weight: bold;
-      font-size: 60px;
+      font-size: 50px;
       color: #e25050;
       text-align: center;
     }
