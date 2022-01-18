@@ -1,12 +1,5 @@
-const testData = [
-  [0, 1, 0, 0, 2, 2],
-  [0, 0, 1, 0, 2, 0],
-  [0, 1, 2, 1, 2, 2],
-];
-
 const isReady = (formsArr) => {
   const valueArr = formsArr.map((form) => form.length);
-  //   console.log("Form Lengths: " + valueArr);
   return !valueArr.includes(0);
 };
 
@@ -16,7 +9,6 @@ const isReady = (formsArr) => {
 
 const allAvailableForDay = (formsArr, dayIndex) => {
   const available = formsArr.map((form) => form[dayIndex]);
-  //   console.log(`Preferences for day ${dayIndex}: ` + available);
   return !available.includes(0);
 };
 
@@ -45,10 +37,8 @@ const dayScore = (formsArr, dayIndex) => {
   return score;
 };
 
-const dayScores = (formsArr) => {
-  const scores = formsArr[0].map((_day, i) => dayScore(formsArr, i));
-  return scores;
-};
+const dayScores = (formsArr) =>
+  formsArr[0].map((_day, i) => dayScore(formsArr, i));
 
 const bestDays = (formsArr) => {
   const aScores = availableScores(formsArr);
@@ -77,35 +67,61 @@ const getMedalCount = (formsArr, dayIndex, medalNumber) => {
 // CALLABLE
 // =====================
 
-const getBestDay = (formsArr) => {
+const getHighFreeDay = (formsArr) => {
   const bestDaysArr = bestDays(formsArr);
   return bestDaysArr[0];
 };
 
-const medalCounts = (formsArr, bestDay) => {
-  return [
-    getMedalCount(formsArr, bestDay, 3),
-    getMedalCount(formsArr, bestDay, 2),
-    getMedalCount(formsArr, bestDay, 1),
-  ];
+const getHighScoreDay = (formsArr) => {
+  const scores = dayScores(formsArr);
+  const highScore = Math.max(...scores);
+  return scores.indexOf(highScore);
+};
+
+const getSoonestDay = (formsArr) => {
+  const available = availableDays(formsArr);
+  return available[0];
+};
+
+const medalCounts = (formsArr, bestDay) =>
+  [3, 2, 1, 0].map((val) => getMedalCount(formsArr, bestDay, val));
+
+const scoreComparison = (formsArr, highFreeDay, highScoreDay) => {
+  const scoreFree = dayScore(formsArr, highFreeDay),
+    scoreScore = dayScore(formsArr, highScoreDay);
+  if (scoreFree === scoreScore) return 0;
+  return scoreScore / scoreFree - 1;
+};
+
+const newResultPackage = (pB, pBM, pN = null, pNM = null, pBH = false) => {
+  return {
+    best: pB,
+    bestMedals: pBM,
+    next: pN,
+    nextMedals: pNM,
+    bestIsHighest: pBH,
+  };
+};
+
+const getFinalResult = (formsArr) => {
+  const fDay = getHighFreeDay(formsArr),
+    sDay = getHighScoreDay(formsArr),
+    fDayMedals = medalCounts(formsArr, fDay),
+    sDayMedals = medalCounts(formsArr, sDay);
+
+  const scorePercent = scoreComparison(formsArr, fDay, sDay),
+    busyPercent = sDayMedals[3] / formsArr.length;
+
+  if (fDay < 0) return newResultPackage(null, null);
+  if (fDay === sDay) return newResultPackage(fDay, fDayMedals);
+  if (busyPercent >= scorePercent)
+    return newResultPackage(fDay, fDayMedals, sDay, sDayMedals);
+  return newResultPackage(sDay, sDayMedals, fDay, fDayMedals, true);
 };
 
 const finalResult = {
-  getBestDay,
   isReady,
-  medalCounts,
+  getFinalResult,
 };
 
 module.exports = finalResult;
-
-// What days are everyone free? DONE
-// Of those days, which are the best?
-// Of the best, which are the soonest?
-// console.log(allFormsComplete(testData));
-// console.log(allAvailableForDay(testData, 0));
-// console.log(allAvailableForDay(testData, 1));
-// console.log(availableDays(testData)); // expect: [1, 4]
-// console.log(dayScore(testData, 2)); // 4
-// console.log(dayScores(testData)); // [0, 4, 3, 1, 5]
-// console.log(getBestDay(testData)); // [4, 5]
-console.log(medalCounts(testData, 4)); // 1
