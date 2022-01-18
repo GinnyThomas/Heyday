@@ -244,4 +244,51 @@
       }
     }
   }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+
+    h2 {
+      font-family: Leckerli One;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 50px;
+      line-height: 67px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+
+      color: #1d3557;
+    }
+
+    .iconContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 37px 0 72px;
+      padding: 0;
+      li {
+        transition: 0.25s;
+        cursor: pointer;
+        &:hover {
+          transform: translateY(-5px);
+        }
+      }
+    }
+
+    p {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      color: #1d3557;
+      span {
+        font-family: Leckerli One;
+      }
+    }
+  }
 }

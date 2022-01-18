@@ -82,18 +82,17 @@ const Landing = () => {
         <h2>Technologies</h2>
         <ul className="cards">
           <li>
-            <div>
-            </div>
+            <div></div>
             <img
-                src="assets/LandingPage/JavaScript.png"
-                alt="JavaScript logo"
-              />
+              src="assets/LandingPage/JavaScript.png"
+              alt="JavaScript logo"
+            />
             <h2>Language</h2>
             <h3>JavaScript</h3>
           </li>
           <li>
             <img src="assets/LandingPage/React.png" alt="ReactJS logo" />
-            <h2>Front_End</h2>
+            <h2>Front-End</h2>
             <h3>React</h3>
           </li>
           <li>
@@ -120,7 +119,29 @@ const Landing = () => {
       <Carousel />
 
       {/* FOOTER SECTION */}
-      <div className="technologies"></div>
+      <div className="footer">
+        <h2>Anonymeet</h2>
+        <ul className="iconContainer">
+          <li>
+            <img src="assets/Footer/facebook_icon.svg" alt="facebook icon" />
+          </li>
+          <li>
+            <img src="assets/Footer/twitter_icon.svg" alt="twitter icon" />
+          </li>
+          <li>
+            <img src="assets/Footer/instagram_icon.svg" alt="instagram icon" />
+          </li>
+          <li>
+            <img src="assets/Footer/youtube_icon.svg" alt="youtube icon" />
+          </li>
+          <li>
+            <img src="assets/Footer/pintrest_icon.svg" alt="pintrest icon" />
+          </li>
+        </ul>
+        <p>
+          © 2010 — 2020 <span> Anonymeet </span> Privacy — Terms
+        </p>
+      </div>
 
       <div className="bot1Container">
         <img src="assets/LandingPage/bot1.png" alt="background wave" />

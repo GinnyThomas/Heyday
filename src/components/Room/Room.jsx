@@ -1,6 +1,7 @@
 import "./room.scss";
 import ResponseForm from "./ResponseForm";
 import Results from "./Results";
+import Modal from "./Modal";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import finalResult from "../../helpers/calculation.js";
@@ -18,6 +19,7 @@ const Room = (props) => {
 
   const [buttonStatus, setButtonStatus] = useState(true);
   const [buttonClass, setButtonClass] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
   // ---------------
   // NAV HANDLING
@@ -140,6 +142,7 @@ const Room = (props) => {
             Copy Shareable Link
           </button>
         </div>
+        <button onClick={() => setIsOpen(true)}>Edit Room set-up</button>
         <div className="dataContainer">
           <h3>When are you available for a meetup between:</h3>
           <p>
@@ -166,6 +169,9 @@ const Room = (props) => {
           </p>
         </div>
         <div className="resultContainer">{setResult()}</div>
+        <Modal className="modal" open={isOpen} onClose={() => setIsOpen(false)}>
+          
+        </Modal>
       </div>
       <Results />
     </>
