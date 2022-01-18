@@ -122,6 +122,7 @@
 
   .resultContainer {
     width: 50%;
+    min-width: 650px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -146,7 +147,7 @@
       display: flex;
       position: relative;
       padding: 0;
-      margin: 5px auto;
+      margin: 5px auto 0;
       align-items: center;
       justify-content: center;
       li {
@@ -164,9 +165,15 @@
       }
     }
 
+    .errorMessage {
+      color: #457b9d;
+      font-size: 120%;
+      font-weight: bold;
+    }
+
     .otherResults {
       margin-top: 2%;
-      color: #457b9d;
+      color: #457b9daf;
       font-size: 120%;
       .bold {
         font-weight: bold;
@@ -198,8 +205,9 @@
     }
 
     .resultsDisplay {
-      background-color: rgba(223, 223, 223, 0.735);
-      border: 10px solid #ffffffc6;
+      background-color: rgba(255, 233, 233, 0.795);
+      // background-color: rgba(223, 223, 223, 0.735);
+      // border: 10px solid #ffffffc6;
       text-align: center;
       border-radius: 15px;
       width: 95%;

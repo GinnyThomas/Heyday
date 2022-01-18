@@ -104,6 +104,24 @@ const Room = (props) => {
         </div>
       </>
     )
+  
+  const renderMainContent = () => (
+    <>
+      <h1>Welcome to your Room!</h1>
+      {renderTopButtons()}
+      <div className="MainContent">
+        <div className="dataContainer">
+          <h3>When are you available for a meetup between:</h3>
+          <p>{day.display(state.startDate)} - {day.display(state.endDate)}</p>
+        </div>
+        <div className="responseFormContainer">
+          <h3>Please complete one of the available Response Forms below.</h3>
+          {renderResponseForms()}
+        </div>
+      </div>
+      <p className="waiting">Waiting for results ...</p>
+    </>
+    )
 
   const renderResponseForms = () => (
       <>
@@ -123,24 +141,6 @@ const Room = (props) => {
       </>
     )
 
-  const renderMainContent = () => (
-    <>
-      <h1>Welcome to your Room!</h1>
-      {renderTopButtons()}
-      <div className="MainContent">
-        <div className="dataContainer">
-          <h3>When are you available for a meetup between:</h3>
-          <p>{day.display(state.startDate)} - {day.display(state.endDate)}</p>
-        </div>
-        <div className="responseFormContainer">
-          <h3>Please complete one of the available Response Forms below.</h3>
-          {renderResponseForms()}
-        </div>
-      </div>
-      <p className="waiting">Waiting for results ...</p>
-    </>
-    )
-
   // -------------------
   // RENDER
   // -------------------
@@ -148,6 +148,7 @@ const Room = (props) => {
   const mOCKaRRAY01 = [[2,0,1],[1,0,3],[2,0,1]] // No secondary
   const mOCKaRRAY02 = [[0,3,1],[1,0,1],[2,3,1]] // High score, secondary is free score
   const mOCKaRRAY03 = [[0,3,1],[1,0,1],[2,1,1]] // Free score, secondary is high score
+  const mOCKaRRAY04 = [[0,0,0],[0,0,0],[0,0,0]] // Nothing
 
   return (
     <>
@@ -161,7 +162,7 @@ const Room = (props) => {
           onClose={() => setIsOpen(false)}
         />
       </div>
-      <Results id="results" formRatings={mOCKaRRAY03} date={state.startDate} />
+      <Results id="results" formRatings={mOCKaRRAY02} date={state.startDate} />
     </>
   );
 };
