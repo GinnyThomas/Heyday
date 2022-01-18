@@ -51,12 +51,21 @@ const Results = ({ date }) => {
       <div className="resultContainer">
         <h2>The best day for everyone is:</h2>
         <h3>{date}</h3>
-        <div className="iconContainer">
-          <p>Gold: </p>
-          <p>Silver: </p>
-          <p>Bronze: </p>
-        </div>
-        <ul>
+        <ul className="iconContainer">
+          <li>
+            <img src="/assets/RoomForm/gold.png" alt="gold button" />
+            <p>x 6 </p>
+          </li>
+          <li>
+            <img src="/assets/RoomForm/silver.png" alt="silver button" />
+            <p>x 5 </p>
+          </li>
+          <li>
+            <img src="/assets/RoomForm/bronze.png" alt="bronze button" />
+            <p>x 3 </p>
+          </li>
+        </ul>
+        <ul className="otherResults">
           <li>
             - Other days that are equally convenient but further in the future:{" "}
             <span>2020</span>{" "}
