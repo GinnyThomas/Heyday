@@ -4,8 +4,9 @@
   border-radius: 10px;
   padding: 2%;
   text-align: center;
-  overflow-y: hidden;
+  // overflow-y: hidden;
   width: 55%;
+  max-height: 1300px;
   font-size: 18px;
   font-family: Roboto;
   z-index: 10;
@@ -49,6 +50,7 @@
       padding: 2%;
       height: 130px;
       width: 16%;
+      overflow-y: hidden;
       p {
         font-size: 80%;
         font-weight: bold;

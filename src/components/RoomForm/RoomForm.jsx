@@ -154,7 +154,7 @@ const RoomForm = (props) => {
 
   const renderContent = () => {
     return (
-      <>
+      <div className="Content">
         <div className="RoomFormBackground">
           {renderBackground()}
           {renderIcons()}
@@ -168,7 +168,7 @@ const RoomForm = (props) => {
           </h3>
           <ul className="iconContainer">
             <p>Click on the calendar buttons below to cycle through the options:</p>
-            <div className="iconBox">{whiteButton()}<p>you're not available for a meetup on this day</p></div>
+            <div className="iconBox">{whiteButton()}<p>you're not available to meet up on this day</p></div>
             <div className="iconBox">{bronzeButton()}<p>you're available, but it's an inconvenient day</p></div>
             <div className="iconBox">{silverButton()}<p>you're available and it's a convenient day</p></div>
             <div className="iconBox">{goldButton()}<p>you're available and it's a preferred day</p></div>
@@ -184,7 +184,7 @@ const RoomForm = (props) => {
             <button onClick={() => clickCancel()}>Cancel</button>
            </div>
         </div>
-      </>
+      </div>
     );
   };
 
