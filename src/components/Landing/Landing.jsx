@@ -6,6 +6,8 @@ import { useParams, useNavigate } from "react-router-dom";
 const Landing = () => {
   let navigate = useNavigate();
 
+  const appName = "Anonymeet"
+
   return (
     <div className="landing">
       {/* HERO SECTION */}
@@ -23,7 +25,7 @@ const Landing = () => {
       </div>
       <div className="landingTextContainer">
         <h1 className="landingTitle">
-          Welcome to <span>Anonymeet</span>
+          Welcome to <span>{appName}</span>
         </h1>
         <h2 className="landingCatchPhrase">
           Find the most convenient day for <br />
@@ -48,7 +50,7 @@ const Landing = () => {
 
       <div className="introSection">
         <div className="textContainer">
-          <h2>Why use Anonymeet?</h2>
+          <h2>Why use {appName}?</h2>
           <p>
             Organising a meetup can be difficult. It's hard enough figuring out
             when you're all free, even harder to figure out when works well for
