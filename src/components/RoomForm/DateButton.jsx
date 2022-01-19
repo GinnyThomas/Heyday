@@ -40,8 +40,7 @@ const DateButton = (props) => {
     <div className="DateBlock">
       <h4><span className={workOrWeekend()}>{day.weekDay(myDay).slice(0,1)}.</span> {day.displayCal(myDay)}</h4>
       <div className={`DateButtonBox ${workOrWeekend()}`}>
-        <button className={`RankingButton`} onClick={() => handleClick()}>
-          {/* <span className="RankingButtonText">{day.weekDay(myDay).slice(0, 1)}</span> */}
+        <button className={`RankingButton clickable`} onClick={() => handleClick()}>
           <span className="RankingButtonIcon">{getButton()}</span>
         </button>
       </div>
@@ -52,9 +51,7 @@ const DateButton = (props) => {
     <div className="DateBlock">
       <h4 className="hiddenText">{day.displayCal(myDay)}</h4>
       <div className={`DateButtonBox`}>
-        {/* <button className={`RankingButton hiddenBox`}></button> */}
         <button className={`RankingButton`}>
-          {/* <span className="RankingButtonText">{day.weekDay(myDay).slice(0, 1)}</span> */}
           <span className="RankingButtonIcon">{blankButton()}</span>
         </button>
       </div>
