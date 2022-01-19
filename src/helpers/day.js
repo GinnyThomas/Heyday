@@ -20,21 +20,29 @@ const stringToInt = (inpString, isCalDate) => {
 };
 
 const dateArr = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
+  "January",
+  "Februaru",
+  "March",
+  "April",
   "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ];
 
-const weekArr = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const weekArr = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 
 const datesArr = (date) => {
   const inpDay = formatDate(date.getDate());
@@ -111,7 +119,7 @@ const difference = (start, end) => {
 const sinceMonday = (input, plus = 0) => {
   const inWeekDay = weekDay(input, plus);
   const dayIndex = weekArr.findIndex((wkday) => wkday === inWeekDay);
-  return dayIndex == 0 ? 6 : dayIndex - 1;
+  return dayIndex === 0 ? 6 : dayIndex - 1;
 };
 
 const day = {

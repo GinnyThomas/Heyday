@@ -1,3 +1,10 @@
+.MainContent {
+  z-index: 20;
+  background-color: rgba(255, 255, 255, 0.776);
+  border-radius: 15px;
+  max-height: 50%;
+}
+
 .room {
   overflow-y: hidden;
   overflow: hidden;
@@ -108,7 +115,7 @@
       float: right;
       width: 250px;
       height: 50px;
-      background: #e25050;
+      background: #a8dadc;
       box-shadow: 0px 10px 20px rgba(101, 41, 255, 0.15);
       border: none;
       border-radius: 10px;
@@ -136,8 +143,10 @@
     h3 {
       font-family: Roboto;
       font-style: normal;
-      font-weight: normal;
+      font-weight: bold;
+      color: #253757;
       font-size: 20px;
+      margin: 10px 0;
     }
 
     p {
@@ -145,6 +154,7 @@
       font-style: normal;
       font-weight: bold;
       font-size: 50px;
+      margin-top: 10px;
       color: #e25050;
       text-align: center;
     }
@@ -159,9 +169,10 @@
     h3 {
       font-family: Roboto;
       font-style: normal;
-      font-weight: normal;
+      font-weight: bold;
+      color: #253757;
       font-size: 20px;
-      margin-bottom: 10px;
+      margin: 20px 0 10px;
     }
 
     .container {
