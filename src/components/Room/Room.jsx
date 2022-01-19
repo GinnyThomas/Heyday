@@ -202,6 +202,7 @@ const Room = (props) => {
   // const mOCKaRRAY02 = [[0,3,1],[1,0,1],[2,3,1]] // High score, secondary is free score
   // const mOCKaRRAY03 = [[0,3,1],[1,0,1],[2,1,1]] // Free score, secondary is high score
   // const mOCKaRRAY04 = [[0,0,0],[0,0,0],[0,0,0]] // Nothing
+  // const mOCKaRRAY05 = [[0,0,0],[0,0,0],[0,0,1]] // One person available one day
 
   return (
     <>

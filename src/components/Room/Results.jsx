@@ -41,10 +41,10 @@ const Results = (props) => {
 
   const formsArr = finalResult.getFinalResult(props.formRatings),
     bestDay =
-      formsArr.best != null ? day.toInt(props.date, formsArr.best) : null,
+      (formsArr.best != null && formsArr.best >= 0) ? day.toInt(props.date, formsArr.best) : null,
     bestMedals = formsArr.bestMedals != null ? formsArr.bestMedals : null,
     otherDay =
-      formsArr.next != null ? day.toInt(props.date, formsArr.next) : null,
+      (formsArr.next != null && formsArr.next >= 0) ? day.toInt(props.date, formsArr.next) : null,
     otherMedals = formsArr.nextMedals != null ? formsArr.nextMedals : null,
     bestIsHighest = formsArr.bestIsHighest;
 
@@ -162,9 +162,10 @@ const Results = (props) => {
   };
 
   const renderUnavailables = () => {
+    const pluralPeople = bestMedals[3] > 1 ? "people are" : "person is"
     if (bestMedals[3] > 0)
       return (
-        <p className="unavailability">x{bestMedals[3]} person is unavailable</p>
+        <p className="unavailability">x{bestMedals[3]} {pluralPeople} unavailable</p>
       );
   };
 
