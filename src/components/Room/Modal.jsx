@@ -17,12 +17,18 @@ export default function Modal(props) {
     setFriendCount(event.target.value);
   };
 
+  const intFriendCount = Number(friendCount);
+
+  const ratings = new Array(intFriendCount).fill([]);
+
   const handleSubmit = (event) => {
     props.editRoom(props.state.roomID, {
       startDate: startDate,
       endDate: endDate,
       friendCount: friendCount,
+      roomFormsRatings: ratings,
     });
+    console.log(props.state);
     event.preventDefault();
     props.onClose();
   };
