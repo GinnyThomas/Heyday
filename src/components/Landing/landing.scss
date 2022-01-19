@@ -3,6 +3,7 @@
   height: 3720px;
   width: 100%;
   display: flex;
+  position: relative;
   flex-direction: column;
   font-family: Roboto;
   font-style: normal;
@@ -33,7 +34,7 @@
     overflow: visible;
     position: absolute;
     top: 1674px;
-    left: -1933px;
+    left: -1770px;
     z-index: 0;
     img {
       height: 100%;
@@ -128,7 +129,7 @@
       }
     }
     .landingText {
-      margin: 0 0 44px 0;
+      margin: 0 0 80px 0;
       width: 500px;
       font-weight: bold;
       font-size: 30px;
@@ -160,18 +161,18 @@
 
   .introSection {
     display: flex;
-    margin: 220px auto;
-    padding: 0 160px;
+    margin: 280px auto 260px;
     .textContainer {
       font-family: Mulish;
       font-style: normal;
       color: #253757;
       text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      width: 365px;
+      width: 390px;
+      margin-right: 150px;
 
       h2 {
         font-weight: 900;
-        font-size: 32px;
+        font-size: 40px;
       }
 
       p {
@@ -183,13 +184,49 @@
     }
 
     .listContainer {
-      li {
-        background-color: #ffffff;
-        opacity: 0.6;
-        border: 10px solid #ffffff;
-        box-sizing: border-box;
-        box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
-        border-radius: 50px;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      font-family: Mulish;
+      font-style: normal;
+      color: #253757;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      .top {
+        display: flex;
+        margin-bottom: 30px;
+        li {
+          width: 350px;
+          padding: 0 20px;
+          h2 {
+            font-size: 40px;
+            text-align: center;
+          }
+          p {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            margin-top: 30px;
+            text-align: center;
+          }
+        }
+      }
+      .bottom {
+        display: flex;
+        li {
+          width: 350px;
+          padding: 0 20px;
+          h2 {
+            font-size: 40px;
+            text-align: center;
+          }
+          p {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            margin-top: 30px;
+            text-align: center;
+          }
+        }
       }
     }
   }
@@ -200,41 +237,53 @@
     justify-content: center;
     align-items: center;
     font-family: Mulish;
+    color: #253757;
+    margin-bottom: 430px;
     z-index: 3;
     h2 {
-      font-size: 32px;
+      font-weight: 900;
+      font-size: 40px;
       font-style: normal;
-      color: #253757;
       text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      margin-bottom: 50px;
     }
 
     .cards {
       display: flex;
-      justify-content: center;
+      position: relative;
+      justify-content: space-between;
       align-items: center;
+      width: 1200px;
+      padding: 0;
       li {
+        display: flex;
+        width: 300px;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
-        position: relative;
         div {
-          position: absolute;
+          top: 0;
           width: 180px;
           height: 180px;
           background: #ffffff;
           opacity: 0.6;
-          border: 10px solid #ffffff;
           box-sizing: border-box;
-          box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+            rgba(0, 0, 0, 0.22) 0px 15px 12px;
           border-radius: 50px;
-          z-index: 0;
+          z-index: 2;
         }
         img {
-          width: 130px;
-          height: 130px;
-          z-index: 1;
+          width: 120px;
+          height: 120px;
+          z-index: 3;
+          position: absolute;
+          top: 30px;
         }
         h2 {
           font-weight: bold;
           font-size: 60px;
+          margin: 40px 0 15px;
         }
         h3 {
           font-style: normal;
@@ -246,6 +295,7 @@
   }
 
   .footer {
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -267,8 +317,9 @@
 
     .iconContainer {
       display: flex;
+      width: 300px;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       margin: 37px 0 72px;
       padding: 0;
       li {
