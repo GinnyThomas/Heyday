@@ -194,12 +194,16 @@ const RoomForm = (props) => {
 
   const blockContent = () => {
     return (
-      <div className="RoomForm">
-        {/* {renderBackground()}
-        {renderIcons()} */}
-        <div className="RoomFormError">
-          <p>Please choose a response form that's not in use.</p>
-          <button onClick={() => clickCancel()}>Return to room</button>
+      <div className="Content">
+        <div className="RoomForm ErrorPage">
+          <div className="RoomFormBackground">
+            {renderBackground()}
+            {renderIcons()}
+          </div>
+          <div className="RoomFormError">
+            <p>Please choose a response form that's not in use.</p>
+            <button onClick={() => clickCancel()}>Return to room</button>
+          </div>
         </div>
       </div>
     );

@@ -9,6 +9,10 @@
   flex-direction: column;
   font-family: Roboto;
   font-style: normal;
+
+  .ErrorPage {
+    background-color: rgba(255, 255, 255, 0);
+  }
 }
 
 .RoomForm {
@@ -78,12 +82,34 @@
   }
 
   .RoomFormError {
-    margin: 10% auto;
-    background-color: rgba(163, 163, 163, 0.171);
+    margin: 13% auto;
+    background-color: rgba(255, 255, 255, 0.637);
     border-radius: 10px;
-    padding: 5% 2%;
+    padding: 4% 2% 2%;
     text-align: center;
+    font-size: 120%;
     width: 30%;
+    p {
+      padding: 0 10%;
+    }
+    button {
+      display: inline-block;
+      margin: 15px 10px;
+      background: #e25050;
+      box-shadow: 0px 4px 4px rgba(101, 41, 255, 0.15);
+      width: 170px;
+      height: 40px;
+      font-weight: bold;
+      font-size: 90%;
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      transition: 0.25s;
+      cursor: pointer;
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
   }
 }
 
@@ -106,7 +132,7 @@
     margin: 15px 0 15px;
     button {
       display: inline-block;
-      margin: 0 10px;
+      margin: 5px 10px;
       background: #e25050;
       box-shadow: 0px 4px 4px rgba(101, 41, 255, 0.15);
       width: 150px;
