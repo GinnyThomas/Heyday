@@ -18,11 +18,11 @@ export default function Modal(props) {
   };
 
   const handleSubmit = (event) => {
-    /// NEARLY BUT NOT QUITE
-    // props.editRoom(props.getRoom().roomID, {
-    //   startDate: startDate,
-    //   endDate: endDate,
-    //   friendCount: friendCount,  });
+    props.editRoom(props.state.roomID, {
+      startDate: startDate,
+      endDate: endDate,
+      friendCount: friendCount,
+    });
     event.preventDefault();
     props.onClose();
   };
