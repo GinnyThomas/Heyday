@@ -34,7 +34,7 @@
     overflow: visible;
     position: absolute;
     top: 1674px;
-    left: -1933px;
+    left: -1770px;
     z-index: 0;
     img {
       height: 100%;
@@ -221,6 +221,7 @@
       padding: 0;
       li {
         display: flex;
+        width: 300px;
         flex-direction: column;
         align-items: center;
         text-align: center;
@@ -231,12 +232,8 @@
           background: #ffffff;
           opacity: 0.6;
           box-sizing: border-box;
-          box-shadow: rgba(240, 46, 170, 0.4) 0px -23px 25px 0px inset,
-            rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
-            rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
-            rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px,
-            rgba(240, 46, 170, 0.1) 20px 20px,
-            rgba(240, 46, 170, 0.05) 25px 25px;
+          box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+            rgba(0, 0, 0, 0.22) 0px 15px 12px;
           border-radius: 50px;
           z-index: 2;
         }
