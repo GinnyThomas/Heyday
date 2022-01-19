@@ -3,25 +3,28 @@ import { useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 
 export default function Modal(props) {
-  if (!props.open) return null;
+  // if (!props.open) return null;
+  
+  const [startDate, setStartDate] = useState(props.state.startDate);
+  const [endDate, setEndDate] = useState(props.state.endDate);
+  const [friendCount, setFriendCount] = useState(props.state.friendCount);
 
-  // const [startDate, setStartDate] = useState(props.state.startDate);
-  // const [endDate, setEndDate] = useState(props.state.endDate);
-  // const [friendCount, setFriendCount] = useState(props.state.friendCount);
-
-  // const handleStartDate = (event) => {
-  //   setStartDate(event.target.value);
-  // };
-  // const handleEndDate = (event) => {
-  //   setEndDate(event.target.value);
-  // };
-  // const handleFriendCount = (event) => {
-  //   setFriendCount(event.target.value);
-  // };
-
-  console.log(props.state.startDate);
+  const handleStartDate = (event) => {
+    setStartDate(event.target.value);
+  };
+  const handleEndDate = (event) => {
+    setEndDate(event.target.value);
+  };
+  const handleFriendCount = (event) => {
+    setFriendCount(event.target.value);
+  };
 
   const handleSubmit = (event) => {
+    /// NEARLY BUT NOT QUITE
+    // props.editRoom(props.getRoom().roomID, { 
+    //   startDate: startDate,
+    //   endDate: endDate,
+    //   friendCount: friendCount,  });
     event.preventDefault();
     props.onClose();
   };
@@ -53,8 +56,8 @@ export default function Modal(props) {
                   <input
                     type="date"
                     name="startDate"
-                    value={props.state.startDate}
-                    // onChange={handleStartDate}
+                    value={startDate}
+                    onChange={handleStartDate}
                   ></input>
                 </label>
                 <label className="endLabel">
@@ -64,8 +67,8 @@ export default function Modal(props) {
                     type="date"
                     placeholder="dd/mm/yyyy"
                     name="endDate"
-                    value={props.state.endDate}
-                    // onChange={handleEndDate}
+                    value={endDate}
+                    onChange={handleEndDate}
                   ></input>
                 </label>
               </div>
@@ -83,8 +86,8 @@ export default function Modal(props) {
                   <input
                     type="number"
                     name="friendCount"
-                    value={props.state.friendCount}
-                    // onChange={handleFriendCount}
+                    value={friendCount}
+                    onChange={handleFriendCount}
                   ></input>
                 </label>
               </div>
