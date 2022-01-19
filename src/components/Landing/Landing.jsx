@@ -82,26 +82,29 @@ const Landing = () => {
         <h2>Technologies</h2>
         <ul className="cards">
           <li>
-            <div></div>
             <img
               src="assets/LandingPage/JavaScript.png"
               alt="JavaScript logo"
             />
+            <div></div>
             <h2>Language</h2>
             <h3>JavaScript</h3>
           </li>
           <li>
             <img src="assets/LandingPage/React.png" alt="ReactJS logo" />
+            <div></div>
             <h2>Front-End</h2>
             <h3>React</h3>
           </li>
           <li>
             <img src="assets/LandingPage/Jest.png" alt="Jest logo" />
+            <div></div>
             <h2>Testing</h2>
             <h3>Jest</h3>
           </li>
           <li>
             <img src="assets/LandingPage/express.png" alt="Express logo" />
+            <div></div>
             <h2>Back-End</h2>
             <h3>Express</h3>
           </li>

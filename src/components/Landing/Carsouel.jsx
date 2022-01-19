@@ -8,6 +8,8 @@ export default class Carousel extends Component {
   render() {
     const settings = {
       className: "carousel",
+      autoplay: true,
+      autoplaySpeed: 8000,
       arrows: true,
       infinite: true,
       slidesToShow: 3,
@@ -20,27 +22,62 @@ export default class Carousel extends Component {
     };
     return (
       <div>
-        <h2>Developer Team</h2>
+        <h2 className="title">Developer Team</h2>
         <Slider {...settings}>
-          <div>
+          <div className="container">
+            <div className="background"></div>
             <img src="assets/Carousel/Myoung.jpg" alt="" />
+            <p>
+              Lorem blakclksdjf osduhfl afsdoihl fadsolihlfasd afosdihjl
+              afsdoihjfldasi foasdihafsdolihfasdolih
+            </p>
+            <hr />
             <h3>Myoung</h3>
+            <h2>Software Developer</h2>
           </div>
           <div>
-            <img src="assets/Carousel/Myoung.jpg" alt="" />
-            <h3>2</h3>
+            <div className="background"></div>
+            <img src="assets/Carousel/matt.jpg" alt="" />
+            <p>
+              Lorem blakclksdjf osduhfl afsdoihl fadsolihlfasd afosdihjl
+              afsdoihjfldasi foasdihafsdolihfasdolih
+            </p>
+            <hr />
+            <h3>Matt</h3>
+            <h2>Software Developer</h2>
           </div>
           <div>
-            <img src="assets/Carousel/Myoung.jpg" alt="" />
-            <h3>3</h3>
+            <div className="background"></div>
+            <img src="assets/Carousel/ryan.jpg" alt="" />
+            <p>
+              Lorem blakclksdjf osduhfl afsdoihl fadsolihlfasd afosdihjl
+              afsdoihjfldasi foasdihafsdolihfasdolih
+            </p>
+            <hr />
+            <h3>Ryan</h3>
+            <h2>Software Developer</h2>
           </div>
           <div>
-            <img src="assets/Carousel/Myoung.jpg" alt="" />
-            <h3>4</h3>
+            <div className="background"></div>
+            <img src="assets/Carousel/andy.jpg" alt="" />
+            <p>
+              Lorem blakclksdjf osduhfl afsdoihl fadsolihlfasd afosdihjl
+              afsdoihjfldasi foasdihafsdolihfasdolih
+            </p>
+            <hr />
+            <h3>Andy</h3>
+            <h2>Software Developer</h2>
           </div>
           <div>
-            <img src="assets/Carousel/Myoung.jpg" alt="" />
-            <h3>5</h3>
+            <div className="background"></div>
+            <img src="assets/Carousel/ginny.jpg" alt="" />
+            <p>
+              Lorem blakclksdjf osduhfl afsdoihl fadsolihlfasd afosdihjl
+              afsdoihjfldasi foasdihafsdolihfasdolih
+            </p>
+            <hr />
+            <h3>Ginny</h3>
+            <h2>Software Developer</h2>
           </div>
         </Slider>
       </div>
