@@ -16,8 +16,12 @@
   width: 100%;
   padding-top: 100%;
   border-radius: 18px;
-  border: none;
   position: relative;
+  border: 2px solid #ffffff;
+  box-shadow: 0px 24px 38px rgba(22, 29, 36, 0.08);
+  backdrop-filter: blur(158px);
+  transition: 0.25s;
+  cursor: pointer;
 }
 
 .RankingButtonText {

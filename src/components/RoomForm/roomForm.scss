@@ -1,16 +1,11 @@
-.RoomForm,
-.RoomFormError {
-  margin: 50px auto;
-  background-color: rgba(163, 163, 163, 0.171);
-  border-radius: 10px;
-  padding: 40px 0;
-  text-align: center;
-  width: 300px;
-}
-
 .RoomForm {
   overflow-y: hidden;
-  width: 700px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
 
   .wave1Container {
     overflow: hidden;
@@ -75,9 +70,88 @@
       transform: translateY(-5px);
     }
   }
-}
 
-.DateButtons {
-  margin: 10%;
-  text-align: left;
+  h2 {
+    color: #253757;
+    font-weight: bold;
+    font-size: 60px;
+    margin: 55px 0 0;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+  }
+
+  .responseContainer {
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+    margin: 40px 0 40px;
+    p {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      margin-top: 15px;
+    }
+
+    .instructions {
+      display: flex;
+      margin: 0 auto;
+      width: 1000px;
+      li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 60px;
+          height: 60px;
+        }
+      }
+    }
+  }
+
+  .submit {
+    display: flex;
+    position: absolute;
+    bottom: 80px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 1000px;
+    margin: 0 auto;
+    z-index: 2;
+    p {
+      margin-bottom: 20px;
+    }
+    .btnContainer {
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        float: right;
+        width: 250px;
+        height: 50px;
+        background: #e25050;
+        box-shadow: 0px 10px 20px rgba(101, 41, 255, 0.15);
+        border: none;
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 37px;
+        color: #ffffff;
+        transition: 0.25s;
+        margin-right: 10px;
+        cursor: pointer;
+        z-index: 1;
+        &:hover {
+          transform: translateY(-5px);
+        }
+      }
+    }
+  }
+
+  .DateButtons {
+    z-index: 2;
+  }
 }
