@@ -63,11 +63,59 @@ const RoomForm = (props) => {
   };
 
   // ---------------
-  // RENDERING
+  // CALCULATIONS
   // ---------------
 
   const getDuration = () =>
     day.difference(roomData.startDate, roomData.endDate);
+
+  if (datesArr.length < getDuration()) setDatesArr(datesArrBase)
+
+  // Returns an array of blank boxes to sit in front of the selected dates
+  const beforeDates = () => {
+    const beforeCount =
+      getDuration() < 7 ? 0 : day.sinceMonday(roomData.startDate);
+    const hiddenArr = new Array(beforeCount).fill(0);
+    return hiddenArr.map((_val, i) => renderBlankBox(i - beforeCount));
+  };
+
+  // Returns an array of blank boxes to sit after the selected dates
+  const afterDates = () => {
+    const afterCount =
+      getDuration() < 7 || day.toDate(roomData.endDate).getDay() === 0
+        ? 0
+        : 6 - day.sinceMonday(roomData.endDate);
+    const hiddenArr = new Array(afterCount).fill(0);
+    return hiddenArr.map((_val, i) => renderBlankBox(i + getDuration() + 1));
+  };
+
+  // -------------------
+  // RENDER ELEMENTS
+  // -------------------
+
+  const renderBackground = () => (
+    <>
+      <div className="wave1Container"><img src="/assets/RoomForm/wave1.png" alt="background wave" /></div>
+      <div className="wave2Container"><img src="/assets/RoomForm/wave2.png" alt="background wave" /></div>
+      <div className="wave3Container"><img src="/assets/RoomForm/wave3.png" alt="background wave" /></div>
+    </>
+  )
+
+  // Include the Home button and Hamburger
+  const renderIcons = () => (
+    <>
+    <div
+      className="homebtnContainer"
+      onClick={() => {
+        navigate("../");
+      }}
+    >
+    <img src="/assets/Home.png" alt="Home Button" /></div>
+    <div className="hambtnContainer">
+      <img src="/assets/Hamburger_menu.png" alt="Hamburger Menu Button" />
+    </div>
+    </>
+  )
 
   const renderDateBox = (i) => (
     <DateButton
@@ -79,7 +127,7 @@ const RoomForm = (props) => {
     />
   );
 
-  const renderHiddenBox = (i) => (
+  const renderBlankBox = (i) => (
     <DateButton
       key={`hiddenBox${i}`}
       index={i}
@@ -87,22 +135,6 @@ const RoomForm = (props) => {
       date={roomData.startDate}
     />
   );
-
-  const beforeDates = () => {
-    const beforeCount =
-      getDuration() < 7 ? 0 : day.sinceMonday(roomData.startDate);
-    const hiddenArr = new Array(beforeCount).fill(0);
-    return hiddenArr.map((_val, i) => renderHiddenBox(i - beforeCount));
-  };
-
-  const afterDates = () => {
-    const afterCount =
-      getDuration() < 7 || day.toDate(roomData.endDate).getDay() === 0
-        ? 0
-        : 6 - day.sinceMonday(roomData.endDate);
-    const hiddenArr = new Array(afterCount).fill(0);
-    return hiddenArr.map((_val, i) => renderHiddenBox(i + getDuration() + 1));
-  };
 
   const renderDateBoxes = () => {
     const beforeDateBoxes = beforeDates();
@@ -117,67 +149,39 @@ const RoomForm = (props) => {
     );
   };
 
+  const goldButton = () => <img src="/assets/RoomForm/DateButton/goldSquare.png" alt="gold button" className="keyButton"/>
+  const silverButton = () => <img src="/assets/RoomForm/DateButton/silverSquare.png" alt="silver button" className="keyButton"/>
+  const bronzeButton = () => <img src="/assets/RoomForm/DateButton/bronzeSquare.png" alt="bronze button" className="keyButton"/>
+  const whiteButton = () => <img src="/assets/RoomForm/DateButton/whiteSquare.png" alt="white button" className="keyButton"/>
+
   const renderContent = () => {
     return (
-      <div className="RoomForm">
-        <div className="wave1Container">
-          <img src="/assets/RoomForm/wave1.png" alt="background wave" />
+      <div className="Content">
+        <div className="RoomFormBackground">
+          {renderBackground()}
+          {renderIcons()}
         </div>
-        <div className="wave2Container">
-          <img src="/assets/RoomForm/wave2.png" alt="background wave" />
-        </div>
-        <div className="wave3Container">
-          <img src="/assets/RoomForm/wave3.png" alt="background wave" />
-        </div>
-        <div
-          className="homebtnContainer"
-          onClick={() => {
-            navigate("../");
-          }}
-        >
-          <img src="/assets/Home.png" alt="Home Button" />
-        </div>
-        <div className="hambtnContainer">
-          <img src="/assets/Hamburger_menu.png" alt="Hamburger Menu Button" />
-        </div>
-        <h2>Response Form</h2>
-        <div className="responseContainer">
+        <div className="RoomForm">
+          <h2>Response Form</h2>
           <h3>
             When are you available for a meetup between{" "}
-            {day.toCalDate(roomData.startDate)} and{" "}
-            {day.toCalDate(roomData.endDate)}?
+            <span>{day.toCalDate(roomData.startDate)}</span> and{" "}
+            <span>{day.toCalDate(roomData.endDate)}</span>?
           </h3>
-          <p>
-            Click on the calendar buttons below to cycle through the options:
-          </p>
-          <ul className="instructions">
-            <li>
-              <img src="/assets/RoomForm/clear.png" alt="clear button" />
-              <p>: you're not available this day</p>
-            </li>
-            <li>
-              <img src="/assets/RoomForm/bronze.png" alt="bronze button" />
-              <p>: you're available, but it's not the most convenient day</p>
-            </li>
-            <li>
-              <img src="/assets/RoomForm/silver.png" alt="silver button" />
-              <p>: you're available and it's a convenient day</p>
-            </li>
-            <li>
-              <img src="/assets/RoomForm/gold.png" alt="gold button" />
-              <p>: you're available and it's a preferred day</p>
-            </li>
+          <ul className="iconContainer">
+            <p>Click on the calendar buttons below to cycle through the options:</p>
+            <div className="iconBox">{whiteButton()}<p>you're not available to meet up on this day</p></div>
+            <div className="iconBox">{bronzeButton()}<p>you're available, but it's an inconvenient day</p></div>
+            <div className="iconBox">{silverButton()}<p>you're available and it's a convenient day</p></div>
+            <div className="iconBox">{goldButton()}<p>you're available and it's a preferred day</p></div>
           </ul>
+          <div className="DateButtons">{renderDateBoxes()}</div>
         </div>
-
-        <div className="DateButtons">{renderDateBoxes()}</div>
-
-        <div className="submit">
+        <div className="footerButtons">
           <p>
             Please note: to ensure your response is private, no one will be able
-            to access or edit this form once you have submitted it, including
-            you. Please make sure you've made the correct choices before
-            submitting.
+            to access or edit this form once you have submitted it, including you.
+            Please make sure you've made the correct choices before submitting.
           </p>
           <div className="btnContainer">
             <button onClick={() => clickSubmit()}>Submit</button>
@@ -190,12 +194,24 @@ const RoomForm = (props) => {
 
   const blockContent = () => {
     return (
-      <div className="RoomFormError">
-        <p>Please choose a response form that's not in use.</p>
-        <button onClick={() => clickCancel()}>Return to room</button>
+      <div className="Content">
+        <div className="RoomForm ErrorPage">
+          <div className="RoomFormBackground">
+            {renderBackground()}
+            {renderIcons()}
+          </div>
+          <div className="RoomFormError">
+            <p>Please choose a response form that's not in use.</p>
+            <button onClick={() => clickCancel()}>Return to room</button>
+          </div>
+        </div>
       </div>
     );
   };
+
+  // -------------------
+  // RENDER
+  // -------------------
 
   return friendInt() >= 0 ? renderContent() : blockContent();
 };

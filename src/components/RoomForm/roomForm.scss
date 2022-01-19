@@ -1,18 +1,163 @@
-.RoomForm {
+.Content {
   overflow-y: hidden;
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
+  overflow: hidden;
   height: 100vh;
   width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  font-family: Roboto;
+  font-style: normal;
 
+  .ErrorPage {
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+
+.RoomForm {
+  margin: 2% auto 1%;
+  background-color: rgba(245, 245, 245, 0.842);
+  border-radius: 10px;
+  padding: 2%;
+  text-align: center;
+  // overflow-y: hidden;
+  width: 55%;
+  max-height: 70%;
+  font-size: 18px;
+  font-family: Roboto;
+  z-index: 10;
+
+  h2 {
+    color: #253757;
+    font-weight: bold;
+    font-size: 200%;
+    margin: -2% 0 3%;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  h3 {
+    font-weight: bold;
+    color: #253757;
+    margin: 3% 0;
+    span {
+      color: #e25050;
+    }
+  }
+
+  p {
+    color: #253757;
+    font-size: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .iconContainer {
+    padding: 0;
+    margin: 5px auto 0;
+    p {
+      font-size: 100%;
+    }
+    .iconBox {
+      display: inline-block;
+      vertical-align: top;
+      background-color: rgba(228, 228, 228, 0.719);
+      border-radius: 10px;
+      text-align: center;
+      margin: 10px;
+      padding: 1%;
+      width: 16%;
+      overflow-y: hidden;
+      p {
+        font-size: 80%;
+        font-weight: bold;
+        color: #4e5768a2;
+        margin-top: 2%;
+        margin-bottom: 0px;
+      }
+      .keyButton {
+        height: 50px;
+      }
+    }
+  }
+
+  .RoomFormError {
+    margin: 13% auto;
+    background-color: rgba(255, 255, 255, 0.637);
+    border-radius: 10px;
+    padding: 4% 2% 2%;
+    text-align: center;
+    font-size: 120%;
+    width: 30%;
+    p {
+      padding: 0 10%;
+    }
+    button {
+      display: inline-block;
+      margin: 15px 10px;
+      background: #e25050;
+      box-shadow: 0px 4px 4px rgba(101, 41, 255, 0.15);
+      width: 170px;
+      height: 40px;
+      font-weight: bold;
+      font-size: 90%;
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      transition: 0.25s;
+      cursor: pointer;
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+  }
+}
+
+.DateButtons {
+  margin: 2% 8%;
+  text-align: left;
+  z-index: 3;
+}
+
+.footerButtons {
+  text-align: center;
+  width: 55%;
+  p {
+    color: #253757;
+    font-size: 100%;
+    margin: 0 auto;
+  }
+  .btnContainer {
+    z-index: 3;
+    margin: 15px 0 15px;
+    button {
+      display: inline-block;
+      margin: 5px 10px;
+      background: #e25050;
+      box-shadow: 0px 4px 4px rgba(101, 41, 255, 0.15);
+      width: 150px;
+      height: 40px;
+      font-weight: bold;
+      font-size: 20px;
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      transition: 0.25s;
+      cursor: pointer;
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+  }
+}
+
+.RoomFormBackground {
   .wave1Container {
     overflow: hidden;
     position: absolute;
     top: 119px;
     left: -90px;
-    z-index: 0;
+    z-index: -1;
     img {
       height: 100%;
     }
@@ -23,7 +168,7 @@
     position: absolute;
     top: 445px;
     left: -973px;
-    z-index: 1;
+    z-index: -1;
     img {
       height: 100%;
     }
@@ -34,7 +179,7 @@
     position: absolute;
     top: 242px;
     left: -527px;
-    z-index: 1;
+    z-index: -1;
     img {
       height: 100%;
     }
@@ -69,89 +214,5 @@
     &:hover {
       transform: translateY(-5px);
     }
-  }
-
-  h2 {
-    color: #253757;
-    font-weight: bold;
-    font-size: 60px;
-    margin: 55px 0 0;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    z-index: 2;
-  }
-
-  .responseContainer {
-    display: flex;
-    position: relative;
-    align-items: center;
-    flex-direction: column;
-    z-index: 2;
-    margin: 40px 0 40px;
-    p {
-      font-family: Roboto;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 18px;
-      margin-top: 15px;
-    }
-
-    .instructions {
-      display: flex;
-      margin: 0 auto;
-      width: 1000px;
-      li {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        img {
-          width: 60px;
-          height: 60px;
-        }
-      }
-    }
-  }
-
-  .submit {
-    display: flex;
-    position: absolute;
-    bottom: 80px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 1000px;
-    margin: 0 auto;
-    z-index: 2;
-    p {
-      margin-bottom: 20px;
-    }
-    .btnContainer {
-      button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        float: right;
-        width: 250px;
-        height: 50px;
-        background: #e25050;
-        box-shadow: 0px 10px 20px rgba(101, 41, 255, 0.15);
-        border: none;
-        border-radius: 10px;
-        font-weight: bold;
-        font-size: 20px;
-        line-height: 37px;
-        color: #ffffff;
-        transition: 0.25s;
-        margin-right: 10px;
-        cursor: pointer;
-        z-index: 1;
-        &:hover {
-          transform: translateY(-5px);
-        }
-      }
-    }
-  }
-
-  .DateButtons {
-    z-index: 2;
   }
 }
