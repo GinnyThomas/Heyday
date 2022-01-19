@@ -74,6 +74,7 @@ function App() {
                   setRoom={(id) => setRoom(id)}
                   getRoom={() => roomData()}
                   getRoomId={() => myRoomID}
+                  editRoom={(id, state) => editRoom(id, state)}
                 />
               }
             />

@@ -6,13 +6,20 @@ import { useState } from "react";
 
 const RoomSetup = (props) => {
   let navigate = useNavigate();
-  
+
   // ---------------
   // STATE HANDLING
   // ---------------
 
-  const [startDate, setStartDate] = useState("2022-01-12");
-  const [endDate, setEndDate] = useState("2022-01-19");
+  let today = new Date();
+  let dd = String(today.getDate()).padStart(2, "0");
+  let mm = String(today.getMonth() + 1).padStart(2, "0");
+  let yyyy = today.getFullYear();
+
+  today = yyyy + "/" + mm + "/" + dd;
+
+  const [startDate, setStartDate] = useState(today);
+  const [endDate, setEndDate] = useState(today);
   const [friendCount, setFriendCount] = useState(3);
 
   const handleStartDate = (event) => {
@@ -28,34 +35,29 @@ const RoomSetup = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const intFriendCount = Number(friendCount)
+    const intFriendCount = Number(friendCount);
 
-    const ratings = new Array(intFriendCount).fill([])
+    const ratings = new Array(intFriendCount).fill([]);
 
-    // let state = {
-    //   roomID: 1,
-    //   startDate: startDate,
-    //   endDate: endDate,
-    //   friendCount: intFriendCount,
-    //   friendCurrent: -1,
-    //   roomFormsRatings: ratings,
-    //   }
+    props.createRoom(
+      {
+        startDate: startDate,
+        endDate: endDate,
+        friendCount: intFriendCount,
+        roomFormsRatings: ratings,
+      },
+      navigate
+    );
 
-    props.createRoom({startDate: startDate, endDate: endDate, friendCount: intFriendCount, roomFormsRatings: ratings},navigate)
-
-    // console.log(state);
-    // proceedToRoom(state)
-  }
+  };
 
   // ---------------
   // NAV HANDLING
   // ---------------
-  
-
 
   const proceedToRoom = (stateParams) => {
     navigate(`../room/${props.getRoomId()}`, { state: stateParams });
-  }
+  };
 
   return (
     <div className="roomsetup">
@@ -134,7 +136,6 @@ const RoomSetup = (props) => {
         </div>
         <button
           type="submit"
-          // onClick={() => { navigate("../room");}}
         >
           Submit
         </button>

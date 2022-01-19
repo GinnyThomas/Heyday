@@ -1,12 +1,38 @@
 import "./modal.scss";
+import { useState } from "react";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 
-export default function Modal({ open, onClose }) {
-  if (!open) return null;
+export default function Modal(props) {
+  const [startDate, setStartDate] = useState(props.state.startDate);
+  const [endDate, setEndDate] = useState(props.state.endDate);
+  const [friendCount, setFriendCount] = useState(props.state.friendCount);
+
+  const handleStartDate = (event) => {
+    setStartDate(event.target.value);
+  };
+  const handleEndDate = (event) => {
+    setEndDate(event.target.value);
+  };
+  const handleFriendCount = (event) => {
+    setFriendCount(event.target.value);
+  };
+
+  const intFriendCount = Number(friendCount);
+
+  const ratings = new Array(intFriendCount).fill([]);
 
   const handleSubmit = (event) => {
+    props.editRoom(props.state.roomID, {
+      startDate: startDate,
+      endDate: endDate,
+      friendCount: friendCount,
+      roomFormsRatings: ratings,
+    });
+    console.log(props.state);
     event.preventDefault();
-    onClose();
+    props.onClose();
   };
+  if (!props.open) return null;
   return (
     <>
       <div className="overlay"></div>
@@ -15,7 +41,7 @@ export default function Modal({ open, onClose }) {
           className="closeBtn"
           src="/assets/CloseIcon.png"
           alt="close icon"
-          onClick={onClose}
+          onClick={props.onClose}
         />
         <h1 className="title">Edit Room set-up</h1>
         <form className="roomsetup_form" onSubmit={handleSubmit}>
@@ -33,10 +59,9 @@ export default function Modal({ open, onClose }) {
                   Start date: <br />
                   <input
                     type="date"
-                    placeholder="dd/mm/yyyy"
                     name="startDate"
-                    // value={startDate}
-                    // onChange={handleStartDate}
+                    value={startDate}
+                    onChange={handleStartDate}
                   ></input>
                 </label>
                 <label className="endLabel">
@@ -46,8 +71,8 @@ export default function Modal({ open, onClose }) {
                     type="date"
                     placeholder="dd/mm/yyyy"
                     name="endDate"
-                    // value={endDate}
-                    // onChange={handleEndDate}
+                    value={endDate}
+                    onChange={handleEndDate}
                   ></input>
                 </label>
               </div>
@@ -65,8 +90,8 @@ export default function Modal({ open, onClose }) {
                   <input
                     type="number"
                     name="friendCount"
-                    // value={friendCount}
-                    // onChange={handleFriendCount}
+                    value={friendCount}
+                    onChange={handleFriendCount}
                   ></input>
                 </label>
               </div>
