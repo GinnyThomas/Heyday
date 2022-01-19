@@ -147,10 +147,10 @@ const RoomForm = (props) => {
     );
   };
 
-  const goldButton = () => <img src="/assets/RoomForm/gold.png" alt="gold button" className="keyButton"/>
-  const silverButton = () => <img src="/assets/RoomForm/silver.png" alt="silver button" className="keyButton"/>
-  const bronzeButton = () => <img src="/assets/RoomForm/bronze.png" alt="bronze button" className="keyButton"/>
-  const whiteButton = () => <img src="/assets/RoomForm/white.png" alt="white button" className="keyButton"/>
+  const goldButton = () => <img src="/assets/RoomForm/DateButton/goldSquare.png" alt="gold button" className="keyButton"/>
+  const silverButton = () => <img src="/assets/RoomForm/DateButton/silverSquare.png" alt="silver button" className="keyButton"/>
+  const bronzeButton = () => <img src="/assets/RoomForm/DateButton/bronzeSquare.png" alt="bronze button" className="keyButton"/>
+  const whiteButton = () => <img src="/assets/RoomForm/DateButton/whiteSquare.png" alt="white button" className="keyButton"/>
 
   const renderContent = () => {
     return (
