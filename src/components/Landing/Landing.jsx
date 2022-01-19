@@ -58,22 +58,38 @@ const Landing = () => {
           <p>Anonymeet is designed to take hassle out of this process:</p>
         </div>
         <ul className="listContainer">
-          <li>
-            Easy to use. Submitting your availability is simple and
-            straightforward, and we won't ask anyone for login details.
-          </li>
-          <li>
-            Your preferences matter. Tell us when works well for you, not just
-            when you're available.
-          </li>
-          <li>
-            Privacy is important. Other users won't be able to see your
-            availability or your preferences.
-          </li>
-          <li>
-            No need to decide. Our algorithm will figure out the best day for
-            you, there's no need to figure it out yourself.
-          </li>
+          <div className="top">
+            <li className="one">
+              <h2>1</h2>
+              <p>
+                Easy to use. Submitting your availability is simple and
+                straightforward, and we won't ask anyone for login details.
+              </p>
+            </li>
+            <li className="two">
+              <h2>2</h2>
+              <p>
+                Your preferences matter. Tell us when works well for you, not
+                just when you're available.
+              </p>
+            </li>
+          </div>
+          <div className="bottom">
+            <li className="three">
+              <h2>3</h2>
+              <p>
+                Privacy is important. Other users won't be able to see your
+                availability or your preferences.
+              </p>
+            </li>
+            <li className="four">
+              <h2>4</h2>
+              <p>
+                No need to decide. Our algorithm will figure out the best day
+                for you, there's no need to figure it out yourself.
+              </p>
+            </li>
+          </div>
         </ul>
       </div>
 
