@@ -17,7 +17,7 @@ const Results = ({ date }) => {
   // ---------------
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevents default refresh by the browser
+    e.preventDefault(); // Prevents default refresh by the browser 
     emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, 
     process.env.REACT_APP_TEMPLATE_ID, e.target, process.env.REACT_APP_USER_ID)
     .then((result) => {
