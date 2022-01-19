@@ -56,9 +56,11 @@ const Room = (props) => {
 
   //If ANY of the response form buttons have a className of 'clickDiddyClick' as opposed to 'button', it locks the edit room set-up button
   const editFormClass = () => {
-    state.roomFormsRatings.forEach((index) => {
-      return index.length > 0 ? "disabled" : "normal";
-    });
+    const formLengths = state.roomFormsRatings.map((form) => {
+      return form.length
+    })
+    const formSum = formLengths.reduce((pre, pos) => pre + pos)
+      return (formSum > 0) ? "disabled" : "functional"; 
   };
   console.log(state.roomFormsRatings);
 
