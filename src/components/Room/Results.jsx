@@ -17,13 +17,9 @@ const Results = ({ date }) => {
   // ---------------
 
   const handleSubmit = (e) => {
-    const TEMPLATE_ID = 'template_14ovy0i' //Need to secure this before pushing
-    const USER_ID = 'user_59U7r4ChcRg0J38008gzW' //Need to secure this before pushing
-    const apiKey = 'b9b0127910e8a10d8db5c2dc5fc44576' //Not being used
-    const SERVICE_ID = 'service_sv85dkm' //Need to secure this before pushing
     e.preventDefault(); // Prevents default refresh by the browser
-    emailjs.sendForm(SERVICE_ID, 
-    TEMPLATE_ID, e.target, USER_ID)
+    emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, 
+    process.env.REACT_APP_TEMPLATE_ID, e.target, process.env.REACT_APP_USER_ID)
     .then((result) => {
     alert("Results Sent, Thank you for using Anonymeet", result.text); //Pop up message if email sent ok
     },
@@ -114,11 +110,11 @@ const Results = ({ date }) => {
               // onChange={handleFriendCount}
             ></input>
           </label>
-          <input
-            type="hidden"
-            name="emailResult"
-            value= {emailResult}
-          ></input>
+            <input
+              type="hidden"
+              name="emailResult"
+              value= {emailResult}
+            ></input>
          
           <button type="submit">Submit</button>
           <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
