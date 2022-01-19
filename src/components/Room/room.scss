@@ -128,6 +128,7 @@
       line-height: 37px;
       color: #ffffff;
       transition: 0.25s;
+      margin-top: 5px;
       margin-right: 10px;
       cursor: pointer;
       z-index: 1;
@@ -191,11 +192,6 @@
 
   .resultContainer {
     margin-top: 40px;
-  }
-
-  .clickDiddyClick {
-    background-color: grey;
-    border-radius: 10px;
   }
 
   .waiting {

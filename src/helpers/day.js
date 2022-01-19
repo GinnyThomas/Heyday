@@ -21,7 +21,7 @@ const stringToInt = (inpString, isCalDate) => {
 
 const dateArr = [
   "January",
-  "Februaru",
+  "February",
   "March",
   "April",
   "May",

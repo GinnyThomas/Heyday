@@ -2,7 +2,7 @@ import "./room.scss";
 import ResponseForm from "./ResponseForm";
 import Results from "./Results";
 import Modal from "./Modal";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import finalResult from "../../helpers/calculation.js";
 import day from "../../helpers/day.js";
@@ -156,7 +156,11 @@ const Room = (props) => {
           {renderResponseForms()}
         </div>
       </div>
-      <p className="waiting">Waiting for results ...</p>
+      <p className="waiting">
+        {finalResult.isReady(state.roomFormsRatings) 
+        ? "Click the down arrow to view your results" 
+        : "Waiting for results ..." } 
+      </p>
     </>
   );
 
@@ -182,26 +186,10 @@ const Room = (props) => {
   // RENDER
   // -------------------
 
-  const mOCKaRRAY01 = [
-    [2, 0, 1],
-    [1, 0, 3],
-    [2, 0, 1],
-  ]; // No secondary
-  const mOCKaRRAY02 = [
-    [0, 3, 1],
-    [1, 0, 1],
-    [2, 3, 1],
-  ]; // High score, secondary is free score
-  const mOCKaRRAY03 = [
-    [0, 3, 1],
-    [1, 0, 1],
-    [2, 1, 1],
-  ]; // Free score, secondary is high score
-  const mOCKaRRAY04 = [
-    [0, 0, 0],
-    [0, 0, 0],
-    [0, 0, 0],
-  ]; // Nothing
+  // const mOCKaRRAY01 = [[2,0,1],[1,0,3],[2,0,1]] // No secondary
+  const mOCKaRRAY02 = [[0,3,1],[1,0,1],[2,3,1]] // High score, secondary is free score
+  // const mOCKaRRAY03 = [[0,3,1],[1,0,1],[2,1,1]] // Free score, secondary is high score
+  // const mOCKaRRAY04 = [[0,0,0],[0,0,0],[0,0,0]] // Nothing
 
   return (
     <>

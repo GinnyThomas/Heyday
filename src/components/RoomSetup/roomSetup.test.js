@@ -10,7 +10,7 @@ test("it renders RoomSetup component correctly and date field is present", () =>
         </MemoryRouter>
     );
 
-    expect(getByText(/Start Date/i)).toBeInTheDocument();
+    expect(getAllByText(/Start Date:/i)).toBeInTheDocument();
 });
 
 test('Submit Preferences button exists on the page', () => {
