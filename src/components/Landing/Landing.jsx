@@ -31,7 +31,7 @@ const Landing = () => {
           <span>meet up.</span>
         </h2>
         <p className="landingText">
-          Press button below to get started with your meet up.
+          Press the button below to get started with your meet up.
         </p>
       </div>
       <button
@@ -58,22 +58,38 @@ const Landing = () => {
           <p>Anonymeet is designed to take hassle out of this process:</p>
         </div>
         <ul className="listContainer">
-          <li>
-            Easy to use. Submitting your availability is simple and
-            straightforward, and we won't ask anyone for login details.
-          </li>
-          <li>
-            Your preferences matter. Tell us when works well for you, not just
-            when you're available.
-          </li>
-          <li>
-            Privacy is important. Other users won't be able to see your
-            availability or your preferences.
-          </li>
-          <li>
-            No need to decide. Our algorithm will figure out the best day for
-            you, there's no need to figure it out yourself.
-          </li>
+          <div className="top">
+            <li className="one">
+              <h2>1</h2>
+              <p>
+                Easy to use. Submitting your availability is simple and
+                straightforward, and we won't ask anyone for login details.
+              </p>
+            </li>
+            <li className="two">
+              <h2>2</h2>
+              <p>
+                Your preferences matter. Tell us when works well for you, not
+                just when you're available.
+              </p>
+            </li>
+          </div>
+          <div className="bottom">
+            <li className="three">
+              <h2>3</h2>
+              <p>
+                Privacy is important. Other users won't be able to see your
+                availability or your preferences.
+              </p>
+            </li>
+            <li className="four">
+              <h2>4</h2>
+              <p>
+                No need to decide. Our algorithm will figure out the best day
+                for you, there's no need to figure it out yourself.
+              </p>
+            </li>
+          </div>
         </ul>
       </div>
 
@@ -82,26 +98,29 @@ const Landing = () => {
         <h2>Technologies</h2>
         <ul className="cards">
           <li>
-            <div></div>
             <img
               src="assets/LandingPage/JavaScript.png"
               alt="JavaScript logo"
             />
+            <div></div>
             <h2>Language</h2>
             <h3>JavaScript</h3>
           </li>
           <li>
             <img src="assets/LandingPage/React.png" alt="ReactJS logo" />
+            <div></div>
             <h2>Front-End</h2>
             <h3>React</h3>
           </li>
           <li>
             <img src="assets/LandingPage/Jest.png" alt="Jest logo" />
+            <div></div>
             <h2>Testing</h2>
             <h3>Jest</h3>
           </li>
           <li>
             <img src="assets/LandingPage/express.png" alt="Express logo" />
+            <div></div>
             <h2>Back-End</h2>
             <h3>Express</h3>
           </li>
