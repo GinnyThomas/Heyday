@@ -1,7 +1,10 @@
 import "./results.scss";
 import { Link } from "react-scroll";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
+import * as emailjs from "emailjs-com";
 
+
+const emailResult = 'Hello'
 const Results = ({ date }) => {
   // ---------------
   // NAV HANDLING
@@ -13,7 +16,21 @@ const Results = ({ date }) => {
   // FORM SUBMIT
   // ---------------
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    const TEMPLATE_ID = 'template_14ovy0i' //Need to secure this before pushing
+    const USER_ID = 'user_59U7r4ChcRg0J38008gzW' //Need to secure this before pushing
+    const apiKey = 'b9b0127910e8a10d8db5c2dc5fc44576' //Not being used
+    const SERVICE_ID = 'service_sv85dkm' //Need to secure this before pushing
+    e.preventDefault(); // Prevents default refresh by the browser
+    emailjs.sendForm(SERVICE_ID, 
+    TEMPLATE_ID, e.target, USER_ID)
+    .then((result) => {
+    alert("Results Sent, Thank you for using Anonymeet", result.text); //Pop up message if email sent ok
+    },
+    (error) => {
+    alert("An error occurred, Please try again", error.text); //Pop up message if email not sent (user email address is wrong)
+    });
+    };
 
   return (
     <div className="results">
@@ -97,7 +114,19 @@ const Results = ({ date }) => {
               // onChange={handleFriendCount}
             ></input>
           </label>
+          <input
+            type="hidden"
+            name="emailResult"
+            value= {emailResult}
+          ></input>
+         
           <button type="submit">Submit</button>
+          <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+          <script type="text/javascript">
+          (function() {
+          emailjs.init("user_59U7r4ChcRg0J38008gzW")
+          })();
+          </script>
         </div>
       </form>
     </div>
@@ -105,3 +134,4 @@ const Results = ({ date }) => {
 };
 
 export default Results;
+
