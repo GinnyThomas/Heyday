@@ -1,4 +1,5 @@
 .carouselContainer {
+  margin-bottom: 400px;
   z-index: 3;
   .title {
     text-align: center;
@@ -8,10 +9,12 @@
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-weight: 900;
     font-size: 32px;
-    margin-bottom: 20px;
+    margin-bottom: 80px;
   }
   .carousel {
-    margin: 0 auto;
+    text-align: center;
+    margin: 0 40px 0;
+    justify-content: space-between;
     position: relative;
     display: flex;
     .slick-prev,
@@ -24,36 +27,6 @@
     }
     .slick-next {
       right: 5%;
-    }
-
-    div {
-      font-family: Mulish;
-
-      .background {
-      }
-      img {
-        border-radius: 50%;
-        width: 100px;
-      }
-      p {
-        font-style: italic;
-        font-weight: normal;
-        font-size: 14.4px;
-      }
-      hr {
-      }
-      h2 {
-        font-style: normal;
-        font-weight: bold;
-        font-size: 12.6px;
-        color: #152032;
-      }
-      h3 {
-        font-weight: 800;
-        font-size: 12.6px;
-        letter-spacing: 2px;
-        color: #f25656;
-      }
     }
   }
 }
