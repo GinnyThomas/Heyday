@@ -69,6 +69,8 @@ const RoomForm = (props) => {
   const getDuration = () =>
     day.difference(roomData.startDate, roomData.endDate);
 
+  if (datesArr.length < getDuration()) setDatesArr(datesArrBase)
+
   // Returns an array of blank boxes to sit in front of the selected dates
   const beforeDates = () => {
     const beforeCount =

@@ -38,7 +38,7 @@ const DateButton = (props) => {
 
   const visibleContent = () => (
     <div className="DateBlock">
-      <h4><span className={workOrWeekend()}>{day.weekDay(myDay).slice(0,1)}.</span> {day.displayCal(myDay)}</h4>
+      <h4><span className={workOrWeekend()}>{day.weekDay(myDay).slice(0,3)}.</span> <br></br>{day.displayCal(myDay)}</h4>
       <div className={`DateButtonBox ${workOrWeekend()}`}>
         <button className={`RankingButton clickable`} onClick={() => handleClick()}>
           <span className="RankingButtonIcon">{getButton()}</span>
