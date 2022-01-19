@@ -1,12 +1,21 @@
 import "./modal.scss";
+import { useState } from "react";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 
 export default function Modal({ open, onClose }) {
   if (!open) return null;
+
+  // The below needs to be passed from Room to the Modal 
+  // const urlRoomID = useParams().roomidnum.slice(1);
+  // if (props.getRoomId() !== urlRoomID) props.setRoom(urlRoomID);
+
+  // const state = props.getRoom();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     onClose();
   };
+  
   return (
     <>
       <div className="overlay"></div>
