@@ -36,10 +36,10 @@ const Room = (props) => {
 
   const handleCopySharableLink = (e) => {
     navigator.clipboard
-      .writeText(`localhost:3000/room/:${urlRoomID}`)
+      .writeText(window.location.href)
       .then(() => {
         alert(
-          `Your shareable link\n localhost:3000/room/:${urlRoomID}\n has been copied to the clipboard.`
+          `Your shareable link\n ${window.location.href}\n has been copied to the clipboard.`
         );
       });
     e.preventDefault();
