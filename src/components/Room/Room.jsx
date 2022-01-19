@@ -160,6 +160,7 @@ const Room = (props) => {
           className="modal"
           open={isOpen}
           onClose={() => setIsOpen(false)}
+          editRoom={(id, state) => props.editRoom(id, state)}
         />
       </div>
       <Results id="results" formRatings={mOCKaRRAY02} date={state.startDate} />
