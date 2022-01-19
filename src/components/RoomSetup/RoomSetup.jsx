@@ -39,15 +39,6 @@ const RoomSetup = (props) => {
 
     const ratings = new Array(intFriendCount).fill([]);
 
-    // let state = {
-    //   roomID: 1,
-    //   startDate: startDate,
-    //   endDate: endDate,
-    //   friendCount: intFriendCount,
-    //   friendCurrent: -1,
-    //   roomFormsRatings: ratings,
-    //   }
-
     props.createRoom(
       {
         startDate: startDate,
@@ -58,8 +49,6 @@ const RoomSetup = (props) => {
       navigate
     );
 
-    // console.log(state);
-    // proceedToRoom(state)
   };
 
   // ---------------
@@ -147,7 +136,6 @@ const RoomSetup = (props) => {
         </div>
         <button
           type="submit"
-          // onClick={() => { navigate("../room");}}
         >
           Submit
         </button>

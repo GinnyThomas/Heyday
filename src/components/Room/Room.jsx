@@ -167,31 +167,6 @@ const Room = (props) => {
     </>
   );
 
-  // -------------------
-  // RENDER
-  // -------------------
-
-  const mOCKaRRAY01 = [
-    [2, 0, 1],
-    [1, 0, 3],
-    [2, 0, 1],
-  ]; // No secondary
-  const mOCKaRRAY02 = [
-    [0, 3, 1],
-    [1, 0, 1],
-    [2, 3, 1],
-  ]; // High score, secondary is free score
-  const mOCKaRRAY03 = [
-    [0, 3, 1],
-    [1, 0, 1],
-    [2, 1, 1],
-  ]; // Free score, secondary is high score
-  const mOCKaRRAY04 = [
-    [0, 0, 0],
-    [0, 0, 0],
-    [0, 0, 0],
-  ]; // Nothing
-
   return (
     <>
       <div id="room" className="room">
@@ -212,57 +187,3 @@ const Room = (props) => {
 };
 
 export default Room;
-
-// const [buttonStatus, setButtonStatus] = useState(true);
-// const [buttonClass, setButtonClass] = useState("");
-// setButtonClass("buttonOnClick");
-
-// const handleSubmit = (e, index) => {
-//   setButtonClass("buttonOnClick");
-
-//   let params = {
-//     roomID: state.roomID,
-//     startDate: state.startDate,
-//     endDate: state.endDate,
-//     friendCount: state.friendCount,
-//     friendCurrent: index,
-//     roomFormsRatings: state.roomFormsRatings,
-//   };
-
-//   if (determineClass(index) === "clickDiddyClick") {
-//     console.log("Form has been submitted, form is not accessible");
-//   } else {
-//     proceedToRoomForm(params);
-//   }
-// };
-
-// const setResult = () => {
-//   const roomForms = state.roomFormsRatings;
-//   if (!finalResult.isReady(roomForms))
-//     return <h2 className="waiting">Waiting for results...</h2>;
-//   const bestDay = finalResult.getBestDay(roomForms);
-//   const medalCounts = finalResult.medalCounts(roomForms, bestDay);
-//   if (bestDay < 0)
-//     return (
-//       <h2>
-//         No one is available on any date! <br></br> Perhaps try different
-//         dates?
-//       </h2>
-//     );
-//   return (
-//     <div>
-//       <h2>SUCCESS!</h2>
-//       <p>The best day for everyone:</p>
-//       <p className="result">{day.toCalDate(state.startDate, bestDay)}</p>
-//       <p>Gold: {medalCounts[0]}</p>
-//       <p>Silver: {medalCounts[1]}</p>
-//       <p>Bronze: {medalCounts[2]}</p>
-//     </div>
-//   );
-// };
-
-// console.log("Room.jsx state: ", state);
-
-// console.log(
-//   `Friend count: ${state.friendCount}, array: [${state.roomFormsRatings}]`
-// );
