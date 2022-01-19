@@ -166,8 +166,8 @@ const RoomForm = (props) => {
             <span>{day.toCalDate(roomData.startDate)}</span> and{" "}
             <span>{day.toCalDate(roomData.endDate)}</span>?
           </h3>
-          <p>Click on the calendar buttons below to cycle through the options:</p>
           <ul className="iconContainer">
+            <p>Click on the calendar buttons below to cycle through the options:</p>
             <div className="iconBox">{whiteButton()}<p>you're not available for a meetup on this day</p></div>
             <div className="iconBox">{bronzeButton()}<p>you're available, but it's an inconvenient day</p></div>
             <div className="iconBox">{silverButton()}<p>you're available and it's a convenient day</p></div>
@@ -179,8 +179,10 @@ const RoomForm = (props) => {
             to access or edit this form once you have submitted it, including you.
             Please make sure you've made the correct choices before submitting.
            </p>
-          <button onClick={() => clickSubmit()}>Submit</button>
-          <button onClick={() => clickCancel()}>Cancel</button>
+           <div className="btnContainer">
+            <button onClick={() => clickSubmit()}>Submit</button>
+            <button onClick={() => clickCancel()}>Cancel</button>
+           </div>
         </div>
       </>
     );
