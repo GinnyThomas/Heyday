@@ -1,6 +1,6 @@
 import "./results.scss";
 import { Link } from "react-scroll";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import * as emailjs from "emailjs-com";
 import finalResult from "../../helpers/calculation.js";
 import day from "../../helpers/day.js";
@@ -70,7 +70,7 @@ const Results = (props) => {
     return [para1, para2, para3, para4].join("\n\n");
   };
 
-  console.log(emailMessage());
+  // console.log(emailMessage());
 
   // -------------------
   // RENDER ELEMENTS
@@ -191,19 +191,22 @@ const Results = (props) => {
     if (bestDay != null)
       return (
         <form className="formContainer" onSubmit={handleSubmit}>
-          <h2>
-            Please input your email address to receive a copy of the result
-          </h2>
-          <div className="inputContainer">
-            <label>
-              <input
-                type="text"
-                name="email"
-                placeholder="email address"
-              ></input>
-            </label>
-            <button type="submit">Submit</button>
-          </div>
+        <h2>Please input your email address to receive a copy of the result</h2>
+        <div className="inputContainer">
+          <label>
+            <input type="text" name="email" placeholder="email address"></input>
+          </label>
+          <input type="hidden" name="emailMessage" value={emailMessage()}></input>
+
+          <button type="submit">Submit</button>
+          <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+          ></script>
+          <script type="text/javascript">
+            (function() {emailjs.init("user_59U7r4ChcRg0J38008gzW")})();
+          </script>
+        </div>
         </form>
       );
   };
@@ -218,24 +221,6 @@ const Results = (props) => {
       {renderIcons()}
       <h1>The results are in!</h1>
       <div className="resultContainer">{renderMainResult()}</div>
-      <form className="formContainer" onSubmit={handleSubmit}>
-        <h2>Please input your email address to receive a copy of the result</h2>
-        <div className="inputContainer">
-          <label>
-            <input type="text" name="email" placeholder="email address"></input>
-          </label>
-          <input type="hidden" name="emailMessage" value={emailMessage}></input>
-
-          <button type="submit">Submit</button>
-          <script
-            type="text/javascript"
-            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
-          ></script>
-          <script type="text/javascript">
-            (function() {emailjs.init("user_59U7r4ChcRg0J38008gzW")})();
-          </script>
-        </div>
-      </form>
       {renderEmail()}
     </div>
   );

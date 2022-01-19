@@ -96,6 +96,16 @@ const Room = (props) => {
     </>
   );
 
+  const renderResultsLink = () => {
+    if (finalResult.isReady(state.roomFormsRatings)) return (
+      <div className="downarrContainer">
+        <Link to="results" spy={true} smooth={true}>
+          <img src="/assets/Expand_down_double.png" alt="Home Button" />
+        </Link>
+      </div>
+    )
+  }
+
   // Include the Home button, Hamburger and Down arrows
   const renderIcons = () => (
     <>
@@ -110,11 +120,7 @@ const Room = (props) => {
       <div className="hambtnContainer">
         <img src="/assets/Hamburger_menu.png" alt="Hamburger Menu Button" />
       </div>
-      <div className="downarrContainer">
-        <Link to="results" spy={true} smooth={true}>
-          <img src="/assets/Expand_down_double.png" alt="Home Button" />
-        </Link>
-      </div>
+      {renderResultsLink()}
     </>
   );
 
@@ -182,12 +188,18 @@ const Room = (props) => {
     </>
   );
 
+  const renderResults = () => {
+    if (finalResult.isReady(state.roomFormsRatings)) return (
+      <Results id="results" formRatings={state.roomFormsRatings} date={state.startDate} />
+    )  
+  }
+
   // -------------------
   // RENDER
   // -------------------
 
   // const mOCKaRRAY01 = [[2,0,1],[1,0,3],[2,0,1]] // No secondary
-  const mOCKaRRAY02 = [[0,3,1],[1,0,1],[2,3,1]] // High score, secondary is free score
+  // const mOCKaRRAY02 = [[0,3,1],[1,0,1],[2,3,1]] // High score, secondary is free score
   // const mOCKaRRAY03 = [[0,3,1],[1,0,1],[2,1,1]] // Free score, secondary is high score
   // const mOCKaRRAY04 = [[0,0,0],[0,0,0],[0,0,0]] // Nothing
 
@@ -205,7 +217,7 @@ const Room = (props) => {
           editRoom={(id, state) => props.editRoom(id, state)}
         />
       </div>
-      <Results id="results" formRatings={mOCKaRRAY02} date={state.startDate} />
+      {renderResults()}
     </>
   );
 };
