@@ -6,17 +6,17 @@ import { useState } from "react";
 
 const RoomSetup = (props) => {
   let navigate = useNavigate();
-  
+
   // ---------------
   // STATE HANDLING
   // ---------------
 
   let today = new Date();
-  let dd = String(today.getDate()).padStart(2, '0');
-  let mm = String(today.getMonth() + 1).padStart(2, '0');
+  let dd = String(today.getDate()).padStart(2, "0");
+  let mm = String(today.getMonth() + 1).padStart(2, "0");
   let yyyy = today.getFullYear();
-  
-  today = yyyy + '/' + mm + '/' + dd;
+
+  today = yyyy + "/" + mm + "/" + dd;
 
   const [startDate, setStartDate] = useState(today);
   const [endDate, setEndDate] = useState(today);
@@ -35,9 +35,9 @@ const RoomSetup = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const intFriendCount = Number(friendCount)
+    const intFriendCount = Number(friendCount);
 
-    const ratings = new Array(intFriendCount).fill([])
+    const ratings = new Array(intFriendCount).fill([]);
 
     // let state = {
     //   roomID: 1,
@@ -48,21 +48,27 @@ const RoomSetup = (props) => {
     //   roomFormsRatings: ratings,
     //   }
 
-    props.createRoom({startDate: startDate, endDate: endDate, friendCount: intFriendCount, roomFormsRatings: ratings},navigate)
+    props.createRoom(
+      {
+        startDate: startDate,
+        endDate: endDate,
+        friendCount: intFriendCount,
+        roomFormsRatings: ratings,
+      },
+      navigate
+    );
 
     // console.log(state);
     // proceedToRoom(state)
-  }
+  };
 
   // ---------------
   // NAV HANDLING
   // ---------------
-  
-
 
   const proceedToRoom = (stateParams) => {
     navigate(`../room/${props.getRoomId()}`, { state: stateParams });
-  }
+  };
 
   return (
     <div className="roomsetup">
