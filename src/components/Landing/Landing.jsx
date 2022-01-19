@@ -31,7 +31,7 @@ const Landing = () => {
           <span>meet up.</span>
         </h2>
         <p className="landingText">
-          Press button below to get started with your meet up.
+          Press the button below to get started with your meet up.
         </p>
       </div>
       <button

@@ -48,12 +48,12 @@ function App() {
     const myRoomID = roomData().roomID;
     return (
       <div className="App">
-        <p>
+        {/* <p>
           <span>{myRoomID} - </span>
           <button onClick={() => expressLink.resetRoomData(setApiState)}>
             Reset Database
           </button>
-        </p>
+        </p> */}
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Landing />} />
