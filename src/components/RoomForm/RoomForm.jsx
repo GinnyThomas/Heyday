@@ -176,15 +176,17 @@ const RoomForm = (props) => {
             <div className="iconBox">{goldButton()}<p>you're available and it's a preferred day</p></div>
           </ul>
           <div className="DateButtons">{renderDateBoxes()}</div>
+        </div>
+        <div className="footerButtons">
           <p>
             Please note: to ensure your response is private, no one will be able
             to access or edit this form once you have submitted it, including you.
             Please make sure you've made the correct choices before submitting.
-           </p>
-           <div className="btnContainer">
+          </p>
+          <div className="btnContainer">
             <button onClick={() => clickSubmit()}>Submit</button>
             <button onClick={() => clickCancel()}>Cancel</button>
-           </div>
+          </div>
         </div>
       </div>
     );

@@ -1,12 +1,25 @@
+.Content {
+  overflow-y: hidden;
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  font-family: Roboto;
+  font-style: normal;
+}
+
 .RoomForm {
-  margin: 3% auto;
+  margin: 2% auto 1%;
   background-color: rgba(245, 245, 245, 0.842);
   border-radius: 10px;
   padding: 2%;
   text-align: center;
   // overflow-y: hidden;
   width: 55%;
-  max-height: 1300px;
+  max-height: 70%;
   font-size: 18px;
   font-family: Roboto;
   z-index: 10;
@@ -15,7 +28,7 @@
     color: #253757;
     font-weight: bold;
     font-size: 200%;
-    margin: 1% 0 3%;
+    margin: -2% 0 3%;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
@@ -64,12 +77,36 @@
     }
   }
 
+  .RoomFormError {
+    margin: 10% auto;
+    background-color: rgba(163, 163, 163, 0.171);
+    border-radius: 10px;
+    padding: 5% 2%;
+    text-align: center;
+    width: 30%;
+  }
+}
+
+.DateButtons {
+  margin: 2% 8%;
+  text-align: left;
+  z-index: 3;
+}
+
+.footerButtons {
+  text-align: center;
+  width: 55%;
+  p {
+    color: #253757;
+    font-size: 100%;
+    margin: 0 auto;
+  }
   .btnContainer {
     z-index: 3;
-    margin: 30px 0 30px;
+    margin: 15px 0 15px;
     button {
       display: inline-block;
-      margin: 10px;
+      margin: 0 10px;
       background: #e25050;
       box-shadow: 0px 4px 4px rgba(101, 41, 255, 0.15);
       width: 150px;
@@ -86,44 +123,6 @@
       }
     }
   }
-
-  // button {
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-  //   float: right;
-  //   width: 200px;
-  //   height: 40px;
-  //   background: #e25050;
-  //   box-shadow: 0px 10px 20px rgba(101, 41, 255, 0.15);
-  //   border: none;
-  //   border-radius: 10px;
-  //   font-weight: bold;
-  //   font-size: 24px;
-  //   line-height: 37px;
-  //   color: #ffffff;
-  //   transition: 0.25s;
-  //   margin-left: 20px;
-  //   cursor: pointer;
-  //   &:hover {
-  //     transform: translateY(-5px);
-  //   }
-  // }
-
-  .RoomFormError {
-    margin: 10% auto;
-    background-color: rgba(163, 163, 163, 0.171);
-    border-radius: 10px;
-    padding: 5% 2%;
-    text-align: center;
-    width: 30%;
-  }
-}
-
-.DateButtons {
-  margin: 5% 8%;
-  text-align: left;
-  z-index: 3;
 }
 
 .RoomFormBackground {
