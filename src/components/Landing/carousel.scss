@@ -1,5 +1,8 @@
 .carouselContainer {
   margin-bottom: 400px;
+  display: flex;
+  flex-direction: column;
+
   z-index: 3;
   .title {
     text-align: center;
@@ -8,25 +11,17 @@
     color: #253757;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-weight: 900;
-    font-size: 32px;
-    margin-bottom: 80px;
+    font-size: 40px;
+    margin-bottom: 75px;
   }
-  .carousel {
-    text-align: center;
-    margin: 0 40px 0;
-    justify-content: space-between;
-    position: relative;
-    display: flex;
-    .slick-prev,
-    .slick-next {
-      position: absolute;
-      top: 50%;
-    }
-    .slick-prev {
-      left: 5%;
-    }
-    .slick-next {
-      right: 5%;
-    }
-  }
+}
+
+.slick-slide > div {
+  display: grid;
+  place-items: center;
+  width: 80%;
+  margin-top: 50px;
+  margin: auto;
+  height: 500px;
+  padding: 0px;
 }
