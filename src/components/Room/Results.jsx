@@ -1,6 +1,6 @@
 import "./results.scss";
 import { Link } from "react-scroll";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import finalResult from "../../helpers/calculation.js";
 import day from "../../helpers/day.js";
 
