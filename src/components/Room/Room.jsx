@@ -57,12 +57,19 @@ const Room = (props) => {
   //If ANY of the response form buttons have a className of 'clickDiddyClick' as opposed to 'button', it locks the edit room set-up button
   const editFormClass = () => {
     const formLengths = state.roomFormsRatings.map((form) => {
-      return form.length
-    })
-    const formSum = formLengths.reduce((pre, pos) => pre + pos)
-      return (formSum > 0) ? "disabled" : "functional"; 
+      return form.length;
+    });
+    const formSum = formLengths.reduce((pre, pos) => pre + pos);
+    return formSum > 0 ? "disabled" : "functional";
   };
-  console.log(state.roomFormsRatings);
+
+  const activeEditButton = () => {
+    const formLengths = state.roomFormsRatings.map((form) => {
+      return form.length;
+    });
+    const formSum = formLengths.reduce((pre, pos) => pre + pos);
+    return formSum > 0 ? true : false;
+  };
 
   // -------------------
   // FORMATTING
@@ -122,7 +129,11 @@ const Room = (props) => {
         >
           Copy Shareable Link
         </button>
-        <button className={editFormClass()} onClick={() => setIsOpen(true)}>
+        <button
+          className={editFormClass()}
+          onClick={() => setIsOpen(true)}
+          disabled={activeEditButton()}
+        >
           Edit Room set-up
         </button>
       </div>
