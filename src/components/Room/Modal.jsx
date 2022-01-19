@@ -3,8 +3,6 @@ import { useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 
 export default function Modal(props) {
-  // if (!props.open) return null;
-  
   const [startDate, setStartDate] = useState(props.state.startDate);
   const [endDate, setEndDate] = useState(props.state.endDate);
   const [friendCount, setFriendCount] = useState(props.state.friendCount);
@@ -21,14 +19,14 @@ export default function Modal(props) {
 
   const handleSubmit = (event) => {
     /// NEARLY BUT NOT QUITE
-    // props.editRoom(props.getRoom().roomID, { 
+    // props.editRoom(props.getRoom().roomID, {
     //   startDate: startDate,
     //   endDate: endDate,
     //   friendCount: friendCount,  });
     event.preventDefault();
     props.onClose();
   };
-
+  if (!props.open) return null;
   return (
     <>
       <div className="overlay"></div>
