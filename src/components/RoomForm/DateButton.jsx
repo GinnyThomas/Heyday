@@ -7,6 +7,11 @@ const DateButton = (props) => {
 
   const sequence = [0, 1, 2, 3]
   const [value, setValue] = useState(0);
+  const goldButton = () => <img src="/assets/RoomForm/DateButton/goldSquare.png" alt="gold button" className="keyButton"/>
+  const silverButton = () => <img src="/assets/RoomForm/DateButton/silverSquare.png" alt="silver button" className="keyButton"/>
+  const bronzeButton = () => <img src="/assets/RoomForm/DateButton/bronzeSquare.png" alt="bronze button" className="keyButton"/>
+  const whiteButton = () => <img src="/assets/RoomForm/DateButton/whiteSquare.png" alt="white button" className="keyButton"/>
+  const blankButton = () => <img src="/assets/RoomForm/DateButton/blankSquare.png" alt="blank" className="keyButton"/>
 
   const upSequence = () => {
     const seqIndex = sequence.indexOf(value)
@@ -29,7 +34,8 @@ const DateButton = (props) => {
       <h4>{day.displayCal(myDay)}</h4>
       <div className={`DateButtonBox ${workOrWeekend()}`}>
         <button className={`RankingButton ButtonCol0${value}`} onClick={() => handleClick()}>
-          <span className="RankingButtonText">{day.weekDay(myDay).slice(0, 1)}</span>
+          {/* <span className="RankingButtonText">{day.weekDay(myDay).slice(0, 1)}</span> */}
+          <span className="RankingButtonText">{whiteButton()}</span>
         </button>
       </div>
     </div>
@@ -39,7 +45,11 @@ const DateButton = (props) => {
     <div className="DateBlock">
       <h4 className="hiddenText">{day.displayCal(myDay)}</h4>
       <div className={`DateButtonBox`}>
-        <button className={`RankingButton hiddenBox`}></button>
+        {/* <button className={`RankingButton hiddenBox`}></button> */}
+        <button className={`RankingButton ButtonCol0${value}`}>
+          {/* <span className="RankingButtonText">{day.weekDay(myDay).slice(0, 1)}</span> */}
+          <span className="RankingButtonText">{blankButton()}</span>
+        </button>
       </div>
     </div>
   );

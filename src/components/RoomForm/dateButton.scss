@@ -5,10 +5,14 @@
   text-align: center;
 }
 
+.keyButton {
+  position: relative;
+  top: 0px;
+  height: 100%;
+}
+
 .DateButtonBox {
   background-color: rgba(197, 197, 197, 0);
-  border-radius: 18px;
-  padding: 2px;
   text-align: center;
 }
 
@@ -18,14 +22,15 @@
   border-radius: 18px;
   border: none;
   position: relative;
+  cursor: pointer;
 }
 
 .RankingButtonText {
   position: absolute;
-  top: 40%;
   left: 0;
   bottom: 0;
   right: 0;
+  overflow-y: hidden;
 }
 
 .weekend {
@@ -50,7 +55,7 @@ h4 {
 }
 
 .ButtonCol00 {
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 0, 0, 0);
 }
 
 .hiddenText {
