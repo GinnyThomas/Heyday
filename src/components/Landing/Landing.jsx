@@ -1,6 +1,8 @@
 import React from "react";
 import "./landing.scss";
 import Carousel from "./Carsouel";
+import Instructions from "./Instructions";
+import Introduction from "./Introduction";
 import { useParams, useNavigate } from "react-router-dom";
 
 const Landing = () => {
@@ -46,9 +48,13 @@ const Landing = () => {
         START
       </button>
 
-      {/* INTRO SECTION */}
+      {/* INSTRUCTIONS SECTION */}
+      <Instructions />
 
-      <div className="introSection">
+      {/* INTRO SECTION */}
+      <Introduction name={appName}/>
+
+      {/* <div className="introSection">
         <div className="textContainer">
           <h2>Why use {appName}?</h2>
           <p>
@@ -93,7 +99,7 @@ const Landing = () => {
             </li>
           </div>
         </ul>
-      </div>
+      </div> */}
 
       {/* TECHNOLOGY SECTION */}
       <div className="technologies">
