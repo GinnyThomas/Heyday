@@ -1,3 +1,15 @@
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-25px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
 .landing {
   overflow-y: hidden;
   // height: 3720px;
@@ -96,6 +108,8 @@
     left: 250px;
     width: 100%;
     z-index: 1;
+    transform: translatey(0px);
+    animation: float 6s ease-in-out infinite;
     img {
       height: 100%;
     }
@@ -262,6 +276,7 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
+
         div {
           top: 0;
           width: 180px;
@@ -279,7 +294,13 @@
           height: 120px;
           z-index: 3;
           position: absolute;
-          top: 30px;
+          top: 25px;
+          margin-top: 5px;
+          transition: 0.25s;
+          cursor: pointer;
+          &:hover {
+            transform: translateY(-5px);
+          }
         }
         h2 {
           font-weight: bold;
@@ -324,6 +345,7 @@
       margin: 37px 0 72px;
       padding: 0;
       li {
+        margin-top: 5px;
         transition: 0.25s;
         cursor: pointer;
         &:hover {

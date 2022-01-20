@@ -69,7 +69,7 @@ const RoomForm = (props) => {
   const getDuration = () =>
     day.difference(roomData.startDate, roomData.endDate);
 
-  if (datesArr.length < getDuration()) setDatesArr(datesArrBase)
+  if (datesArr.length < getDuration()) setDatesArr(datesArrBase);
 
   // Returns an array of blank boxes to sit in front of the selected dates
   const beforeDates = () => {
@@ -95,27 +95,34 @@ const RoomForm = (props) => {
 
   const renderBackground = () => (
     <>
-      <div className="wave1Container"><img src="/assets/RoomForm/wave1.png" alt="background wave" /></div>
-      <div className="wave2Container"><img src="/assets/RoomForm/wave2.png" alt="background wave" /></div>
-      <div className="wave3Container"><img src="/assets/RoomForm/wave3.png" alt="background wave" /></div>
+      <div className="wave1Container backWave" data-speed="3">
+        <img src="/assets/RoomForm/wave1.png" alt="background wave" />
+      </div>
+      <div className="wave2Container backWave" data-speed="-2.5">
+        <img src="/assets/RoomForm/wave2.png" alt="background wave" />
+      </div>
+      <div className="wave3Container backWave" data-speed="1">
+        <img src="/assets/RoomForm/wave3.png" alt="background wave" />
+      </div>
     </>
-  )
+  );
 
   // Include the Home button and Hamburger
   const renderIcons = () => (
     <>
-    <div
-      className="homebtnContainer"
-      onClick={() => {
-        navigate("../");
-      }}
-    >
-    <img src="/assets/Home.png" alt="Home Button" /></div>
-    <div className="hambtnContainer">
-      <img src="/assets/Hamburger_menu.png" alt="Hamburger Menu Button" />
-    </div>
+      <div
+        className="homebtnContainer"
+        onClick={() => {
+          navigate("../");
+        }}
+      >
+        <img src="/assets/Home.png" alt="Home Button" />
+      </div>
+      <div className="hambtnContainer">
+        <img src="/assets/Hamburger_menu.png" alt="Hamburger Menu Button" />
+      </div>
     </>
-  )
+  );
 
   const renderDateBox = (i) => (
     <DateButton
@@ -149,10 +156,34 @@ const RoomForm = (props) => {
     );
   };
 
-  const goldButton = () => <img src="/assets/RoomForm/DateButton/goldSquare.png" alt="gold button" className="keyButton"/>
-  const silverButton = () => <img src="/assets/RoomForm/DateButton/silverSquare.png" alt="silver button" className="keyButton"/>
-  const bronzeButton = () => <img src="/assets/RoomForm/DateButton/bronzeSquare.png" alt="bronze button" className="keyButton"/>
-  const whiteButton = () => <img src="/assets/RoomForm/DateButton/whiteSquare.png" alt="white button" className="keyButton"/>
+  const goldButton = () => (
+    <img
+      src="/assets/RoomForm/DateButton/goldSquare.png"
+      alt="gold button"
+      className="keyButton"
+    />
+  );
+  const silverButton = () => (
+    <img
+      src="/assets/RoomForm/DateButton/silverSquare.png"
+      alt="silver button"
+      className="keyButton"
+    />
+  );
+  const bronzeButton = () => (
+    <img
+      src="/assets/RoomForm/DateButton/bronzeSquare.png"
+      alt="bronze button"
+      className="keyButton"
+    />
+  );
+  const whiteButton = () => (
+    <img
+      src="/assets/RoomForm/DateButton/whiteSquare.png"
+      alt="white button"
+      className="keyButton"
+    />
+  );
 
   const renderContent = () => {
     return (
@@ -169,19 +200,34 @@ const RoomForm = (props) => {
             <span>{day.toCalDate(roomData.endDate)}</span>?
           </h3>
           <ul className="iconContainer">
-            <p>Click on the calendar buttons below to cycle through the options:</p>
-            <div className="iconBox">{whiteButton()}<p>you're not available to meet up on this day</p></div>
-            <div className="iconBox">{bronzeButton()}<p>you're available, but it's an inconvenient day</p></div>
-            <div className="iconBox">{silverButton()}<p>you're available and it's a convenient day</p></div>
-            <div className="iconBox">{goldButton()}<p>you're available and it's a preferred day</p></div>
+            <p>
+              Click on the calendar buttons below to cycle through the options:
+            </p>
+            <div className="iconBox">
+              {whiteButton()}
+              <p>you're not available to meet up on this day</p>
+            </div>
+            <div className="iconBox">
+              {bronzeButton()}
+              <p>you're available, but it's an inconvenient day</p>
+            </div>
+            <div className="iconBox">
+              {silverButton()}
+              <p>you're available and it's a convenient day</p>
+            </div>
+            <div className="iconBox">
+              {goldButton()}
+              <p>you're available and it's a preferred day</p>
+            </div>
           </ul>
           <div className="DateButtons">{renderDateBoxes()}</div>
         </div>
         <div className="footerButtons">
           <p>
             Please note: to ensure your response is private, no one will be able
-            to access or edit this form once you have submitted it, including you.
-            Please make sure you've made the correct choices before submitting.
+            to access or edit this form once you have submitted it, including
+            you. Please make sure you've made the correct choices before
+            submitting.
           </p>
           <div className="btnContainer">
             <button onClick={() => clickSubmit()}>Submit</button>

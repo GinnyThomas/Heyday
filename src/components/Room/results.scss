@@ -1,3 +1,26 @@
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes arrowFloat {
+  0% {
+    transform: translateY(-5%);
+    transition: ease 0.5s;
+  }
+  50% {
+    transform: translateY(5%);
+    transition: ease 0.5s;
+  }
+}
+
 .results {
   overflow-y: hidden;
   height: 100vh;
@@ -46,6 +69,9 @@
     z-index: 3;
     transition: 0.25s;
     cursor: pointer;
+    transform: translateY(-5%);
+    animation: arrowFloat 3s ease-in-out infinite;
+    transition: ease 0.5s;
     img {
       height: 100%;
     }
@@ -93,6 +119,8 @@
     height: 246px;
     z-index: 3;
     overflow: hidden;
+    transform: translateY(0px);
+    animation: float 6s ease-in-out infinite;
   }
 
   .whiteBox {

@@ -54,7 +54,6 @@ const RoomSetup = (props) => {
       },
       navigate
     );
-
   };
 
   // ---------------
@@ -67,13 +66,13 @@ const RoomSetup = (props) => {
 
   return (
     <div className="roomsetup">
-      <div className="wave1Container">
+      <div className="wave1Container backWave" data-speed="2">
         <img src="assets/RoomSetup/wave1.png" alt="background wave" />
       </div>
-      <div className="wave2Container">
+      <div className="wave2Container backWave" data-speed="-3">
         <img src="assets/RoomSetup/wave2.png" alt="background wave" />
       </div>
-      <div className="wave3Container">
+      <div className="wave3Container backWave" data-speed="-1">
         <img src="assets/RoomSetup/wave3.png" alt="background wave" />
       </div>
       <div
@@ -140,11 +139,7 @@ const RoomSetup = (props) => {
             </div>
           </div>
         </div>
-        <button
-          type="submit"
-        >
-          Submit
-        </button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

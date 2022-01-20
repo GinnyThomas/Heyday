@@ -78,13 +78,13 @@ const Results = (props) => {
 
   const renderBackground = () => (
     <>
-      <div className="wave1Container">
+      <div className="wave1Container backWave" data-speed="0">
         <img src="/assets/Result/wave1.png" alt="background wave" />
       </div>
-      <div className="wave2Container">
+      <div className="wave2Container backWave" data-speed="-1.5">
         <img src="/assets/Result/wave2.png" alt="background wave" />
       </div>
-      <div className="wave3Container">
+      <div className="wave3Container backWave" data-speed="2">
         <img src="/assets/Result/wave3.png" alt="background wave" />
       </div>
       <div className="resultImg">
