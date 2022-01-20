@@ -1,8 +1,9 @@
 import React from "react";
 import "./roomSetup.scss";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ReactDOM from "react-dom";
 import { useState } from "react";
+import day from "../../helpers/day.js";
 
 const RoomSetup = (props) => {
   let navigate = useNavigate();
@@ -16,7 +17,7 @@ const RoomSetup = (props) => {
   let mm = String(today.getMonth() + 1).padStart(2, "0");
   let yyyy = today.getFullYear();
 
-  today = yyyy + "/" + mm + "/" + dd;
+  today = yyyy + "-" + mm + "-" + dd;
 
   const [startDate, setStartDate] = useState(today);
   const [endDate, setEndDate] = useState(today);
@@ -34,6 +35,11 @@ const RoomSetup = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (day.toInt(startDate) > day.toInt(endDate)) {
+      console.log("Cannot proceed to Room, start date must be lower than end date")
+      return
+    }
 
     const intFriendCount = Number(friendCount);
 
@@ -54,9 +60,9 @@ const RoomSetup = (props) => {
   // NAV HANDLING
   // ---------------
 
-  const proceedToRoom = (stateParams) => {
-    navigate(`../room/${props.getRoomId()}`, { state: stateParams });
-  };
+  // const proceedToRoom = (stateParams) => {
+  //   navigate(`../room/${props.getRoomId()}`, { state: stateParams });
+  // };
 
   return (
     <div className="roomsetup">
