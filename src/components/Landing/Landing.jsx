@@ -165,7 +165,7 @@ const Landing = () => {
       <div className="bot1Container backWave" data-speed="2.5">
         <img src="assets/LandingPage/bot1.png" alt="background wave" />
       </div>
-      <div className="bot2Container backWave" data-speed="3">
+      <div className="bot2Container backWave" data-speed="-3">
         <img src="assets/LandingPage/bot2.png" alt="background wave" />
       </div>
     </div>
