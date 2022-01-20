@@ -112,7 +112,7 @@ const getFinalResult = (formsArr) => {
   const scorePercent = scoreComparison(formsArr, fDay, sDay),
     busyPercent = sDayMedals[3] / formsArr.length;
 
-  if (dayScores(formsArr).filter((score) => score != 0).length === 0)
+  if (dayScores(formsArr).filter((score) => score !== 0).length === 0)
     return newResultPackage(null, null);
   if (fDay === sDay) return newResultPackage(fDay, fDayMedals);
   if (busyPercent >= scorePercent)
@@ -125,12 +125,12 @@ const finalResult = {
   getFinalResult,
 };
 
-module.exports = finalResult;
+export default finalResult;
 
-const test = [
-  [0, 0, 1],
-  [0, 0, 0],
-  [0, 0, 0],
-];
+// const test = [
+//   [0, 0, 1],
+//   [0, 0, 0],
+//   [0, 0, 0],
+// ];
 
-console.log(getFinalResult(test));
+// console.log(getFinalResult(test));
