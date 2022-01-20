@@ -96,6 +96,8 @@
     left: 60px;
     width: 100%;
     z-index: 1;
+    transform: translatey(0px);
+    animation: float 6s ease-in-out infinite;
     img {
       height: 100%;
     }
@@ -341,5 +343,17 @@
         font-family: Leckerli One;
       }
     }
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
   }
 }
