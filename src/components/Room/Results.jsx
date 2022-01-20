@@ -4,10 +4,8 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import * as emailjs from "emailjs-com";
 import finalResult from "../../helpers/calculation.js";
 import day from "../../helpers/day.js";
-import parallax from "../../helpers/mousemove";
 
 const Results = (props) => {
-  document.addEventListener("mousemove", parallax);
   // ----------------
   // NAV HANDLING
   // ----------------

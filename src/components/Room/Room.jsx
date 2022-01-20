@@ -7,10 +7,8 @@ import { useState } from "react";
 import finalResult from "../../helpers/calculation.js";
 import day from "../../helpers/day.js";
 import { Link } from "react-scroll";
-import parallax from "../../helpers/mousemove";
 
 const Room = (props) => {
-  document.addEventListener("mousemove", parallax);
   // -------------------
   // HANDLING ROOM DATA
   // -------------------

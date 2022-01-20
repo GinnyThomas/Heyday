@@ -5,6 +5,7 @@ const parallax = (e) => {
     const y = (window.innerWidth - e.pageY * speed) / 100;
 
     layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
+    layer.style.transitionDuration = "1s";
   });
 };
 

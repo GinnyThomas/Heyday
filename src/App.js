@@ -7,8 +7,10 @@ import * as ReactDOM from "react-dom";
 import { useState } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import expressLink from "./helpers/expressLink.js";
+import parallax from "./helpers/mousemove";
 
 function App() {
+  document.addEventListener("mousemove", parallax);
   // =====================
   // EXPRESS API STATE
   // =====================

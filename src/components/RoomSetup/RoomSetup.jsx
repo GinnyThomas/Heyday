@@ -3,10 +3,8 @@ import "./roomSetup.scss";
 import { useParams, useNavigate } from "react-router-dom";
 import ReactDOM from "react-dom";
 import { useState } from "react";
-import parallax from "../../helpers/mousemove";
 
 const RoomSetup = (props) => {
-  document.addEventListener("mousemove", parallax);
   let navigate = useNavigate();
 
   // ---------------

@@ -1,13 +1,10 @@
 import React from "react";
 import "./landing.scss";
-import parallax from "../../helpers/mousemove";
 import Carousel from "./Carsouel";
 import { useParams, useNavigate } from "react-router-dom";
 
 const Landing = () => {
   let navigate = useNavigate();
-
-  document.addEventListener("mousemove", parallax);
 
   return (
     <div className="landing">

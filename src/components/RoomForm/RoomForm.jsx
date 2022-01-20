@@ -5,10 +5,8 @@ import DateButton from "./DateButton";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { useState } from "react";
 import day from "../../helpers/day.js";
-import parallax from "../../helpers/mousemove";
 
 const RoomForm = (props) => {
-  document.addEventListener("mousemove", parallax);
   const navigate = useNavigate();
 
   const urlRoomID = useParams().roomidnum.slice(1);
