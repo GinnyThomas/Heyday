@@ -166,7 +166,7 @@ const Landing = () => {
           </li>
         </ul>
         <p>
-          © 2010 — 2020 <span> Anonymeet </span> Privacy — Terms
+          © 2022 <span> Anonymeet </span> Privacy — Terms
         </p>
       </div>
 
