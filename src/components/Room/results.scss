@@ -284,6 +284,7 @@
         font-size: 18px;
         line-height: 24px;
         padding: 0 0 0 15px;
+        margin-top: 5px;
         outline: none;
       }
       button {
@@ -303,6 +304,7 @@
         color: #ffffff;
         transition: 0.25s;
         margin-left: 20px;
+        margin-top: 5px;
         cursor: pointer;
         &:hover {
           transform: translateY(-5px);

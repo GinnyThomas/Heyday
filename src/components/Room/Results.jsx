@@ -20,10 +20,10 @@ const Results = (props) => {
     e.preventDefault(); // Prevents default refresh by the browser
     emailjs
       .sendForm(
-        process.env.REACT_APP_SERVICE_ID,
-        process.env.REACT_APP_TEMPLATE_ID,
+        'service_sv85dkm',
+        'template_14ovy0i',
         e.target,
-        process.env.REACT_APP_USER_ID
+        'user_59U7r4ChcRg0J38008gzW'
       )
       .then(
         (result) => {
@@ -58,16 +58,11 @@ const Results = (props) => {
 
   const emailMessage = () => {
     if (bestDay === null) return null;
-    const appName = "Anonymeet";
-    const para1 = `Thank you for completing the ${appName} survey.`;
-    const para2 = bestIsHighest
+    return bestIsHighest
       ? `The most popular day for your group to meet up is ${day.toCalDate(
           bestDay
         )}`
       : `The best day for everyone to meet is ${day.toCalDate(bestDay)}`;
-    const para3 = "Enjoy your meetup, and thanks for using our web app!";
-    const para4 = `Sincerely,\nThe ${appName} dev team`;
-    return [para1, para2, para3, para4].join("\n\n");
   };
 
   // console.log(emailMessage());
