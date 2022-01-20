@@ -1,21 +1,24 @@
 import React from "react";
 import "./landing.scss";
+import parallax from "../../helpers/mousemove";
 import Carousel from "./Carsouel";
 import { useParams, useNavigate } from "react-router-dom";
 
 const Landing = () => {
   let navigate = useNavigate();
+  
+  document.addEventListener("mousemove", parallax);
 
   return (
     <div className="landing">
       {/* HERO SECTION */}
-      <div className="wave1Container">
+      <div className="wave1Container backWave" data-speed="2.5">
         <img src="assets/LandingPage/Rectangle1.png" alt="background wave" />
       </div>
-      <div className="wave2Container">
+      <div className="wave2Container backWave" data-speed="4">
         <img src="assets/LandingPage/Rectangle2.png" alt="background wave" />
       </div>
-      <div className="hambtnContainer">
+      <div className="hambtnContainer" data-speed="5">
         <img src="assets/Hamburger_menu.png" alt="Home Button" />
       </div>
       <div className="calImgContainer">
