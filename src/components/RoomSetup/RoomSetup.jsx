@@ -60,10 +60,10 @@ const RoomSetup = (props) => {
 
   return (
     <div className="roomsetup">
-      <div className="wave1Container backWave" data-speed="0.5">
+      <div className="wave1Container backWave" data-speed="2">
         <img src="assets/RoomSetup/wave1.png" alt="background wave" />
       </div>
-      <div className="wave2Container backWave" data-speed="-2.4">
+      <div className="wave2Container backWave" data-speed="-3">
         <img src="assets/RoomSetup/wave2.png" alt="background wave" />
       </div>
       <div className="wave3Container backWave" data-speed="-1">

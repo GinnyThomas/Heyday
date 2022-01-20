@@ -84,10 +84,10 @@ const Room = (props) => {
 
   const renderBackground = () => (
     <>
-      <div className="wave1Container backWave" data-speed="1">
+      <div className="wave1Container backWave" data-speed="2.8">
         <img src="/assets/Room/wave1.png " alt="background wave" />
       </div>
-      <div className="wave2Container backWave" data-speed="-1">
+      <div className="wave2Container backWave" data-speed="2">
         <img src="/assets/Room/wave2.png" alt="background wave" />
       </div>
       <div className="calImg">
