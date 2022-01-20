@@ -1,20 +1,20 @@
- # Anonymeet
+ # Heyday
 
 ----
 ### Description
 This application is an anonymous preference survey app to arrange a meet-up with friends.  It is a web based 
 application. 
 
-The idea of Anonymeet, prior to being named, came from [Matt Zimmer](https://github.com/Zimmja). Although
+The idea of Heyday, prior to being named, came from [Matt Zimmer](https://github.com/Zimmja). Although
 getting together with friends is fun, the process of finding the day that works best for everyone can be a headache, 
 especially when you often find yourself committing to a day you would rather not because that is when so-and-so if free.
 
-Anonymeet puts anonymous into your next meeting by using algorithms to calculate the best 
+Heyday puts anonymous into your next meeting by using algorithms to calculate the best 
 date to meet based on the submitted answers of your friends.  
 
 - this portion may be removed if we do not meet stretch goals
 - 
-Although the idea started with picking the best date, Anonymeet goes beyond that and can help 
+Although the idea started with picking the best date, Heyday goes beyond that and can help 
 add anonymity to other stuff like picking a restaurant or an event location. Add your desired criteria and give it a
 [try.](#running-anonymeet)
 ----
@@ -34,7 +34,7 @@ We selected these technologies to gain additional JavaScript and React knowledge
 Bootcamp. Sass was used to enhance features of CSS styling.
 
 ----
-## Running Anonymeet
+## Running Heyday
 information to go here based on where project is hosted
 
 ----
@@ -93,6 +93,6 @@ npx create-react-app my-app
 cd my-app
 ```
 ```
-npm install react-router-dom@6
-npm install sass
+npm install
+
 ```
