@@ -1,4 +1,4 @@
-const expressURL = "http://localhost:9000";
+const expressURL = "https://anonymeet-api.herokuapp.com/";
 
 const getExpressURL = () => expressURL;
 
