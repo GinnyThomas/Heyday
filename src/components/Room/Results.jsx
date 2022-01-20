@@ -187,7 +187,7 @@ const Results = (props) => {
     if (bestDay != null)
       return (
         <form className="formContainer" onSubmit={handleSubmit}>
-        <h2>Please input your email address to receive a copy of the result</h2>
+        <h2>Please input your email address to receive a copy of the result (please note: we don't store your email address)</h2>
         <div className="inputContainer">
           <label>
             <input type="text" name="email" placeholder="email address"></input>

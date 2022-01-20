@@ -28,35 +28,35 @@ export default class Carousel extends Component {
           <Card
             className="card"
             name={"Myoung"}
-            bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            bio="Myoung is a ARB Architect with 6+ years experience and a focus on furniture design. Outside of his professional life he enjoys photography and Olympic weightlifting."
             fullName="Myoung Bae"
             role="Software Developer"
             github="mhbae-dev"
           />
           <Card
             name={"andy"}
-            bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            bio="Life long NFL fan (Go Titans!). Secret Table Tennis Pro. Open minded, positive thinker. Passionate about making people's lives easier through tech."
             fullName="Andy Bird"
             role="Software Developer"
             github="Andybird88"
           />
           <Card
             name={"ryan"}
-            bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            bio="Ryan is a keen amateur sportsman who's enthusiasm surpasses his ability. He has previous professional experience as an Engineering Geologist."
             fullName="Ryan Grimes"
             role="Software Developer"
             github="RPGrimes"
           />
           <Card
             name={"ginny"}
-            bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            bio="Ginny has traded in her stethoscope for a computer to gain better work-life harmony.  In her free time she enjoys taking walks with her dog as well as catching up on movies and TV show series."
             fullName="Ginny Thomas"
             role="Software Developer"
             github="ginnyamazed"
           />
           <Card
             name={"matt"}
-            bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            bio="Coming from a professional background in healthcare and advertising, and an amateur background of video-game mod development."
             fullName="Matt Zimmer"
             role="Software Developer"
             github="Zimmja"
