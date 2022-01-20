@@ -1,3 +1,15 @@
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-25px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
 .results {
   overflow-y: hidden;
   height: 100vh;
@@ -93,6 +105,8 @@
     height: 246px;
     z-index: 3;
     overflow: hidden;
+    transform: translatey(0px);
+    animation: float 6s ease-in-out infinite;
   }
 
   .whiteBox {

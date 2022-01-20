@@ -1,3 +1,15 @@
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-25px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
 .landing {
   overflow-y: hidden;
   height: 3720px;
@@ -343,17 +355,5 @@
         font-family: Leckerli One;
       }
     }
-  }
-}
-
-@keyframes float {
-  0% {
-    transform: translatey(0px);
-  }
-  50% {
-    transform: translatey(-20px);
-  }
-  100% {
-    transform: translatey(0px);
   }
 }
