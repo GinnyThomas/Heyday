@@ -7,8 +7,10 @@ import { useState } from "react";
 import finalResult from "../../helpers/calculation.js";
 import day from "../../helpers/day.js";
 import { Link } from "react-scroll";
+import parallax from "../../helpers/mousemove";
 
 const Room = (props) => {
+  document.addEventListener("mousemove", parallax);
   // -------------------
   // HANDLING ROOM DATA
   // -------------------
@@ -84,10 +86,10 @@ const Room = (props) => {
 
   const renderBackground = () => (
     <>
-      <div className="wave1Container">
-        <img src="/assets/Room/wave1.png" alt="background wave" />
+      <div className="wave1Container backWave" data-speed="1">
+        <img src="/assets/Room/wave1.png " alt="background wave" />
       </div>
-      <div className="wave2Container">
+      <div className="wave2Container backWave" data-speed="-1">
         <img src="/assets/Room/wave2.png" alt="background wave" />
       </div>
       <div className="calImg">
@@ -157,9 +159,9 @@ const Room = (props) => {
         </div>
       </div>
       <p className="waiting">
-        {finalResult.isReady(state.roomFormsRatings) 
-        ? "Click the down arrow to view your results" 
-        : "Waiting for results ..." } 
+        {finalResult.isReady(state.roomFormsRatings)
+          ? "Click the down arrow to view your results"
+          : "Waiting for results ..."}
       </p>
     </>
   );
@@ -187,7 +189,11 @@ const Room = (props) => {
   // -------------------
 
   // const mOCKaRRAY01 = [[2,0,1],[1,0,3],[2,0,1]] // No secondary
-  const mOCKaRRAY02 = [[0,3,1],[1,0,1],[2,3,1]] // High score, secondary is free score
+  const mOCKaRRAY02 = [
+    [0, 3, 1],
+    [1, 0, 1],
+    [2, 3, 1],
+  ]; // High score, secondary is free score
   // const mOCKaRRAY03 = [[0,3,1],[1,0,1],[2,1,1]] // Free score, secondary is high score
   // const mOCKaRRAY04 = [[0,0,0],[0,0,0],[0,0,0]] // Nothing
 

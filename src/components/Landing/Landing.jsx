@@ -6,16 +6,16 @@ import { useParams, useNavigate } from "react-router-dom";
 
 const Landing = () => {
   let navigate = useNavigate();
-  
+
   document.addEventListener("mousemove", parallax);
 
   return (
     <div className="landing">
       {/* HERO SECTION */}
-      <div className="wave1Container backWave" data-speed="2.5">
+      <div className="wave1Container backWave" data-speed="1.5">
         <img src="assets/LandingPage/Rectangle1.png" alt="background wave" />
       </div>
-      <div className="wave2Container backWave" data-speed="4">
+      <div className="wave2Container backWave" data-speed="-1.5">
         <img src="assets/LandingPage/Rectangle2.png" alt="background wave" />
       </div>
       <div className="hambtnContainer" data-speed="5">
@@ -130,10 +130,10 @@ const Landing = () => {
         </ul>
       </div>
 
-      <div className="mid1Container">
+      <div className="mid1Container backWave" data-speed="2.5">
         <img src="assets/LandingPage/mid1.png" alt="background wave" />
       </div>
-      <div className="mid2Container">
+      <div className="mid2Container backWave" data-speed="1">
         <img src="assets/LandingPage/mid2.png" alt="background wave" />
       </div>
 
@@ -165,10 +165,10 @@ const Landing = () => {
         </p>
       </div>
 
-      <div className="bot1Container">
+      <div className="bot1Container backWave" data-speed="2.5">
         <img src="assets/LandingPage/bot1.png" alt="background wave" />
       </div>
-      <div className="bot2Container">
+      <div className="bot2Container backWave" data-speed="2">
         <img src="assets/LandingPage/bot2.png" alt="background wave" />
       </div>
     </div>

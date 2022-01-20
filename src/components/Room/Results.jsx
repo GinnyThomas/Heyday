@@ -4,8 +4,10 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import * as emailjs from "emailjs-com";
 import finalResult from "../../helpers/calculation.js";
 import day from "../../helpers/day.js";
+import parallax from "../../helpers/mousemove";
 
 const Results = (props) => {
+  document.addEventListener("mousemove", parallax);
   // ----------------
   // NAV HANDLING
   // ----------------
@@ -78,10 +80,10 @@ const Results = (props) => {
 
   const renderBackground = () => (
     <>
-      <div className="wave1Container">
+      <div className="wave1Container backWave" data-speed="0.5">
         <img src="/assets/Result/wave1.png" alt="background wave" />
       </div>
-      <div className="wave2Container">
+      <div className="wave2Container backWave" data-speed="1.8">
         <img src="/assets/Result/wave2.png" alt="background wave" />
       </div>
       <div className="wave3Container">

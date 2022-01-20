@@ -3,8 +3,10 @@ import "./roomSetup.scss";
 import { useParams, useNavigate } from "react-router-dom";
 import ReactDOM from "react-dom";
 import { useState } from "react";
+import parallax from "../../helpers/mousemove";
 
 const RoomSetup = (props) => {
+  document.addEventListener("mousemove", parallax);
   let navigate = useNavigate();
 
   // ---------------
@@ -48,7 +50,6 @@ const RoomSetup = (props) => {
       },
       navigate
     );
-
   };
 
   // ---------------
@@ -61,13 +62,13 @@ const RoomSetup = (props) => {
 
   return (
     <div className="roomsetup">
-      <div className="wave1Container">
+      <div className="wave1Container backWave" data-speed="0.5">
         <img src="assets/RoomSetup/wave1.png" alt="background wave" />
       </div>
-      <div className="wave2Container">
+      <div className="wave2Container backWave" data-speed="-2.4">
         <img src="assets/RoomSetup/wave2.png" alt="background wave" />
       </div>
-      <div className="wave3Container">
+      <div className="wave3Container backWave" data-speed="-1">
         <img src="assets/RoomSetup/wave3.png" alt="background wave" />
       </div>
       <div
@@ -134,11 +135,7 @@ const RoomSetup = (props) => {
             </div>
           </div>
         </div>
-        <button
-          type="submit"
-        >
-          Submit
-        </button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

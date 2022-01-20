@@ -5,8 +5,10 @@ import DateButton from "./DateButton";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { useState } from "react";
 import day from "../../helpers/day.js";
+import parallax from "../../helpers/mousemove";
 
 const RoomForm = (props) => {
+  document.addEventListener("mousemove", parallax);
   const navigate = useNavigate();
 
   const urlRoomID = useParams().roomidnum.slice(1);
@@ -95,9 +97,9 @@ const RoomForm = (props) => {
 
   const renderBackground = () => (
     <>
-      <div className="wave1Container"><img src="/assets/RoomForm/wave1.png" alt="background wave" /></div>
-      <div className="wave2Container"><img src="/assets/RoomForm/wave2.png" alt="background wave" /></div>
-      <div className="wave3Container"><img src="/assets/RoomForm/wave3.png" alt="background wave" /></div>
+      <div className="wave1Container backWave" data-speed="1.5"><img src="/assets/RoomForm/wave1.png" alt="background wave" /></div>
+      <div className="wave2Container backWave" data-speed="2.5"><img src="/assets/RoomForm/wave2.png" alt="background wave" /></div>
+      <div className="wave3Container backWave" data-speed="0.5"><img src="/assets/RoomForm/wave3.png" alt="background wave" /></div>
     </>
   )
 
