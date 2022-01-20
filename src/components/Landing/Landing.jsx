@@ -8,7 +8,7 @@ import { useParams, useNavigate } from "react-router-dom";
 const Landing = () => {
   let navigate = useNavigate();
 
-  const appName = "Anonymeet"
+  const appName = "Heyday"
 
   return (
     <div className="landing">
@@ -53,53 +53,6 @@ const Landing = () => {
 
       {/* INTRO SECTION */}
       <Introduction name={appName}/>
-
-      {/* <div className="introSection">
-        <div className="textContainer">
-          <h2>Why use {appName}?</h2>
-          <p>
-            Organising a meetup can be difficult. It's hard enough figuring out
-            when you're all free, even harder to figure out when works well for
-            the whole group, and near impossible to find the best day for
-            everyone.
-          </p>
-          <p>Anonymeet is designed to take hassle out of this process:</p>
-        </div>
-        <ul className="listContainer">
-          <div className="top">
-            <li className="one">
-              <h2>1</h2>
-              <p>
-                Easy to use. Submitting your availability is simple and
-                straightforward, and we won't ask anyone for login details.
-              </p>
-            </li>
-            <li className="two">
-              <h2>2</h2>
-              <p>
-                Your preferences matter. Tell us when works well for you, not
-                just when you're available.
-              </p>
-            </li>
-          </div>
-          <div className="bottom">
-            <li className="three">
-              <h2>3</h2>
-              <p>
-                Privacy is important. Other users won't be able to see your
-                availability or your preferences.
-              </p>
-            </li>
-            <li className="four">
-              <h2>4</h2>
-              <p>
-                No need to decide. Our algorithm will figure out the best day
-                for you, there's no need to figure it out yourself.
-              </p>
-            </li>
-          </div>
-        </ul>
-      </div> */}
 
       {/* TECHNOLOGY SECTION */}
       <div className="technologies">
@@ -147,7 +100,7 @@ const Landing = () => {
 
       {/* FOOTER SECTION */}
       <div className="footer">
-        <h2>Anonymeet</h2>
+        <h2>{appName}</h2>
         <ul className="iconContainer">
           <li>
             <img src="assets/Footer/facebook_icon.svg" alt="facebook icon" />
@@ -166,7 +119,7 @@ const Landing = () => {
           </li>
         </ul>
         <p>
-          © 2022 <span> Anonymeet </span> Privacy — Terms
+          © 2022 <span> {appName} </span> Privacy — Terms
         </p>
       </div>
 

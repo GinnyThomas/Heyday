@@ -20,14 +20,14 @@ const Results = (props) => {
     e.preventDefault(); // Prevents default refresh by the browser
     emailjs
       .sendForm(
-        'service_sv85dkm',
-        'template_14ovy0i',
+        'service_4wwy49e',
+        'template_62oax9b',
         e.target,
-        'user_59U7r4ChcRg0J38008gzW'
+        'user_z6BZpeiZKoUkWELw5n1ws'
       )
       .then(
         (result) => {
-          alert("Results Sent, Thank you for using Anonymeet", result.text); //Pop up message if email sent ok
+          alert("Results Sent, Thank you for using Heyday", result.text); //Pop up message if email sent ok
         },
         (error) => {
           alert("An error occurred, Please try again", error.text); //Pop up message if email not sent (user email address is wrong)
@@ -200,7 +200,7 @@ const Results = (props) => {
             src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
           ></script>
           <script type="text/javascript">
-            (function() {emailjs.init("user_59U7r4ChcRg0J38008gzW")})();
+            (function() {emailjs.init("user_z6BZpeiZKoUkWELw5n1ws")})();
           </script>
         </div>
         </form>

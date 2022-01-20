@@ -109,7 +109,7 @@ const RoomSetup = (props) => {
                 ></input>
               </label>
               <label className="endLabel">
-                End date: <br />
+                <span className="endLabelText">End date:</span> <br />
                 <input
                   className="endInput"
                   type="date"
