@@ -58,7 +58,7 @@ const RoomForm = (props) => {
     );
     const roomArr = roomData.roomFormsRatings.slice();
     roomArr[friendInt()] = newArr;
-    props.editRoom(roomData.roomID, { roomFormsRatings: roomArr });
+    props.editRoom(`${roomData.roomID}${friendInt()}`, { roomFormsRatings: roomArr });
     returnToRoom();
   };
 
