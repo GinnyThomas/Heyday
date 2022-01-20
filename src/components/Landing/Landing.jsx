@@ -1,10 +1,14 @@
 import React from "react";
 import "./landing.scss";
 import Carousel from "./Carsouel";
+import Instructions from "./Instructions";
+import Introduction from "./Introduction";
 import { useParams, useNavigate } from "react-router-dom";
 
 const Landing = () => {
   let navigate = useNavigate();
+
+  const appName = "Anonymeet"
 
   return (
     <div className="landing">
@@ -23,7 +27,7 @@ const Landing = () => {
       </div>
       <div className="landingTextContainer">
         <h1 className="landingTitle">
-          Welcome to <span>Anonymeet</span>
+          Welcome to <span>{appName}</span>
         </h1>
         <h2 className="landingCatchPhrase">
           Find the most convenient day for <br />
@@ -31,7 +35,7 @@ const Landing = () => {
           <span>meet up.</span>
         </h2>
         <p className="landingText">
-          Press the button below to get started with your meet up.
+          Scroll down for instructions, or press START to begin
         </p>
       </div>
       <button
@@ -44,11 +48,15 @@ const Landing = () => {
         START
       </button>
 
-      {/* INTRO SECTION */}
+      {/* INSTRUCTIONS SECTION */}
+      <Instructions />
 
-      <div className="introSection">
+      {/* INTRO SECTION */}
+      <Introduction name={appName}/>
+
+      {/* <div className="introSection">
         <div className="textContainer">
-          <h2>Why use Anonymeet?</h2>
+          <h2>Why use {appName}?</h2>
           <p>
             Organising a meetup can be difficult. It's hard enough figuring out
             when you're all free, even harder to figure out when works well for
@@ -91,7 +99,7 @@ const Landing = () => {
             </li>
           </div>
         </ul>
-      </div>
+      </div> */}
 
       {/* TECHNOLOGY SECTION */}
       <div className="technologies">
@@ -158,7 +166,7 @@ const Landing = () => {
           </li>
         </ul>
         <p>
-          © 2010 — 2020 <span> Anonymeet </span> Privacy — Terms
+          © 2022 <span> Anonymeet </span> Privacy — Terms
         </p>
       </div>
 
