@@ -1,4 +1,4 @@
-const expressURL = "http://localhost:9000";
+const expressURL = "https://anonymeet-api.herokuapp.com/";
 
 const getExpressURL = () => expressURL;
 
@@ -15,7 +15,7 @@ const updateRoomData = (putRoomDa, setState) => {
     .then((res) => res.json())
     .then((res) => {
       const roomSpecificData = res.find(
-        (room) => room.roomID === putRoomDa.roomID.substring(0,11)
+        (room) => room.roomID === putRoomDa.roomID.substring(0, 11)
       );
       setState({ roomData: roomSpecificData });
     });
