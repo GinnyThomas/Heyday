@@ -1,4 +1,4 @@
-### Introduction
+## Introduction
 
 **Heyday aims to empower a group of users to find a day to meet up, resolving different availabilities and preferences while emphasising ease-of-access and user privacy.**
 
@@ -15,11 +15,11 @@ We believe Heyday is the best means for a group to find the most convenient day 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### Access
+## Access
 
 Heyday is hosted on Vercel and can be accessed [here](https://heyday.vercel.app/).
 
-### Instructions
+## Instructions
 
 Heyday's instructions can be found on the landing page. They are also summarised here:
 
@@ -37,7 +37,7 @@ These ratings are used to calculate the best day for everyone. It produces two r
 
 ![Heyday Results](./media/heydayResults.png)
 
-### Technologies
+## Technologies
 
 NOTE: the ExpressJS web framework used for this web-app is hosted on Heroku. The git repo can be viewed [here](https://github.com/Zimmja/Anon-Express).
 
@@ -52,7 +52,7 @@ NOTE: the ExpressJS web framework used for this web-app is hosted on Heroku. The
 - [Vercel](https://vercel.com/about)
 - [Heroku](https://www.heroku.com/about)
 
-### Contributors
+## Contributors
 
 - [Matt Zimmer](https://github.com/Zimmja)
 - [Myoung Bae](https://github.com/mhbae-dev)
@@ -61,6 +61,6 @@ NOTE: the ExpressJS web framework used for this web-app is hosted on Heroku. The
 - [Courtney Stow](https://github.com/Court534)
 - [Ginny Thomas](https://github.com/ginnyamazed)
 
-### License
+## License
 
 [GPL-3.0](https://choosealicense.com/licenses/gpl-3.0/)
