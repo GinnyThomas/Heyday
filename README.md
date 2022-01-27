@@ -9,7 +9,7 @@ Our dev team created this app with four key features in mind:
 3. **Convenience.** Heyday captures not just availability, but also convenience and preference for certain days. All three of these are factored into our algorithm for the final result
 4. **No decision making.** Heyday makes the final decision on what the best day for a meet up is, so no user decision-making is required.
 
-Ultimately, we believe Heyday is the best means for a group to find the most convenient day for everyone to meet up.
+We believe Heyday is the best means for a group to find the most convenient day for everyone to meet up.
 
 ![Heyday](./media/heydayScreenshot.png)
 
@@ -29,7 +29,7 @@ Heyday's instructions can be found on the landing page. They are also summarised
 4. Share the Room link with the rest of your group (e.g. via email or Whatsapp) and ask them all to complete a Response Form
 5. Once all response forms are submitted, Heyday will calculate the best for everyone, and this will be displayed in the Room. Users can then supply their email address (which is not stored) to receive a copy of the results
 
-To capture availability, convenience and preference, Heyday's Response Forms allow users to specify when they're free using a rating scale: white (you're not available to meet up on this day), bronze (you're available, but it's an inconvenient day), silver (you're available and it's a convenient day) and gold (you're available and it's a preferred day).
+Heyday's Response Forms allow users to reguster their preferences using a rating scale: white (not available to meet up on this day), bronze (available, but it's an inconvenient day), silver (available and it's a convenient day) and gold (available and it's a preferred day).
 
 ![Heyday Response Form](./media/heydayResponseForm.png)
 
@@ -37,27 +37,21 @@ These ratings are used to calculate the best day for everyone. It produces two r
 
 ![Heyday Results](./media/heydayResults.png)
 
+### Technologies
+
+NOTE: the ExpressJS web framework used for this web-app is hosted on Heroku. The git repo for it can be viewed [here](https://github.com/Zimmja/Anon-Express).
+
+- [React](https://reactjs.org/)
 - [React Router](https://reactrouter.com/)
 - [React Testing Library](https://testing-library.com/)
 - [Express](https://expressjs.com/)
+- [EmailJS](https://www.emailjs.com/?src=email-footer)
 - [Sass](https://sass-lang.com/)
+- [Figma](https://www.figma.com/)
+- [Vercel](https://vercel.com/about)
+- [Heroku](https://www.heroku.com/about)
 
-We selected these technologies to gain additional JavaScript and React knowledge prior to finishing the Maker's
-Bootcamp. Sass was used to enhance features of CSS styling.
-
----
-
-## Running Heyday
-
-information to go here based on where project is hosted
-
----
-
-If you are interested in trying your own React App, please click [here](#installation--creating-an-app) to find
-information about doing so. Additionally, you can click [here](#available-scripts) to see scripts that can be run if
-you have cloned or forked this repo.
-
-# Contributors
+### Contributors
 
 - [Matt Zimmer](https://github.com/Zimmja)
 - [Myoung Bae](https://github.com/mhbae-dev)
@@ -69,50 +63,3 @@ you have cloned or forked this repo.
 ### License
 
 [GPL-3.0](https://choosealicense.com/licenses/gpl-3.0/)
-
-## Available Scripts
-
-If you have our project on your local device the following are ome of the available scripts.
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### Installation / Creating an App
-
-To duplicate starting a new project with the same technology we used:
-
-Open Terminal and go to the desired pre-project directory.
-
-You’ll need to have Node 14.0.0 or later version on your local development machine
-
-```
-npx create-react-app my-app
-cd my-app
-```
-
-```
-npm install
-
-```
