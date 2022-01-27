@@ -11,7 +11,7 @@ Our dev team created this app with four key features in mind:
 
 We believe Heyday is the best means for a group to find the most convenient day for everyone to meet up.
 
-![Heyday](./media/heydayScreenshot.png)
+[![Heyday](./media/heydayScreenshot.png)](https://heyday.vercel.app/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
