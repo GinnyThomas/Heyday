@@ -44,6 +44,7 @@ NOTE: the ExpressJS web framework used for this web-app is hosted on Heroku. The
 - [React](https://reactjs.org/)
 - [React Router](https://reactrouter.com/)
 - [React Testing Library](https://testing-library.com/)
+- [Jest](https://jestjs.io/)
 - [Express](https://expressjs.com/)
 - [EmailJS](https://www.emailjs.com/?src=email-footer)
 - [Sass](https://sass-lang.com/)
