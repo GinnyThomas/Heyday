@@ -39,7 +39,7 @@ These ratings are used to calculate the best day for everyone. It produces two r
 
 ### Technologies
 
-NOTE: the ExpressJS web framework used for this web-app is hosted on Heroku. The git repo for it can be viewed [here](https://github.com/Zimmja/Anon-Express).
+NOTE: the ExpressJS web framework used for this web-app is hosted on Heroku. The git repo can be viewed [here](https://github.com/Zimmja/Anon-Express).
 
 - [React](https://reactjs.org/)
 - [React Router](https://reactrouter.com/)
